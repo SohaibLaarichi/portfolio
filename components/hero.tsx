@@ -123,8 +123,8 @@ export default function Hero() {
               </motion.a>
 
               <motion.a
-                href="/Sohaib_Laarichi_CV_DevFullstack_StagePFE2026.pdf"
-                download="Sohaib_Laarichi_CV_DevFullstack_StagePFE2026.pdf"
+                href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
+                download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-border/80 bg-secondary/80 px-5 py-3 text-sm font-semibold text-secondary-foreground hover:bg-secondary"

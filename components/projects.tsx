@@ -16,100 +16,84 @@ import {
   ServerCog,
   ShieldCheck,
 } from "lucide-react"
+import GitHubRepos from "./github-repos"
 
 const projectContent = {
   fr: {
     title: "Projets sélectionnés",
     caseLabel: "Étude de cas principale",
-    caseTitle: "Mkhademia",
-    caseSubtitle: "Plateforme full-stack de gestion d'interventions, pensée comme un produit métier et une architecture fiable.",
+    caseTitle: "FireLIS / OpenELIS",
+    caseSubtitle: "Système d'Information de Laboratoire (LIS) moderne, hautement interopérable et conforme aux standards FHIR.",
     challenge:
-      "Structurer une application capable de centraliser les demandes, suivre les interventions, organiser les utilisateurs et fiabiliser les données opérationnelles.",
+      "Analyser, concevoir et moderniser un système d'information de santé critique, en assurant le reverse engineering d'API existantes et le catalogage conforme aux exigences FHIR.",
     solution:
-      "Architecture full-stack avec séparation claire entre interface, API, base de données et sécurité, avec une logique prête pour les rôles, le suivi métier et le déploiement.",
-    impact: ["Workflow métier", "Architecture API", "Gestion des rôles", "UI responsive"],
-    architectureTitle: "Architecture applicative",
+      "Architecture microservices avec Spring Boot et React, implémentant des endpoints interopérables, la sécurisation des flux de données cliniques et un pipeline CI/CD robuste.",
+    impact: ["Standard FHIR", "Architecture API", "Reverse Engineering", "CI/CD & DevOps"],
+    architectureTitle: "Architecture & Interopérabilité",
     architecture: [
-      { label: "Client", detail: "Next.js UI", icon: Code2 },
-      { label: "API", detail: "Node.js services", icon: ServerCog },
-      { label: "Data", detail: "MongoDB models", icon: Database },
-      { label: "Security", detail: "Auth + roles", icon: ShieldCheck },
-      { label: "Deploy", detail: "Docker-ready", icon: Boxes },
+      { label: "Client", detail: "React & Next.js", icon: Code2 },
+      { label: "API Services", detail: "Spring Boot Microservices", icon: ServerCog },
+      { label: "Standard", detail: "Interopérabilité FHIR", icon: BrainCircuit },
+      { label: "Bases de données", detail: "PostgreSQL / MySQL", icon: Database },
+      { label: "DevOps & Cloud", detail: "Docker & CI/CD", icon: Boxes },
     ],
     projects: [
       {
-        name: "Infrastructure Réseau",
-        type: "Systems",
-        description:
-          "Déploiement Windows Server avec Active Directory, DHCP, DNS et gestion centralisée des utilisateurs.",
-        stack: ["Windows Server", "ADDS", "DHCP", "DNS", "GPO"],
-      },
-      {
-        name: "Solution NAC",
-        type: "Security",
-        description:
-          "Implémentation d'une logique de contrôle d'accès réseau avec Cisco ISE et segmentation des accès.",
-        stack: ["Cisco ISE", "NAC", "VLAN", "Security"],
-      },
-      {
         name: "PharmaLive",
         type: "Enterprise App",
-        description:
-          "Application métier de gestion de pharmacie couvrant stock, ventes et données opérationnelles.",
-        stack: ["Java EE", "PostgreSQL", "Business Logic"],
+        description: "Développement d'un SI complet de gestion de pharmacie (Java, MySQL) intégrant le contrôle des stocks et la gestion des rôles utilisateurs.",
+        stack: ["Java", "MySQL", "Spring Boot"],
+      },
+      {
+        name: "Architecture Réseau d'Entreprise",
+        type: "Systems",
+        description: "Déploiement virtuel d'une infrastructure pour 100 utilisateurs avec Active Directory, DHCP, et DNS sous Windows Server.",
+        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualisation"],
       },
       {
         name: "Student Management API",
         type: "Backend",
-        description:
-          "API REST structurée avec CRUD, documentation Swagger, persistance MySQL et conteneurisation.",
-        stack: ["Spring Boot", "JPA", "MySQL", "Swagger", "Docker"],
+        description: "API REST complète avec opérations CRUD, documentation Swagger et déploiement Docker.",
+        stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
       },
     ],
   },
   en: {
     title: "Selected Projects",
     caseLabel: "Main case study",
-    caseTitle: "Firelis",
-    caseSubtitle: "Full-stack intervention management platform designed as both a business product and a reliable architecture.",
+    caseTitle: "FireLIS / OpenELIS",
+    caseSubtitle: "Modern Laboratory Information System (LIS), highly interoperable and compliant with FHIR standards.",
     challenge:
-      "Structure an application able to centralize requests, track interventions, organize users, and keep operational data reliable.",
+      "Analyze, design, and modernize a critical healthcare information system, ensuring reverse engineering of existing APIs and mapping compliant with FHIR requirements.",
     solution:
-      "Full-stack architecture with clear separation between UI, API, database, and security, with logic prepared for roles, business tracking, and deployment.",
-    impact: ["Business workflow", "API architecture", "Role management", "Responsive UI"],
-    architectureTitle: "Application architecture",
+      "Microservices architecture built with Spring Boot and React, implementing interoperable endpoints, secure clinical data flows, and a robust CI/CD pipeline.",
+    impact: ["FHIR Standards", "API Architecture", "Reverse Engineering", "CI/CD & DevOps"],
+    architectureTitle: "Architecture & Interoperability",
     architecture: [
-      { label: "Client", detail: "Next.js UI", icon: Code2 },
-      { label: "API", detail: "Node.js services", icon: ServerCog },
-      { label: "Data", detail: "MongoDB models", icon: Database },
-      { label: "Security", detail: "Auth + roles", icon: ShieldCheck },
-      { label: "Deploy", detail: "Docker-ready", icon: Boxes },
+      { label: "Client", detail: "React & Next.js", icon: Code2 },
+      { label: "API Services", detail: "Spring Boot Microservices", icon: ServerCog },
+      { label: "Standard", detail: "FHIR Interoperability", icon: BrainCircuit },
+      { label: "Databases", detail: "PostgreSQL / MySQL", icon: Database },
+      { label: "DevOps & Cloud", detail: "Docker & CI/CD", icon: Boxes },
     ],
     projects: [
       {
-        name: "Network Infrastructure",
-        type: "Systems",
-        description:
-          "Windows Server deployment with Active Directory, DHCP, DNS, and centralized user management.",
-        stack: ["Windows Server", "ADDS", "DHCP", "DNS", "GPO"],
-      },
-      {
-        name: "NAC Solution",
-        type: "Security",
-        description: "Network access control logic using Cisco ISE and segmented access design.",
-        stack: ["Cisco ISE", "NAC", "VLAN", "Security"],
-      },
-      {
         name: "PharmaLive",
         type: "Enterprise App",
-        description: "Pharmacy management business application covering stock, sales, and operational data.",
-        stack: ["Java EE", "PostgreSQL", "Business Logic"],
+        description: "Development of a comprehensive pharmacy management IS (Java, MySQL) integrating stock control and user role management.",
+        stack: ["Java", "MySQL", "Spring Boot"],
+      },
+      {
+        name: "Enterprise Network Architecture",
+        type: "Systems",
+        description: "Virtual deployment of an infrastructure for 100 users with Active Directory, DHCP, and DNS under Windows Server.",
+        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualization"],
       },
       {
         name: "Student Management API",
         type: "Backend",
-        description: "Structured REST API with CRUD, Swagger documentation, MySQL persistence, and Docker.",
-        stack: ["Spring Boot", "JPA", "MySQL", "Swagger", "Docker"],
+        description: "Complete REST API with CRUD operations, Swagger documentation and Docker deployment.",
+        stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
       },
     ],
   },
@@ -238,6 +222,10 @@ export default function Projects() {
           </motion.article>
         ))}
       </motion.div>
+
+      <div className="mt-16 pt-16 border-t border-border/70">
+        <GitHubRepos />
+      </div>
     </section>
   )
 }

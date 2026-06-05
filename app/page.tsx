@@ -125,8 +125,8 @@ export default function Home() {
             <div className="flex items-center gap-2">
               {/* Bouton télécharger CV */}
               <motion.a
-                href="/Sohaib_Laarichi_CV_DevFullstack_StagePFE2026.pdf"
-                download="Sohaib_Laarichi_CV_DevFullstack_StagePFE2026.pdf"
+                href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
+                download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden md:flex min-h-10 items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-[0_12px_34px_rgba(14,165,233,0.22)] hover:bg-primary/90"
@@ -214,8 +214,8 @@ export default function Home() {
                     </motion.button>
                   ))}
                   <motion.a
-                    href="/Sohaib_Laarichi_CV_DevFullstack_StagePFE2026.pdf"
-                    download="Sohaib_Laarichi_CV_DevFullstack_StagePFE2026.pdf"
+                    href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
+                    download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 flex w-full items-center gap-2 rounded-md bg-primary px-4 py-2 text-primary-foreground transition-colors hover:bg-primary/90"

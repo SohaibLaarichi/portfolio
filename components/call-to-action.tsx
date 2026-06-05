@@ -163,14 +163,18 @@ export default function CallToAction() {
             className="flex flex-wrap justify-center gap-4 text-sm"
             variants={itemVariants}
           >
-            <motion.button
+            <motion.a
+              href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
+              download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-primary transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Download className="w-4 h-4" />
               {content.buttons.cv}
-            </motion.button>
+            </motion.a>
 
             <motion.a
               href="tel:+212701820101"
