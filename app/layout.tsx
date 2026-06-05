@@ -11,9 +11,9 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "LAARICHI Sohaib - Développeur Web Full-Stack",
+  title: "LAARICHI Sohaib - Ingénieur Logiciel Fullstack & DevOps",
   description:
-    "Portfolio professionnel de Sohaib LAARICHI, ingénieur en informatique et développeur web full-stack à la recherche de nouvelles opportunités. Expertise en Next.js, React, Node.js et architectures modernes.",
+    "Portfolio professionnel de Sohaib LAARICHI, ingénieur logiciel fullstack et DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native.",
   keywords: [
     "Sohaib Laarichi",
     "Laarichi Sohaib",
@@ -23,11 +23,12 @@ export const metadata: Metadata = {
     "Ingénieur Marocain",
     "Développeur Web Maroc",
     "Développeur Full-Stack Maroc",
-    "Emploi Développeur Maroc",
+    "Ingénieur Logiciel",
+    "DevOps Maroc",
     "EMSI Marrakech",
     "Portfolio Sohaib Laarichi",
     "Génie Logiciel Maroc",
-    "Full-Stack Web Developer Morocco",
+    "Full-Stack & DevOps Engineer",
     "Recherche Emploi CDI"
   ],
   generator: "v0.app",
@@ -45,8 +46,8 @@ export const metadata: Metadata = {
     canonical: "https://sohaib-laarichi.vercel.app",
   },
   openGraph: {
-    title: "LAARICHI Sohaib - Développeur Web Full-Stack",
-    description: "Portfolio professionnel de Sohaib LAARICHI, ingénieur en informatique et développeur web full-stack à la recherche d'opportunités.",
+    title: "LAARICHI Sohaib - Ingénieur Logiciel Fullstack & DevOps",
+    description: "Portfolio professionnel de Sohaib LAARICHI, ingénieur logiciel fullstack et DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native.",
     type: "profile",
     firstName: "Sohaib",
     lastName: "LAARICHI",
@@ -59,14 +60,14 @@ export const metadata: Metadata = {
         url: "https://sohaib-laarichi.vercel.app/moi.png",
         width: 1200,
         height: 1440,
-        alt: "Sohaib LAARICHI - Développeur Web Full-Stack",
+        alt: "Sohaib LAARICHI - Ingénieur Logiciel Fullstack & DevOps",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LAARICHI Sohaib - Développeur Web Full-Stack",
-    description: "Portfolio professionnel - Ingénieur en informatique & Développeur Web disponible",
+    title: "LAARICHI Sohaib - Ingénieur Logiciel Fullstack & DevOps",
+    description: "Portfolio professionnel de Sohaib LAARICHI - Ingénieur Logiciel Fullstack & DevOps",
     images: ["https://sohaib-laarichi.vercel.app/moi.png"],
   },
   icons: {
@@ -106,8 +107,8 @@ export default function RootLayout({
     "gender": "male",
     "url": "https://sohaib-laarichi.vercel.app",
     "image": "https://sohaib-laarichi.vercel.app/moi.png",
-    "jobTitle": "Développeur Web Full-Stack",
-    "description": "Portfolio professionnel de Sohaib LAARICHI, ingénieur en informatique et développeur web full-stack. Expertise en Next.js, React, Node.js et architectures modernes.",
+    "jobTitle": "Ingénieur Logiciel Fullstack & DevOps",
+    "description": "Portfolio professionnel de Sohaib LAARICHI, ingénieur logiciel fullstack et DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native.",
     "telephone": "+212701820101",
     "email": "sohaiblaarichi112@gmail.com",
     "alumniOf": {

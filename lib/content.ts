@@ -1,6 +1,6 @@
 export const heroContent = {
   fr: {
-    title: "Ingénieur Full-Stack | Réseaux, Sécurité & Cloud",
+    title: "Ingénieur Logiciel Fullstack & DevOps",
     location: "Localisation",
     phone: "Téléphone",
     email: "Email",
@@ -8,7 +8,7 @@ export const heroContent = {
       "Ingénieur en informatique diplômé de l'EMSI Marrakech, je conçois des applications web avec une vision système complète: interface, API, données, réseau, sécurité et déploiement. Mon avantage est de relier le développement full-stack à l'infrastructure, pour construire des solutions utiles, fiables et maintenables.",
   },
   en: {
-    title: "Full-Stack Engineer | Networks, Security & Cloud",
+    title: "Fullstack & DevOps Software Engineer",
     location: "Location",
     phone: "Phone",
     email: "Email",
@@ -21,16 +21,16 @@ export const aboutContent = {
   fr: {
     title: "À propos de moi",
     paragraphs: [
-      "Je suis un ingénieur en informatique option MIAGE diplômé de l'EMSI Marrakech, en quête d'une opportunité d'emploi (CDI/CDD) en développement web full-stack. Passionné par le développement web, j'ai acquis une solide expertise à travers plusieurs projets académiques et stages en entreprise.",
-      "Au cours de ma formation, j'ai développé une curiosité technique prononcée et une capacité à maîtriser rapidement de nouvelles technologies. Mes expériences variées en tant que stagiaire développeur, stagiaire systèmes et stagiaire réseaux m'ont permis d'acquérir une compréhension holistique de l'informatique : du frontend au backend, en passant par l'infrastructure et la sécurité.",
+      "Je suis un ingénieur en informatique option MIAGE diplômé de l'EMSI Marrakech, avec une double compétence en développement logiciel et ingénierie DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native, j'ai acquis une solide expertise à travers plusieurs projets d'envergure, notamment dans le secteur de la HealthTech (normes FHIR).",
+      "Au cours de ma formation, j'ai développé une curiosité technique prononcée et une capacité à maîtriser rapidement de nouvelles technologies. Mes expériences variées en tant que stagiaire développeur, stagiaire systèmes et stagiaire réseaux m'ont permis d'acquérir une compréhension holistique de l'informatique : du frontend au backend, en passant par l'infrastructure, la sécurité et le déploiement continu.",
       "Je valorise le travail en équipe, la résolution de problèmes complexes et l'apprentissage continu. Je suis à la recherche d'une entreprise dynamique où je pourrai contribuer, apprendre et grandir en tant qu'ingénieur.",
     ],
   },
   en: {
     title: "About Me",
     paragraphs: [
-      "I am a computer science engineer specializing in MIAGE (graduate of EMSI Marrakech), seeking a full-time job opportunity (CDI) in full-stack web development. Passionate about web development, I have built a solid expertise through various academic projects and internships.",
-      "During my studies, I have developed strong technical curiosity and the ability to quickly master new technologies. My varied experiences as a developer intern, systems intern, and network intern have given me a holistic understanding of IT: from frontend to backend, including infrastructure and security.",
+      "I am a computer science engineer specializing in MIAGE (graduate of EMSI Marrakech), with a dual competence in software development and DevOps engineering. Specializing in the Java/Spring Boot stack and cloud-native microservices architectures, I have built solid expertise through several major projects, notably in the HealthTech sector (FHIR standards).",
+      "During my studies, I have developed strong technical curiosity and the ability to quickly master new technologies. My varied experiences as a developer intern, systems intern, and network intern have given me a holistic understanding of IT: from frontend to backend, including infrastructure, security, and continuous deployment.",
       "I value teamwork, solving complex problems, and continuous learning. I am seeking a dynamic company where I can contribute, learn, and grow as an engineer.",
     ],
   },
@@ -41,34 +41,34 @@ export const skillsContent = {
     title: "Compétences techniques",
     categories: [
       {
-        name: "Frontend",
-        description: "Technologies pour le développement d'interfaces utilisateur modernes et performantes.",
-        skills: ["React", "Next.js 16", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion"],
+        name: "Frontend & Mobile",
+        description: "Technologies pour le développement d'interfaces utilisateur modernes et mobiles.",
+        skills: ["React", "Next.js 16", "TypeScript", "Flutter / Dart", "JavaScript", "Tailwind CSS", "Framer Motion"],
       },
       {
         name: "Backend",
         description: "Frameworks et langages pour le développement côté serveur et APIs robustes.",
-        skills: ["Node.js", "Express", "Java EE", "Spring Boot", "APIs REST"],
+        skills: ["Java", "Spring Boot", "Node.js", "Express.js", "JEE", "APIs REST"],
       },
       {
         name: "Bases de données",
         description: "Systèmes de gestion de bases de données relationnelles et non-relationnelles.",
-        skills: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+        skills: ["MongoDB", "MySQL", "Oracle", "PostgreSQL", "SQL Server"],
       },
       {
-        name: "Cloud & Outils",
-        description: "Plateformes cloud et outils pour le développement et le déploiement.",
-        skills: ["Microsoft Azure", "Docker", "Git", "GitHub", "Postman"],
+        name: "DevOps & Cloud",
+        description: "Plateformes cloud, conteneurisation et intégration continue.",
+        skills: ["Docker", "Kubernetes", "Microsoft Azure (Certifié)", "CI/CD", "Git", "GitHub"],
       },
       {
-        name: "DevOps & Sécurité",
-        description: "Pratiques et outils pour l'infrastructure et la sécurité des applications.",
-        skills: ["DevOps", "ISO 27001", "PowerShell", "ADDS", "GPO"],
+        name: "Systèmes & Réseaux",
+        description: "Administration système, gestion d'infrastructure et virtualisation.",
+        skills: ["Administration Linux", "Windows Server", "Virtualisation", "PowerShell", "ADDS", "GPO"],
       },
       {
-        name: "Méthodologies",
-        description: "Approches et frameworks pour la gestion de projets logiciels.",
-        skills: ["Agile", "Scrum", "UML", "Gestion de projet SI"],
+        name: "Méthodologies & Outils",
+        description: "Approches pour la gestion de projets et modélisation logicielle.",
+        skills: ["Agile", "Scrum", "UML", "Postman", "Gestion de projet SI"],
       },
     ],
   },
@@ -76,34 +76,34 @@ export const skillsContent = {
     title: "Technical Skills",
     categories: [
       {
-        name: "Frontend",
-        description: "Technologies for modern and performant user interface development.",
-        skills: ["React", "Next.js 16", "TypeScript", "Tailwind CSS", "Bootstrap", "Framer Motion"],
+        name: "Frontend & Mobile",
+        description: "Technologies for modern user interfaces and mobile development.",
+        skills: ["React", "Next.js 16", "TypeScript", "Flutter / Dart", "JavaScript", "Tailwind CSS", "Framer Motion"],
       },
       {
         name: "Backend",
-        description: "Frameworks and languages for robust server-side development and APIs.",
-        skills: ["Node.js", "Express", "Java EE", "Spring Boot", "REST APIs"],
+        description: "Frameworks and languages for server-side development and robust APIs.",
+        skills: ["Java", "Spring Boot", "Node.js", "Express.js", "JEE", "REST APIs"],
       },
       {
         name: "Databases",
         description: "Relational and non-relational database management systems.",
-        skills: ["MongoDB", "MySQL", "PostgreSQL", "SQL Server"],
+        skills: ["MongoDB", "MySQL", "Oracle", "PostgreSQL", "SQL Server"],
       },
       {
-        name: "Cloud & Tools",
-        description: "Cloud platforms and development deployment tools.",
-        skills: ["Microsoft Azure", "Docker", "Git", "GitHub", "Postman"],
+        name: "DevOps & Cloud",
+        description: "Cloud platforms, containerization, and continuous integration.",
+        skills: ["Docker", "Kubernetes", "Microsoft Azure (Certified)", "CI/CD", "Git", "GitHub"],
       },
       {
-        name: "DevOps & Security",
-        description: "Practices and tools for infrastructure and application security.",
-        skills: ["DevOps", "ISO 27001", "PowerShell", "ADDS", "GPO"],
+        name: "Systems & Networks",
+        description: "System administration, infrastructure management, and virtualization.",
+        skills: ["Linux Administration", "Windows Server", "Virtualization", "PowerShell", "ADDS", "GPO"],
       },
       {
-        name: "Methodologies",
-        description: "Approaches and frameworks for software project management.",
-        skills: ["Agile", "Scrum", "UML", "IS Project Management"],
+        name: "Methodologies & Tools",
+        description: "Approaches for project management and software modeling.",
+        skills: ["Agile", "Scrum", "UML", "Postman", "IS Project Management"],
       },
     ],
   },
@@ -114,9 +114,22 @@ export const experienceContent = {
     title: "Expériences professionnelles",
     experiences: [
       {
+        position: "Ingénieur Logiciel Fullstack (Stage de fin d'études)",
+        company: "FireThunder",
+        duration: "Février 2026 - Présent",
+        description:
+          "Conception et développement sur le système d'information de laboratoire (LIS) FireLIS/OpenELIS, en réponse aux enjeux de modernisation de la santé.",
+        tasks: [
+          "Réalisation de processus de reverse engineering et catalogage exhaustif des API selon les standards d'interopérabilité FHIR.",
+          "Implémentation de nouvelles fonctionnalités fullstack et optimisation de l'architecture logicielle existante.",
+          "Collaboration au sein d'une architecture orientée services et amélioration des workflows DevOps.",
+        ],
+        stack: ["Java", "Spring Boot", "React", "FHIR", "CI/CD", "Docker"],
+      },
+      {
         position: "Stagiaire Développeur",
         company: "HA Groupe, Marrakech",
-        duration: "Juillet 2025 - Septembre 2025",
+        duration: "Juillet 2025 - Août 2025",
         description:
           "Développement de la plateforme Mkhademia, une plateforme full-stack de mise en relation entre freelances et entreprises.",
         tasks: [
@@ -175,9 +188,22 @@ export const experienceContent = {
     title: "Professional Experience",
     experiences: [
       {
+        position: "Fullstack Software Engineer (Graduation Internship)",
+        company: "FireThunder",
+        duration: "February 2026 - Present",
+        description:
+          "Design and development on the FireLIS/OpenELIS laboratory information system (LIS), addressing health modernization challenges.",
+        tasks: [
+          "Performed reverse engineering and comprehensive mapping of APIs according to FHIR interoperability standards.",
+          "Implemented new fullstack features and optimized the existing software architecture.",
+          "Collaborated within a service-oriented architecture and improved DevOps workflows.",
+        ],
+        stack: ["Java", "Spring Boot", "React", "FHIR", "CI/CD", "Docker"],
+      },
+      {
         position: "Developer Intern",
         company: "HA Groupe, Marrakech",
-        duration: "July 2025 - September 2025",
+        duration: "July 2025 - August 2025",
         description: "Development of the Mkhademia platform, a full-stack platform connecting freelancers and companies.",
         tasks: [
           "Design and development of frontend and backend features",
@@ -235,8 +261,24 @@ export const experienceContent = {
 
 export const projectsContent = {
   fr: {
-    title: "Projets académiques",
+    title: "Projets clés",
     projects: [
+      {
+        name: "FireLIS / OpenELIS (HealthTech)",
+        description:
+          "Analyse, reverse engineering et catalogage d'API selon les standards d'interopérabilité de santé (FHIR) pour un Système d'Information de Laboratoire open-source.",
+        stack: ["Java", "Spring Boot", "FHIR", "REST API", "Docker"],
+      },
+      {
+        name: "PharmaLive",
+        description: "Développement d'un SI complet de gestion de pharmacie (Java, MySQL) intégrant le contrôle des stocks et la gestion des rôles utilisateurs.",
+        stack: ["Java", "MySQL", "Spring Boot"],
+      },
+      {
+        name: "Architecture Réseau d'Entreprise",
+        description: "Déploiement virtuel d'une infrastructure pour 100 utilisateurs avec Active Directory, DHCP, et DNS sous Windows Server.",
+        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualisation"],
+      },
       {
         name: "Portfolio - Next.js 16",
         description:
@@ -248,26 +290,26 @@ export const projectsContent = {
         description: "API REST complète avec opérations CRUD, documentation Swagger et déploiement Docker.",
         stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
       },
-      {
-        name: "Bank Account REST API",
-        description: "API pour la gestion de comptes bancaires avec logique métier et endpoints CRUD.",
-        stack: ["Spring Boot", "Java", "REST API"],
-      },
-      {
-        name: "Pharmalive",
-        description: "Application métier pour la gestion de stock et des ventes d'une pharmacie.",
-        stack: ["Spring Boot", "PostgreSQL", "Java"],
-      },
-      {
-        name: "Benchmark REST",
-        description: "Outil de benchmark de performances d'APIs REST avec analyse de latence.",
-        stack: ["Node.js", "Postman", "Performance Analysis"],
-      },
     ],
   },
   en: {
-    title: "Academic Projects",
+    title: "Key Projects",
     projects: [
+      {
+        name: "FireLIS / OpenELIS (HealthTech)",
+        description: "Analysis, reverse engineering, and API mapping using health interoperability standards (FHIR) for an open-source Laboratory Information System.",
+        stack: ["Java", "Spring Boot", "FHIR", "REST API", "Docker"],
+      },
+      {
+        name: "PharmaLive",
+        description: "Development of a comprehensive pharmacy management IS (Java, MySQL) integrating stock control and user role management.",
+        stack: ["Java", "MySQL", "Spring Boot"],
+      },
+      {
+        name: "Enterprise Network Architecture",
+        description: "Virtual deployment of an infrastructure for 100 users with Active Directory, DHCP, and DNS under Windows Server.",
+        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualization"],
+      },
       {
         name: "Portfolio - Next.js 16",
         description: "Modern portfolio with SSR, i18n support, and focus on UI performance and UX.",
@@ -277,21 +319,6 @@ export const projectsContent = {
         name: "Student Management API",
         description: "Complete REST API with CRUD operations, Swagger documentation and Docker deployment.",
         stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
-      },
-      {
-        name: "Bank Account REST API",
-        description: "API for managing bank accounts with business logic and CRUD endpoints.",
-        stack: ["Spring Boot", "Java", "REST API"],
-      },
-      {
-        name: "Pharmalive",
-        description: "Business application for pharmacy inventory and sales management.",
-        stack: ["Spring Boot", "PostgreSQL", "Java"],
-      },
-      {
-        name: "Benchmark REST",
-        description: "Benchmarking tool for REST API performance with latency analysis.",
-        stack: ["Node.js", "Postman", "Performance Analysis"],
       },
     ],
   },
@@ -465,6 +492,11 @@ export const volunteeringContent = {
     title: "Bénévolat & Engagement",
     activities: [
       {
+        title: "GITEX AFRICA (Marrakech)",
+        description:
+          "Participation au sommet de la technologie à Marrakech (Mai 2024), immersion dans l'écosystème tech continental et échange avec des professionnels du secteur.",
+      },
+      {
         title: "Aide aux victimes du tremblement de terre du 12 septembre 2023",
         description:
           "Participation active aux opérations de secours et d'assistance aux sinistrés, illustrant mon engagement citoyen et mon sens des responsabilités envers la communauté.",
@@ -479,6 +511,11 @@ export const volunteeringContent = {
   en: {
     title: "Volunteering & Engagement",
     activities: [
+      {
+        title: "GITEX AFRICA (Marrakech)",
+        description:
+          "Participation in the technology summit in Marrakech (May 2024), immersion in the continental tech ecosystem and networking with industry professionals.",
+      },
       {
         title: "Support for victims of September 12, 2023 earthquake",
         description:
