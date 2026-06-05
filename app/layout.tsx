@@ -40,17 +40,33 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://sohaib-laarichi.vercel.app"),
+  alternates: {
+    canonical: "https://sohaib-laarichi.vercel.app",
+  },
   openGraph: {
     title: "LAARICHI Sohaib - Développeur Web Full-Stack",
     description: "Portfolio professionnel de Sohaib LAARICHI, élève ingénieur cherchant un stage PFE en développement web full-stack.",
-    type: "website",
+    type: "profile",
+    firstName: "Sohaib",
+    lastName: "LAARICHI",
+    username: "Sohaib-Laarichi",
+    gender: "male",
     locale: "fr_FR",
     alternateLocale: "en_US",
+    images: [
+      {
+        url: "https://sohaib-laarichi.vercel.app/moi.png",
+        width: 1200,
+        height: 1440,
+        alt: "Sohaib LAARICHI - Développeur Web Full-Stack",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "LAARICHI Sohaib - Développeur Web Full-Stack",
     description: "Portfolio professionnel - Stage PFE recherché en développement web full-stack",
+    images: ["https://sohaib-laarichi.vercel.app/moi.png"],
   },
   icons: {
     icon: [
@@ -84,12 +100,19 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Sohaib LAARICHI",
+    "givenName": "Sohaib",
+    "familyName": "LAARICHI",
+    "gender": "male",
     "url": "https://sohaib-laarichi.vercel.app",
     "image": "https://sohaib-laarichi.vercel.app/moi.png",
     "jobTitle": "Développeur Web Full-Stack",
+    "description": "Portfolio professionnel de Sohaib LAARICHI, élève ingénieur cherchant un stage PFE en développement web full-stack. Expertise en Next.js, React, Node.js et architectures modernes.",
+    "telephone": "+212701820101",
+    "email": "sohaiblaarichi112@gmail.com",
     "alumniOf": {
       "@type": "EducationalOrganization",
-      "name": "EMSI Marrakech (École Marocaine des Sciences de l'Ingénieur)"
+      "name": "EMSI Marrakech (École Marocaine des Sciences de l'Ingénieur)",
+      "sameAs": "https://emsi.ma"
     },
     "address": {
       "@type": "PostalAddress",
@@ -109,7 +132,14 @@ export default function RootLayout({
       "Spring Boot",
       "Network",
       "Cybersecurity",
-      "Java"
+      "Java",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "MySQL",
+      "PostgreSQL",
+      "Docker",
+      "Microsoft Azure"
     ]
   };
 
