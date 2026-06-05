@@ -1,0 +1,17 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradientApple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="50%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <filter id="shadowApple" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="3" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#gradientApple)" filter="url(#shadowApple)"/>
+  <text x="90" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white">SL</text>
+  <circle cx="150" cy="30" r="12" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="30" cy="150" r="8" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="150" cy="150" r="6" fill="rgba(255,255,255,0.15)"/>
+</svg>
