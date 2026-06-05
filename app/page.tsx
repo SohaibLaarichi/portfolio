@@ -74,10 +74,10 @@ export default function Home() {
     { id: "hero", label: lang === "fr" ? "Accueil" : "Home" },
     { id: "about", label: lang === "fr" ? "À propos" : "About" },
     { id: "skills", label: lang === "fr" ? "Compétences" : "Skills" },
-    { id: "experience", label: "Expérience" },
+    { id: "experience", label: lang === "fr" ? "Expérience" : "Experience" },
     { id: "projects", label: lang === "fr" ? "Études de cas" : "Case studies" },
-    { id: "education", label: "Éducation" },
-    { id: "contact", label: "Contact" },
+    { id: "education", label: lang === "fr" ? "Éducation" : "Education" },
+    { id: "contact", label: lang === "fr" ? "Contact" : "Contact" },
   ]
 
   return (

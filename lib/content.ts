@@ -5,7 +5,7 @@ export const heroContent = {
     phone: "Téléphone",
     email: "Email",
     description:
-      "Élève ingénieur en 5ème année à l'EMSI Marrakech, je conçois des applications web avec une vision système complète: interface, API, données, réseau, sécurité et déploiement. Mon avantage est de relier le développement full-stack à l'infrastructure, pour construire des solutions utiles, fiables et maintenables.",
+      "Ingénieur en informatique diplômé de l'EMSI Marrakech, je conçois des applications web avec une vision système complète: interface, API, données, réseau, sécurité et déploiement. Mon avantage est de relier le développement full-stack à l'infrastructure, pour construire des solutions utiles, fiables et maintenables.",
   },
   en: {
     title: "Full-Stack Engineer | Networks, Security & Cloud",
@@ -13,7 +13,7 @@ export const heroContent = {
     phone: "Phone",
     email: "Email",
     description:
-      "5th year engineering student at EMSI Marrakech, I design web applications with a complete systems view: interface, API, data, network, security, and deployment. My edge is connecting full-stack development with infrastructure to build useful, reliable, and maintainable solutions.",
+      "Computer science engineer graduated from EMSI Marrakech, I design web applications with a complete systems view: interface, API, data, network, security, and deployment. My edge is connecting full-stack development with infrastructure to build useful, reliable, and maintainable solutions.",
   },
 }
 
@@ -21,7 +21,7 @@ export const aboutContent = {
   fr: {
     title: "À propos de moi",
     paragraphs: [
-      "Je suis un élève ingénieur en informatique option MIAGE à l'EMSI Marrakech, en quête d'un stage PFE de 4 à 6 mois à partir du 2 février 2026. Passionné par le développement web full-stack, j'ai acquis une solide expertise à travers plusieurs projets académiques et stages en entreprise.",
+      "Je suis un ingénieur en informatique option MIAGE diplômé de l'EMSI Marrakech, en quête d'une opportunité d'emploi (CDI/CDD) en développement web full-stack. Passionné par le développement web, j'ai acquis une solide expertise à travers plusieurs projets académiques et stages en entreprise.",
       "Au cours de ma formation, j'ai développé une curiosité technique prononcée et une capacité à maîtriser rapidement de nouvelles technologies. Mes expériences variées en tant que stagiaire développeur, stagiaire systèmes et stagiaire réseaux m'ont permis d'acquérir une compréhension holistique de l'informatique : du frontend au backend, en passant par l'infrastructure et la sécurité.",
       "Je valorise le travail en équipe, la résolution de problèmes complexes et l'apprentissage continu. Je suis à la recherche d'une entreprise dynamique où je pourrai contribuer, apprendre et grandir en tant qu'ingénieur.",
     ],
@@ -29,7 +29,7 @@ export const aboutContent = {
   en: {
     title: "About Me",
     paragraphs: [
-      "I am a 5th year engineering student in Computer Science, specializing in MIAGE at EMSI Marrakech, seeking a 4-6 month internship starting February 2, 2026. Passionate about full-stack web development, I have gained solid expertise through various academic projects and internships.",
+      "I am a computer science engineer specializing in MIAGE (graduate of EMSI Marrakech), seeking a full-time job opportunity (CDI) in full-stack web development. Passionate about web development, I have built a solid expertise through various academic projects and internships.",
       "During my studies, I have developed strong technical curiosity and the ability to quickly master new technologies. My varied experiences as a developer intern, systems intern, and network intern have given me a holistic understanding of IT: from frontend to backend, including infrastructure and security.",
       "I value teamwork, solving complex problems, and continuous learning. I am seeking a dynamic company where I can contribute, learn, and grow as an engineer.",
     ],
@@ -497,14 +497,14 @@ export const contactContent = {
   fr: {
     title: "Prendre contact",
     message:
-      "Vous cherchez un développeur web full-stack motivé et autonome pour rejoindre votre équipe ? Je serais enchanté de discuter de comment je peux contribuer à vos projets. N'hésitez pas à me contacter pour un stage PFE ou une simple conversation.",
+      "Vous cherchez un développeur web full-stack motivé et autonome pour rejoindre votre équipe ? Je serais enchanté de discuter de comment je peux contribuer à vos projets. N'hésitez pas à me contacter pour un emploi ou une simple conversation.",
     cta: "M'envoyer un email",
     socials: "Connectez-vous avec moi sur les réseaux:",
   },
   en: {
     title: "Get in Touch",
     message:
-      "Looking for a motivated and autonomous full-stack web developer to join your team? I would be delighted to discuss how I can contribute to your projects. Feel free to contact me for an internship or a simple conversation.",
+      "Looking for a motivated and autonomous full-stack web developer to join your team? I would be delighted to discuss how I can contribute to your projects. Feel free to contact me for a job opportunity or a simple conversation.",
     cta: "Send me an email",
     socials: "Connect with me on social networks:",
   },

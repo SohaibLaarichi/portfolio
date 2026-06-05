@@ -71,12 +71,12 @@ export default function About() {
                   {TechIcons.frontend}
                 </div>
               </AnimatedIcon>
-                  <span className="text-sm font-semibold text-primary">
-                Stage PFE Recherché
+              <span className="text-sm font-semibold text-primary">
+                {lang === "fr" ? "Recherche d'Emploi" : "Seeking Job / CDI"}
               </span>
             </div>
             <p className="text-xs text-muted-foreground">
-              4-6 mois • Février 2026
+              {lang === "fr" ? "Disponible immédiatement" : "Available immediately"}
             </p>
           </motion.div>
         </motion.div>

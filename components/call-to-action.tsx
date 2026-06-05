@@ -8,7 +8,7 @@ import { ArrowRight, Calendar, Mail, Phone, Download } from "lucide-react"
 const ctaContent = {
   fr: {
     title: "Prêt à collaborer ?",
-    subtitle: "Je recherche activement un stage PFE de 4 à 6 mois à partir de février 2026",
+    subtitle: "Je recherche activement un emploi (CDI/CDD) en développement web full-stack",
     description: "Passionné par le développement web full-stack et les nouvelles technologies, je suis prêt à apporter ma motivation et mes compétences à votre équipe.",
     buttons: {
       contact: "Discutons de votre projet",
@@ -16,11 +16,11 @@ const ctaContent = {
       cv: "Télécharger mon CV",
       email: "M'envoyer un email"
     },
-    availability: "Disponible à partir de février 2026"
+    availability: "Disponible immédiatement"
   },
   en: {
     title: "Ready to collaborate?",
-    subtitle: "I am actively seeking a 4-6 month final year internship starting February 2026",
+    subtitle: "I am actively seeking a full-time job (CDI) in full-stack web development",
     description: "Passionate about full-stack web development and new technologies, I am ready to bring my motivation and skills to your team.",
     buttons: {
       contact: "Let's discuss your project",
@@ -28,7 +28,7 @@ const ctaContent = {
       cv: "Download my resume",
       email: "Send me an email"
     },
-    availability: "Available from February 2026"
+    availability: "Available immediately"
   }
 }
 
@@ -135,7 +135,7 @@ export default function CallToAction() {
             variants={itemVariants}
           >
             <motion.a
-              href="mailto:sohaiblaarichi112@gmail.com?subject=Opportunit%C3%A9%20de%20stage%20PFE%20-%20Sohaib%20LAARICHI&body=Bonjour%20Sohaib%2C%0A%0AJe%20vous%20contacte%20concernant%20une%20opportunit%C3%A9%20de%20stage%20PFE.%0A%0ACordialement"
+              href="mailto:sohaiblaarichi112@gmail.com?subject=Opportunit%C3%A9%20d%27emploi%20-%20Sohaib%20LAARICHI&body=Bonjour%20Sohaib%2C%0A%0AJe%20vous%20contacte%20concernant%20une%20opportunit%C3%A9%20d%27emploi.%0A%0ACordialement"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium shadow-lg"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

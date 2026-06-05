@@ -13,7 +13,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "LAARICHI Sohaib - Développeur Web Full-Stack",
   description:
-    "Portfolio professionnel de Sohaib LAARICHI, élève ingénieur cherchant un stage PFE en développement web full-stack. Expertise en Next.js, React, Node.js et architectures modernes.",
+    "Portfolio professionnel de Sohaib LAARICHI, ingénieur en informatique et développeur web full-stack à la recherche de nouvelles opportunités. Expertise en Next.js, React, Node.js et architectures modernes.",
   keywords: [
     "Sohaib Laarichi",
     "Laarichi Sohaib",
@@ -23,11 +23,12 @@ export const metadata: Metadata = {
     "Ingénieur Marocain",
     "Développeur Web Maroc",
     "Développeur Full-Stack Maroc",
-    "Stage PFE Maroc",
+    "Emploi Développeur Maroc",
     "EMSI Marrakech",
     "Portfolio Sohaib Laarichi",
     "Génie Logiciel Maroc",
-    "Full-Stack Web Developer Morocco"
+    "Full-Stack Web Developer Morocco",
+    "Recherche Emploi CDI"
   ],
   generator: "v0.app",
   applicationName: "Portfolio Sohaib LAARICHI",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "LAARICHI Sohaib - Développeur Web Full-Stack",
-    description: "Portfolio professionnel de Sohaib LAARICHI, élève ingénieur cherchant un stage PFE en développement web full-stack.",
+    description: "Portfolio professionnel de Sohaib LAARICHI, ingénieur en informatique et développeur web full-stack à la recherche d'opportunités.",
     type: "profile",
     firstName: "Sohaib",
     lastName: "LAARICHI",
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "LAARICHI Sohaib - Développeur Web Full-Stack",
-    description: "Portfolio professionnel - Stage PFE recherché en développement web full-stack",
+    description: "Portfolio professionnel - Ingénieur en informatique & Développeur Web disponible",
     images: ["https://sohaib-laarichi.vercel.app/moi.png"],
   },
   icons: {
@@ -106,7 +107,7 @@ export default function RootLayout({
     "url": "https://sohaib-laarichi.vercel.app",
     "image": "https://sohaib-laarichi.vercel.app/moi.png",
     "jobTitle": "Développeur Web Full-Stack",
-    "description": "Portfolio professionnel de Sohaib LAARICHI, élève ingénieur cherchant un stage PFE en développement web full-stack. Expertise en Next.js, React, Node.js et architectures modernes.",
+    "description": "Portfolio professionnel de Sohaib LAARICHI, ingénieur en informatique et développeur web full-stack. Expertise en Next.js, React, Node.js et architectures modernes.",
     "telephone": "+212701820101",
     "email": "sohaiblaarichi112@gmail.com",
     "alumniOf": {
