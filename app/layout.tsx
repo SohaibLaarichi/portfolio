@@ -14,6 +14,21 @@ export const metadata: Metadata = {
   title: "LAARICHI Sohaib - Développeur Web Full-Stack",
   description:
     "Portfolio professionnel de Sohaib LAARICHI, élève ingénieur cherchant un stage PFE en développement web full-stack. Expertise en Next.js, React, Node.js et architectures modernes.",
+  keywords: [
+    "Sohaib Laarichi",
+    "Laarichi Sohaib",
+    "Sohaib LAARICHI",
+    "LAARICHI Sohaib",
+    "Ingénieur Maroc",
+    "Ingénieur Marocain",
+    "Développeur Web Maroc",
+    "Développeur Full-Stack Maroc",
+    "Stage PFE Maroc",
+    "EMSI Marrakech",
+    "Portfolio Sohaib Laarichi",
+    "Génie Logiciel Maroc",
+    "Full-Stack Web Developer Morocco"
+  ],
   generator: "v0.app",
   applicationName: "Portfolio Sohaib LAARICHI",
   authors: [{ name: "Sohaib LAARICHI" }],
@@ -65,9 +80,46 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sohaib LAARICHI",
+    "url": "https://sohaib-laarichi.vercel.app",
+    "image": "https://sohaib-laarichi.vercel.app/moi.png",
+    "jobTitle": "Développeur Web Full-Stack",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "EMSI Marrakech (École Marocaine des Sciences de l'Ingénieur)"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marrakech",
+      "addressCountry": "MA"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/laarichi-sohaib",
+      "https://github.com/Sohaib-Laarichi"
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "Full-Stack Development",
+      "Next.js",
+      "React",
+      "Node.js",
+      "Spring Boot",
+      "Network",
+      "Cybersecurity",
+      "Java"
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${_geist.className} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
