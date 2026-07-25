@@ -9,45 +9,47 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const siteUrl = "https://sohaiblaarichi.tech"
+const siteTitle = "Sohaib Laarichi | Ingénieur informatique Fullstack & DevOps"
+const siteDescription =
+  "Portfolio de Sohaib Laarichi, ingénieur informatique à Marrakech spécialisé en développement Fullstack, Java, Spring Boot, React, DevOps et Cloud."
 
 export const metadata: Metadata = {
-  title: "LAARICHI Sohaib - Ingénieur Logiciel Fullstack & DevOps",
-  description:
-    "Portfolio professionnel de Sohaib LAARICHI, ingénieur logiciel fullstack et DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native.",
+  title: siteTitle,
+  description: siteDescription,
   keywords: [
     "Sohaib Laarichi",
     "Laarichi Sohaib",
-    "Sohaib LAARICHI",
-    "LAARICHI Sohaib",
-    "Ingénieur Maroc",
-    "Ingénieur Marocain",
-    "Développeur Web Maroc",
-    "Développeur Full-Stack Maroc",
-    "Ingénieur Logiciel",
-    "DevOps Maroc",
+    "ingénieur informatique",
+    "ingenieur informatique",
+    "ingénieur logiciel Maroc",
+    "ingénieur informatique Marrakech",
+    "développeur Fullstack Maroc",
+    "Java Spring Boot React",
+    "DevOps Cloud Maroc",
     "EMSI Marrakech",
-    "Portfolio Sohaib Laarichi",
-    "Génie Logiciel Maroc",
-    "Full-Stack & DevOps Engineer",
-    "Recherche Emploi CDI"
+    "portfolio Sohaib Laarichi",
   ],
-  generator: "v0.app",
   applicationName: "Portfolio Sohaib LAARICHI",
-  authors: [{ name: "Sohaib LAARICHI" }],
+  authors: [{ name: "Sohaib LAARICHI", url: siteUrl }],
   creator: "Sohaib LAARICHI",
   publisher: "Sohaib LAARICHI",
+  category: "technology",
+  referrer: "origin-when-cross-origin",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://sohaib-laarichi.vercel.app"),
+  metadataBase: new URL(siteUrl),
   alternates: {
-    canonical: "https://sohaib-laarichi.vercel.app",
+    canonical: "/",
   },
   openGraph: {
-    title: "LAARICHI Sohaib - Ingénieur Logiciel Fullstack & DevOps",
-    description: "Portfolio professionnel de Sohaib LAARICHI, ingénieur logiciel fullstack et DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native.",
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "Portfolio de Sohaib Laarichi",
     type: "profile",
     firstName: "Sohaib",
     lastName: "LAARICHI",
@@ -57,18 +59,18 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     images: [
       {
-        url: "https://sohaib-laarichi.vercel.app/moi.png",
+        url: "/og-sohaib-laarichi.png",
         width: 1200,
-        height: 1440,
-        alt: "Sohaib LAARICHI - Ingénieur Logiciel Fullstack & DevOps",
+        height: 630,
+        alt: "Sohaib Laarichi, ingénieur informatique Fullstack, DevOps et Cloud",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LAARICHI Sohaib - Ingénieur Logiciel Fullstack & DevOps",
-    description: "Portfolio professionnel de Sohaib LAARICHI - Ingénieur Logiciel Fullstack & DevOps",
-    images: ["https://sohaib-laarichi.vercel.app/moi.png"],
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og-sohaib-laarichi.png"],
   },
   icons: {
     icon: [
@@ -98,17 +100,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const jsonLd = {
+  const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": `${siteUrl}/#person`,
     "name": "Sohaib LAARICHI",
+    "alternateName": ["Sohaib Laarichi", "Laarichi Sohaib"],
     "givenName": "Sohaib",
     "familyName": "LAARICHI",
     "gender": "male",
-    "url": "https://sohaib-laarichi.vercel.app",
-    "image": "https://sohaib-laarichi.vercel.app/moi.png",
-    "jobTitle": "Ingénieur Logiciel Fullstack & DevOps",
-    "description": "Portfolio professionnel de Sohaib LAARICHI, ingénieur logiciel fullstack et DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native.",
+    "url": siteUrl,
+    "image": `${siteUrl}/moi.png`,
+    "jobTitle": "Ingénieur informatique Fullstack & DevOps",
+    "description": siteDescription,
     "telephone": "+212701820101",
     "email": "sohaiblaarichi112@gmail.com",
     "alumniOf": {
@@ -145,12 +149,30 @@ export default function RootLayout({
     ]
   };
 
+  const profilePageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${siteUrl}/#profile`,
+    "url": siteUrl,
+    "name": siteTitle,
+    "description": siteDescription,
+    "inLanguage": ["fr-FR", "en-US"],
+    "dateModified": "2026-07-25",
+    "mainEntity": {
+      "@id": `${siteUrl}/#person`,
+    },
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className={`${_geist.className} font-sans antialiased`}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageJsonLd) }}
         />
         <ThemeProvider
           attribute="class"

@@ -2,10 +2,17 @@ import { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: "https://sohaib-laarichi.vercel.app/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+      },
+    ],
+    sitemap: "https://sohaiblaarichi.tech/sitemap.xml",
+    host: "https://sohaiblaarichi.tech",
   }
 }

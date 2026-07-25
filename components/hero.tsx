@@ -186,7 +186,7 @@ export default function Hero() {
               <div className="relative aspect-[5/6] max-h-[30rem]">
                 <Image
                   src="/moi.png"
-                  alt="Sohaib LAARICHI - Développeur Web Full-Stack"
+                  alt="Portrait de Sohaib Laarichi, ingénieur informatique Fullstack et DevOps à Marrakech"
                   fill
                   className="object-cover object-[50%_28%]"
                   sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 384px"
