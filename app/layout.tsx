@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
-const siteUrl = "https://sohaiblaarichi.tech"
+const siteUrl = "https://www.sohaiblaarichi.tech"
 const siteTitle = "Sohaib Laarichi | Ingénieur informatique Fullstack & DevOps"
 const siteDescription =
   "Portfolio de Sohaib Laarichi, ingénieur informatique à Marrakech spécialisé en développement Fullstack, Java, Spring Boot, React, DevOps et Cloud."

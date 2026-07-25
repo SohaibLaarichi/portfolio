@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://sohaiblaarichi.tech/sitemap.xml",
-    host: "https://sohaiblaarichi.tech",
+    sitemap: "https://www.sohaiblaarichi.tech/sitemap.xml",
+    host: "https://www.sohaiblaarichi.tech",
   }
 }
