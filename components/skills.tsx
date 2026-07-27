@@ -6,44 +6,28 @@ import SectionTitle from "./section-title"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { motion } from "framer-motion"
 import type { Variants } from "framer-motion"
-import { Cloud, Code2, Database, Layers3, Network, ShieldCheck, Workflow } from "lucide-react"
+import { useState } from "react"
+import { Cloud, Code2, Database, Layers3, Network, Search, ShieldCheck, Workflow } from "lucide-react"
+import { BrandIcon } from "./icons/brand-icons"
 
 const categoryMeta = [
   {
     icon: Code2,
-    level: 88,
-    signal: "UI engineering",
-    angle: "Interfaces rapides, propres et maintenables.",
   },
   {
     icon: Layers3,
-    level: 84,
-    signal: "API & logic",
-    angle: "Services, logique métier et intégration backend.",
   },
   {
     icon: Database,
-    level: 80,
-    signal: "Data modeling",
-    angle: "Modèles, relations et données opérationnelles.",
   },
   {
     icon: Cloud,
-    level: 76,
-    signal: "Delivery",
-    angle: "Conteneurs, outils cloud et livraison fiable.",
   },
   {
     icon: ShieldCheck,
-    level: 82,
-    signal: "Secure systems",
-    angle: "Accès, politiques, réseau et sécurité applicative.",
   },
   {
     icon: Workflow,
-    level: 78,
-    signal: "Engineering method",
-    angle: "Analyse, UML, agile et clarté projet.",
   },
 ]
 
@@ -51,6 +35,7 @@ export default function Skills() {
   const { lang } = useLanguage()
   const content = skillsContent[lang]
   const { ref, isVisible } = useScrollReveal()
+  const [searchTerm, setSearchTerm] = useState("")
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -70,25 +55,43 @@ export default function Skills() {
       ? {
           profile: "Profil technique",
           stack: "Stack full-stack",
-          scroll: "Scroll naturel, lecture guidée",
-          score: "niveau",
-          core: "core",
+          scroll: "Compétences classées par usage réel",
+          searchPlaceholder: "Rechercher une compétence (ex: React, Java, FHIR, Docker)...",
+          core: "principal",
           architecture: "architecture",
-          security: "security",
+          security: "sécurité",
         }
       : {
           profile: "Technical profile",
           stack: "Full-stack stack",
           scroll: "Native scroll, guided reading",
-          score: "level",
+          searchPlaceholder: "Search for a skill (e.g. React, Java, FHIR, Docker)...",
           core: "core",
           architecture: "architecture",
           security: "security",
         }
+  const practiceLabels =
+    lang === "fr"
+      ? ["Expertise principale", "Expertise principale", "Pratique régulière", "Pratique projet", "Socle technique", "Méthodes de travail"]
+      : ["Core expertise", "Core expertise", "Regular practice", "Project practice", "Technical foundation", "Working methods"]
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
+
+      {/* Live Search Input */}
+      <div className="mb-8 max-w-xl mx-auto">
+        <div className="relative">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder={labels.searchPlaceholder}
+            className="w-full rounded-xl border border-border/80 bg-card/60 py-3 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur"
+          />
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr] gap-6 lg:gap-8">
         <aside className="lg:sticky lg:top-24 lg:self-start">
@@ -143,44 +146,37 @@ export default function Skills() {
                           <Icon size={20} />
                         </div>
                         <div>
-                          <p className="text-xs font-bold uppercase text-primary">{meta.signal}</p>
                           <h3 className="text-xl font-black text-foreground">{category.name}</h3>
                         </div>
                       </div>
-                      <span className="rounded-full border border-border/60 bg-background/45 px-3 py-1 text-xs font-bold text-muted-foreground">
-                        0{index + 1}
+                      <span className="rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-bold text-primary">
+                        {practiceLabels[index]}
                       </span>
                     </div>
 
                     <p className="text-sm leading-relaxed text-muted-foreground">{category.description}</p>
-                    <p className="mt-3 text-sm font-semibold text-foreground/80">{meta.angle}</p>
                   </div>
 
                   <div>
-                    <div className="mb-4">
-                      <div className="mb-2 flex items-center justify-between text-xs font-bold uppercase text-muted-foreground">
-                        <span>{labels.score}</span>
-                        <span>{meta.level}%</span>
-                      </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-secondary">
-                        <motion.div
-                          className="h-full rounded-full bg-gradient-to-r from-primary to-emerald-300"
-                          initial={{ width: 0 }}
-                          animate={isVisible ? { width: `${meta.level}%` } : { width: 0 }}
-                          transition={{ duration: 0.75, delay: index * 0.06, ease: "easeOut" }}
-                        />
-                      </div>
-                    </div>
-
                     <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full border border-border/70 bg-background/45 px-3 py-1.5 text-xs font-semibold text-foreground/82 transition-colors group-hover:border-primary/20"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                      {category.skills.map((skill) => {
+                        const isMatch =
+                          searchTerm.trim() !== "" &&
+                          skill.toLowerCase().includes(searchTerm.toLowerCase())
+                        return (
+                          <span
+                            key={skill}
+                            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all ${
+                              isMatch
+                                ? "border-sky-400 bg-sky-500/25 text-sky-200 font-bold scale-110 shadow-lg shadow-sky-500/20"
+                                : "border-border/70 bg-background/45 text-foreground/82 group-hover:border-primary/20"
+                            }`}
+                          >
+                            <BrandIcon name={skill} fallback={Icon} />
+                            {skill}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>

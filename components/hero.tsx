@@ -4,10 +4,17 @@ import { useLanguage } from "@/hooks/use-language"
 import { heroContent } from "@/lib/content"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useState } from "react"
+import { toast } from "sonner"
+import PdfViewerModal from "./pdf-viewer-modal"
 import {
   Braces,
+  Check,
   Code2,
+  Copy,
   Download,
+  Eye,
+  FolderKanban,
   Github,
   Linkedin,
   Mail,
@@ -21,6 +28,19 @@ import {
 export default function Hero() {
   const { lang } = useLanguage()
   const content = heroContent[lang]
+  const [copiedEmail, setCopiedEmail] = useState(false)
+  const [isPdfOpen, setIsPdfOpen] = useState(false)
+  const emailAddress = "sohaiblaarichi112@gmail.com"
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailAddress)
+    setCopiedEmail(true)
+    toast.success(
+      lang === "fr" ? "Email copié dans le presse-papier !" : "Email copied to clipboard!",
+      { description: emailAddress }
+    )
+    setTimeout(() => setCopiedEmail(false), 2500)
+  }
   const highlights = [
     { icon: Network, label: lang === "fr" ? "Réseaux" : "Networks" },
     { icon: ShieldCheck, label: lang === "fr" ? "Sécurité" : "Security" },
@@ -41,6 +61,19 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
+            <motion.div
+              className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-bold text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              </span>
+              {lang === "fr" ? "Disponible immédiatement pour CDI / Mission · Maroc ou Remote" : "Available immediately for Full-time / Freelance · Morocco or Remote"}
+            </motion.div>
+
             <motion.h1
               className="mb-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.96]"
               initial={{ opacity: 0, y: 20 }}
@@ -55,13 +88,23 @@ export default function Hero() {
             </motion.h1>
 
             <motion.h2
-              className="max-w-2xl text-2xl lg:text-3xl font-semibold text-foreground/80 mb-6"
+              className="max-w-2xl text-2xl lg:text-3xl font-semibold text-foreground/80 mb-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               {content.title}
             </motion.h2>
+
+            <motion.p
+              className="mb-6 inline-flex items-center gap-2 rounded-md border border-border/60 bg-card/40 px-3 py-1 text-xs font-semibold text-muted-foreground"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.33, duration: 0.5 }}
+            >
+              <MapPin size={14} className="text-primary" />
+              <span>{lang === "fr" ? "Ingénieur Informatique basé à Marrakech, Maroc" : "Software Engineer based in Marrakech, Morocco"}</span>
+            </motion.p>
 
             <motion.div
               className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-2"
@@ -99,40 +142,74 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               <motion.a
-                href="https://www.linkedin.com/in/laarichi-sohaib"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#projects"
                 className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_18px_50px_rgba(14,165,233,0.25)] hover:bg-primary/90"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
               >
-                <Linkedin size={18} />
-                LinkedIn
+                <FolderKanban size={18} />
+                {lang === "fr" ? "Voir mes projets" : "View my projects"}
               </motion.a>
 
-              <motion.a
-                href="https://github.com/Sohaib-Laarichi"
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.button
+                onClick={() => setIsPdfOpen(true)}
+                type="button"
                 className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
               >
-                <Github size={18} />
-                GitHub
-              </motion.a>
+                <Eye size={18} className="text-primary" />
+                <span>{lang === "fr" ? "Aperçu du CV" : "Preview Resume"}</span>
+              </motion.button>
 
               <motion.a
                 href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
                 download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-border/80 bg-secondary/80 px-5 py-3 text-sm font-semibold text-secondary-foreground hover:bg-secondary"
+                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
               >
                 <Download size={18} />
-                {lang === "fr" ? "Télécharger CV" : "Download CV"}
+                {lang === "fr" ? "Télécharger CV" : "Download Resume"}
+              </motion.a>
+
+              <motion.button
+                onClick={handleCopyEmail}
+                type="button"
+                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                aria-label="Copier l'adresse email"
+                title={emailAddress}
+              >
+                {copiedEmail ? <Check size={18} className="text-emerald-400" /> : <Copy size={18} />}
+                <span>{copiedEmail ? (lang === "fr" ? "Email copié !" : "Email copied!") : (lang === "fr" ? "Copier Email" : "Copy Email")}</span>
+              </motion.button>
+
+              <motion.a
+                href="https://www.linkedin.com/in/laarichi-sohaib"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="grid h-12 w-12 place-items-center rounded-lg border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <Linkedin size={19} />
+              </motion.a>
+
+              <motion.a
+                href="https://github.com/Sohaib-Laarichi"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="grid h-12 w-12 place-items-center rounded-lg border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <Github size={19} />
               </motion.a>
             </motion.div>
 
@@ -212,6 +289,8 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      <PdfViewerModal isOpen={isPdfOpen} onClose={() => setIsPdfOpen(false)} />
     </section>
   )
 }

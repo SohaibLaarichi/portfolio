@@ -140,25 +140,52 @@ export default function GitHubRepos() {
     <div className="space-y-6">
       {/* En-tête avec lien vers GitHub */}
       <motion.div
-        className="flex items-center justify-between"
+        className="flex flex-col sm:flex-row sm:items-center justify-between gap-4"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h3 className="text-lg font-semibold text-foreground">
-          {lang === 'fr' ? 'Projets GitHub' : 'GitHub Projects'}
-        </h3>
+        <div>
+          <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
+            <Github size={20} className="text-primary" />
+            {lang === 'fr' ? 'Activité & Projets GitHub' : 'GitHub Activity & Projects'}
+          </h3>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            {lang === 'fr' ? 'Dépôts publics synchronisés en direct depuis GitHub API' : 'Live public repositories synced from GitHub API'}
+          </p>
+        </div>
+
         <motion.a
           href="https://github.com/Sohaib-Laarichi"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-          whileHover={{ scale: 1.05 }}
+          className="inline-flex items-center gap-2 text-xs font-bold rounded-lg border border-primary/30 bg-primary/10 px-3.5 py-2 text-primary hover:bg-primary/20 transition-colors shrink-0"
+          whileHover={{ scale: 1.04 }}
         >
-          <Github size={16} />
-          {lang === 'fr' ? 'Voir tous les projets' : 'View all projects'}
-          <ExternalLink size={14} />
+          <Github size={14} />
+          <span>@Sohaib-Laarichi</span>
+          <ExternalLink size={12} />
         </motion.a>
       </motion.div>
+
+      {/* GitHub Quick Stats Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="rounded-lg border border-border/70 bg-card/40 p-3 text-center">
+          <p className="text-xs font-bold uppercase text-muted-foreground">{lang === "fr" ? "Dépôts publics" : "Public Repos"}</p>
+          <p className="text-xl font-black text-primary mt-1">{repos.length}+</p>
+        </div>
+        <div className="rounded-lg border border-border/70 bg-card/40 p-3 text-center">
+          <p className="text-xs font-bold uppercase text-muted-foreground">Stack Majoritaire</p>
+          <p className="text-sm font-bold text-sky-400 mt-1">Java & TypeScript</p>
+        </div>
+        <div className="rounded-lg border border-border/70 bg-card/40 p-3 text-center">
+          <p className="text-xs font-bold uppercase text-muted-foreground">DevOps & Cloud</p>
+          <p className="text-sm font-bold text-emerald-400 mt-1">Docker & Azure</p>
+        </div>
+        <div className="rounded-lg border border-border/70 bg-card/40 p-3 text-center">
+          <p className="text-xs font-bold uppercase text-muted-foreground">HealthTech</p>
+          <p className="text-sm font-bold text-amber-400 mt-1">FHIR R4 / HL7</p>
+        </div>
+      </div>
 
       {/* Grille des repos */}
       <motion.div

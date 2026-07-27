@@ -7,21 +7,21 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 
 const statsContent = {
   fr: {
-    title: "Quelques chiffres",
+    title: "Repères professionnels",
     stats: [
-      { value: "5", label: "Années d'études", suffix: "ème" },
-      { value: "3", label: "Stages réalisés", suffix: "+" },
-      { value: "20", label: "Projets développés", suffix: "+" },
-      { value: "10", label: "Technologies maîtrisées", suffix: "+" },
+      { value: "5", label: "Expériences terrain", suffix: "" },
+      { value: "4", label: "Domaines : logiciel, cloud, systèmes et réseau", suffix: "" },
+      { value: "FR/EN", label: "Portfolio et communication bilingues", suffix: "" },
+      { value: "Oui", label: "Disponible immédiatement", suffix: "" },
     ],
   },
   en: {
-    title: "Some numbers",
+    title: "Professional highlights",
     stats: [
-      { value: "5", label: "Years of study", suffix: "th" },
-      { value: "3", label: "Internships completed", suffix: "+" },
-      { value: "20", label: "Projects developed", suffix: "+" },
-      { value: "10", label: "Technologies mastered", suffix: "+" },
+      { value: "5", label: "Hands-on experiences", suffix: "" },
+      { value: "4", label: "Domains: software, cloud, systems and networks", suffix: "" },
+      { value: "FR/EN", label: "Bilingual portfolio and communication", suffix: "" },
+      { value: "Yes", label: "Available immediately", suffix: "" },
     ],
   },
 }
@@ -71,7 +71,7 @@ export default function Stats() {
               key={index}
               className="relative group"
               variants={statVariants}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ y: -3 }}
             >
               <div className="h-full rounded-lg border border-border/70 bg-card/55 p-5 text-left shadow-lg shadow-black/5 backdrop-blur transition-all duration-300 hover:border-primary/45 hover:bg-card/80 hover:shadow-primary/10">
                 {(() => {
@@ -83,10 +83,10 @@ export default function Stats() {
                   )
                 })()}
                 <motion.div
-                  className="text-4xl lg:text-5xl font-black text-primary mb-2"
-                  initial={{ scale: 0 }}
-                  animate={isVisible ? { scale: 1 } : { scale: 0 }}
-                  transition={{ delay: index * 0.2 + 0.5, duration: 0.5, type: "spring" }}
+                  className="text-3xl lg:text-4xl font-black text-primary mb-2"
+                  initial={{ opacity: 0 }}
+                  animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: index * 0.08 + 0.2, duration: 0.35 }}
                 >
                   {stat.value}
                   <span className="text-2xl lg:text-3xl">{stat.suffix}</span>

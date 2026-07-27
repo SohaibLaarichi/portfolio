@@ -5,7 +5,7 @@ export const heroContent = {
     phone: "Téléphone",
     email: "Email",
     description:
-      "Ingénieur en informatique diplômé de l'EMSI Marrakech, je conçois des applications web avec une vision système complète: interface, API, données, réseau, sécurité et déploiement. Mon avantage est de relier le développement full-stack à l'infrastructure, pour construire des solutions utiles, fiables et maintenables.",
+      "Je conçois des applications métier sécurisées, de l’interface React aux services Java/Spring Boot et au déploiement cloud. Mon profil relie développement, interopérabilité et infrastructure.",
   },
   en: {
     title: "Fullstack & DevOps Software Engineer",
@@ -13,7 +13,7 @@ export const heroContent = {
     phone: "Phone",
     email: "Email",
     description:
-      "Computer science engineer graduated from EMSI Marrakech, I design web applications with a complete systems view: interface, API, data, network, security, and deployment. My edge is connecting full-stack development with infrastructure to build useful, reliable, and maintainable solutions.",
+      "I build secure business applications, from React interfaces to Java/Spring Boot services and cloud delivery. My profile connects software development, interoperability and infrastructure.",
   },
 }
 
@@ -21,17 +21,15 @@ export const aboutContent = {
   fr: {
     title: "À propos de moi",
     paragraphs: [
-      "Je suis un ingénieur en informatique option MIAGE diplômé de l'EMSI Marrakech, avec une double compétence en développement logiciel et ingénierie DevOps. Spécialisé dans la stack Java/Spring Boot et les architectures microservices cloud-native, j'ai acquis une solide expertise à travers plusieurs projets d'envergure, notamment dans le secteur de la HealthTech (normes FHIR).",
-      "Au cours de ma formation, j'ai développé une curiosité technique prononcée et une capacité à maîtriser rapidement de nouvelles technologies. Mes expériences variées en tant que stagiaire développeur, stagiaire systèmes et stagiaire réseaux m'ont permis d'acquérir une compréhension holistique de l'informatique : du frontend au backend, en passant par l'infrastructure, la sécurité et le déploiement continu.",
-      "Je valorise le travail en équipe, la résolution de problèmes complexes et l'apprentissage continu. Je suis à la recherche d'une entreprise dynamique où je pourrai contribuer, apprendre et grandir en tant qu'ingénieur.",
+      "Ingénieur informatique option MIAGE diplômé de l’EMSI Marrakech, je combine développement Java/Spring Boot, interfaces React et pratiques DevOps. Mes projets en HealthTech m’ont aussi confronté aux standards FHIR, HL7 et DICOM.",
+      "Mes expériences en développement, systèmes et réseaux me permettent de raisonner sur toute la chaîne : interface, API, données, sécurité et déploiement. Je recherche une équipe où transformer cette polyvalence en produits fiables et utiles.",
     ],
   },
   en: {
     title: "About Me",
     paragraphs: [
-      "I am a computer science engineer specializing in MIAGE (graduate of EMSI Marrakech), with a dual competence in software development and DevOps engineering. Specializing in the Java/Spring Boot stack and cloud-native microservices architectures, I have built solid expertise through several major projects, notably in the HealthTech sector (FHIR standards).",
-      "During my studies, I have developed strong technical curiosity and the ability to quickly master new technologies. My varied experiences as a developer intern, systems intern, and network intern have given me a holistic understanding of IT: from frontend to backend, including infrastructure, security, and continuous deployment.",
-      "I value teamwork, solving complex problems, and continuous learning. I am seeking a dynamic company where I can contribute, learn, and grow as an engineer.",
+      "A MIAGE computer science engineering graduate from EMSI Marrakech, I combine Java/Spring Boot development, React interfaces and DevOps practices. My HealthTech projects also gave me hands-on exposure to FHIR, HL7 and DICOM.",
+      "Experience across software, systems and networks helps me reason about the full chain: interface, API, data, security and delivery. I am looking for a team where this versatility can become reliable, useful products.",
     ],
   },
 }
@@ -392,7 +390,7 @@ export const educationContent = {
 
 export const certificatesContent = {
   fr: {
-    title: "Certifications",
+    title: "Certifications & Diplômes",
     certificates: [
       {
         name: "Introduction to Java and Object-Oriented Programming",
@@ -439,7 +437,7 @@ export const certificatesContent = {
     ],
   },
   en: {
-    title: "Certificates",
+    title: "Certifications & Credentials",
     certificates: [
       {
         name: "Introduction to Java and Object-Oriented Programming",

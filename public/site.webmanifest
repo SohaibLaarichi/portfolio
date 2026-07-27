@@ -1,11 +1,21 @@
-site_name: "Sohaib LAARICHI Portfolio"
-icons:
-  - src: "/favicon.svg"
-    sizes: "any"
-    type: "image/svg+xml"
-  - src: "/favicon-16x16.svg" 
-    sizes: "16x16"
-    type: "image/svg+xml"
-  - src: "/apple-touch-icon.svg"
-    sizes: "180x180"
-    type: "image/svg+xml"
+{
+  "name": "Sohaib LAARICHI — Portfolio",
+  "short_name": "Sohaib",
+  "description": "Portfolio de Sohaib Laarichi, ingénieur logiciel Fullstack & DevOps.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#299ce1",
+  "background_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

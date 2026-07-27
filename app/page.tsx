@@ -3,7 +3,9 @@
 import Link from "next/link"
 import { useLanguage } from "@/hooks/use-language"
 import Hero from "@/components/hero"
+import DevOpsTerminal from "@/components/devops-terminal"
 import EngineeringBlueprint from "@/components/engineering-blueprint"
+import HealthTechFlow from "@/components/healthtech-flow"
 import Stats from "@/components/stats"
 import About from "@/components/about"
 import Skills from "@/components/skills"
@@ -41,7 +43,7 @@ export default function Home() {
       setScrollProgress(Math.min(progress, 100))
       
       // Détecter la section active
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education', 'certificates', 'volunteering', 'contact']
+      const sections = ['hero', 'projects', 'experience', 'skills', 'about', 'education', 'certificates', 'volunteering', 'contact']
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -72,11 +74,10 @@ export default function Home() {
 
   const navigationItems = [
     { id: "hero", label: lang === "fr" ? "Accueil" : "Home" },
-    { id: "about", label: lang === "fr" ? "À propos" : "About" },
-    { id: "skills", label: lang === "fr" ? "Compétences" : "Skills" },
-    { id: "experience", label: lang === "fr" ? "Expérience" : "Experience" },
     { id: "projects", label: lang === "fr" ? "Études de cas" : "Case studies" },
-    { id: "education", label: lang === "fr" ? "Éducation" : "Education" },
+    { id: "experience", label: lang === "fr" ? "Expérience" : "Experience" },
+    { id: "skills", label: lang === "fr" ? "Compétences" : "Skills" },
+    { id: "about", label: lang === "fr" ? "À propos" : "About" },
     { id: "contact", label: lang === "fr" ? "Contact" : "Contact" },
   ]
 
@@ -234,21 +235,23 @@ export default function Home() {
       {/* Sections */}
       <div id="hero">
         <Hero />
-      </div>
-      <EngineeringBlueprint />
-      <Stats />
-      <div id="about">
-        <About />
-      </div>
-      <div id="skills">
-        <Skills />
-      </div>
-      <div id="experience">
-        <Experience />
+        <DevOpsTerminal />
       </div>
       <div id="projects">
         <Projects />
       </div>
+      <Stats />
+      <div id="experience">
+        <Experience />
+      </div>
+      <div id="skills">
+        <Skills />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <EngineeringBlueprint />
+      <HealthTechFlow />
       <div id="education">
         <Education />
       </div>

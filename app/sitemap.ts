@@ -4,9 +4,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://www.sohaiblaarichi.tech",
-      lastModified: new Date("2026-07-25"),
-      changeFrequency: "monthly",
-      priority: 1,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
   ]
 }

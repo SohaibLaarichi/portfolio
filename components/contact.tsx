@@ -5,7 +5,9 @@ import { contactContent } from "@/lib/content"
 import SectionTitle from "./section-title"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { motion } from "framer-motion"
-import { Mail, Github, Linkedin } from "lucide-react"
+import { Mail, Phone } from "lucide-react"
+import { FaLinkedinIn } from "react-icons/fa6"
+import { SiGithub, SiGmail } from "react-icons/si"
 import { useState } from "react"
 
 export default function Contact() {
@@ -106,15 +108,13 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row gap-4">
             {/* Gmail direct - Bouton principal */}
             <motion.a
-              href={`https://mail.google.com/mail/?view=cm&fs=1&to=sohaiblaarichi112@gmail.com&su=${encodeURIComponent("Opportunité de collaboration - Sohaib LAARICHI")}&body=${encodeURIComponent("Bonjour Sohaib,\n\nJe vous contacte concernant une opportunité de collaboration.\n\nCordialement")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              href="mailto:sohaiblaarichi112@gmail.com?subject=Opportunité%20de%20collaboration%20-%20Sohaib%20LAARICHI"
+              className="inline-flex items-center justify-center gap-3 rounded-lg bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-lg shadow-primary/15 hover:bg-primary/90"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
             >
-              <Mail size={20} />
+              <SiGmail aria-hidden="true" size={20} />
               {content.cta}
               <motion.span initial={{ x: 0 }} whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 →
@@ -124,12 +124,13 @@ export default function Contact() {
             {/* Téléphone */}
             <motion.a
               href="tel:+212701820101"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center gap-3 rounded-lg border border-border bg-card px-7 py-3.5 font-semibold text-foreground hover:border-primary/40 hover:bg-secondary"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
             >
-              📞 +212 701-820101
+              <Phone aria-hidden="true" size={20} />
+              +212 701-820101
             </motion.a>
           </div>
         </motion.div>
@@ -147,11 +148,11 @@ export default function Contact() {
               href="https://github.com/Sohaib-Laarichi"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 text-white transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-3 font-medium text-foreground hover:border-primary/40 hover:bg-secondary"
               variants={itemVariants}
               whileHover={socialIconVariants}
             >
-              <Github size={20} />
+              <SiGithub aria-hidden="true" size={20} />
               GitHub
             </motion.a>
 
@@ -159,17 +160,17 @@ export default function Contact() {
               href="https://www.linkedin.com/in/laarichi-sohaib"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-3 font-medium text-foreground hover:border-primary/40 hover:bg-secondary"
               variants={itemVariants}
               whileHover={socialIconVariants}
             >
-              <Linkedin size={20} />
+              <FaLinkedinIn aria-hidden="true" size={20} />
               LinkedIn
             </motion.a>
 
             <motion.button
               onClick={handleCopyEmail}
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-3 font-medium text-foreground hover:border-primary/40 hover:bg-secondary"
               variants={itemVariants}
               whileHover={socialIconVariants}
             >
