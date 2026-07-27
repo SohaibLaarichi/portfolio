@@ -143,7 +143,7 @@ export default function Hero() {
             >
               <motion.a
                 href="#projects"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_18px_50px_rgba(14,165,233,0.25)] hover:bg-primary/90"
+                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_18px_50px_rgba(14,165,233,0.25)] hover:bg-primary/90"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
               >
@@ -154,7 +154,7 @@ export default function Hero() {
               <motion.button
                 onClick={() => setIsPdfOpen(true)}
                 type="button"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
+                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
               >
@@ -167,7 +167,7 @@ export default function Hero() {
                 download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
+                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
               >
@@ -178,7 +178,7 @@ export default function Hero() {
               <motion.button
                 onClick={handleCopyEmail}
                 type="button"
-                className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
                 aria-label="Copier l'adresse email"
