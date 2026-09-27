@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Linkedin, Github, Heart } from "lucide-react"
 
 const footerContent = {
   fr: {
-    description: "Développeur web full-stack passionné, étudiant en 5ème année d'ingénierie à l'EMSI Marrakech.",
+    description: "Ingénieur d’État en Informatique (EMSI Marrakech – MIAGE), spécialisé en développement Full Stack et ingénierie DevOps.",
     quickLinks: {
       title: "Liens rapides",
       links: [
@@ -36,7 +36,7 @@ const footerContent = {
     technologies: "Next.js, TypeScript, Tailwind CSS & Framer Motion"
   },
   en: {
-    description: "Passionate full-stack web developer, 5th year engineering student at EMSI Marrakech.",
+    description: "State Graduate Computer Engineer (EMSI Marrakech – MIAGE), specialized in Full Stack software development and DevOps engineering.",
     quickLinks: {
       title: "Quick links",
       links: [

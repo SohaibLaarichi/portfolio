@@ -11,9 +11,9 @@ import { Toaster } from "@/components/ui/sonner"
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const siteUrl = "https://www.sohaiblaarichi.tech"
-const siteTitle = "Sohaib Laarichi | Ingénieur Informatique, Fullstack & DevOps à Marrakech"
+const siteTitle = "Sohaib Laarichi | Ingénieur d’État en Informatique – Full Stack & DevOps"
 const siteDescription =
-  "Portfolio officiel de Sohaib Laarichi, Ingénieur Informatique diplômé de l'EMSI Marrakech (MIAGE). Spécialiste Fullstack (Java, Spring Boot, React, Next.js), DevOps & Cloud (Docker, Azure) et HealthTech (FHIR, HL7)."
+  "Portfolio officiel de Sohaib Laarichi, Ingénieur d’État en Informatique diplômé de l'EMSI Marrakech (MIAGE). Spécialiste Full Stack (Java, Spring Boot, React, Next.js), DevOps (Docker, Kubernetes, CI/CD) et HealthTech (FHIR R4, ASTM)."
 
 export const metadata: Metadata = {
   title: siteTitle,

@@ -1,19 +1,19 @@
 export const heroContent = {
   fr: {
-    title: "Ingénieur Logiciel Fullstack & DevOps",
-    location: "Localisation",
-    phone: "Téléphone",
-    email: "Email",
+    title: "Ingénieur d’État en Informatique – Full Stack & DevOps",
+    location: "Marrakech, Maroc",
+    phone: "07 01 82 01 01",
+    email: "sohaiblaarichi112@gmail.com",
     description:
-      "Je conçois des applications métier sécurisées, de l’interface React aux services Java/Spring Boot et au déploiement cloud. Mon profil relie développement, interopérabilité et infrastructure.",
+      "Ingénieur d’État en Informatique polyvalent, maîtrisant le développement web Full Stack (écosystèmes JavaScript/TypeScript et Java/Spring Boot) et l’ingénierie DevOps (CI/CD, Docker, Kubernetes). Habitué à concevoir des architectures microservices, à développer des API REST sécurisées et à fiabiliser les déploiements cloud. J’interviens sur l’ensemble du cycle de vie des applications logicielles, de l’analyse des besoins métiers jusqu’à la mise en production.",
   },
   en: {
-    title: "Fullstack & DevOps Software Engineer",
-    location: "Location",
-    phone: "Phone",
-    email: "Email",
+    title: "State Graduate Computer Engineer – Full Stack & DevOps",
+    location: "Marrakech, Morocco",
+    phone: "07 01 82 01 01",
+    email: "sohaiblaarichi112@gmail.com",
     description:
-      "I build secure business applications, from React interfaces to Java/Spring Boot services and cloud delivery. My profile connects software development, interoperability and infrastructure.",
+      "Versatile State Graduate Computer Engineer skilled in Full Stack web development (JavaScript/TypeScript and Java/Spring Boot ecosystems) and DevOps engineering (CI/CD, Docker, Kubernetes). Experienced in architecting microservices, developing secure RESTful APIs, and streamlining resilient cloud deployments across the end-to-end software lifecycle.",
   },
 }
 
@@ -21,15 +21,17 @@ export const aboutContent = {
   fr: {
     title: "À propos de moi",
     paragraphs: [
-      "Ingénieur informatique option MIAGE diplômé de l’EMSI Marrakech, je combine développement Java/Spring Boot, interfaces React et pratiques DevOps. Mes projets en HealthTech m’ont aussi confronté aux standards FHIR, HL7 et DICOM.",
-      "Mes expériences en développement, systèmes et réseaux me permettent de raisonner sur toute la chaîne : interface, API, données, sécurité et déploiement. Je recherche une équipe où transformer cette polyvalence en produits fiables et utiles.",
+      "Diplômé d’État en Ingénierie Informatique (Option MIAGE) de l’École Marocaine des Sciences de l’Ingénieur (EMSI Marrakech), je combine une double expertise en développement logiciel Full Stack (Java, Spring Boot, React, Next.js) et en ingénierie DevOps (Docker, Kubernetes, CI/CD, Helm).",
+      "Mon parcours a débuté par un socle rigoureux en Systèmes & Réseaux (BTS) puis une Licence en Informatique. Cette trajectoire me permet de maîtriser l'ensemble de l'infrastructure sous-jacente : segmentation VLAN Cisco, serveurs Linux et Windows Server, protocoles réseau et sécurité (ADDS/GPO), offrant une réelle assise technique à mes architectures Cloud-Native.",
+      "Engagé dans le secteur HealthTech à travers des systèmes d’information de laboratoire (FireLIS), j’ai une expérience concrète de l'implémentation de standards d'interopérabilité critiques tels que FHIR R4 et ASTM. Autonome et orienté solutions, je transforme les exigences métiers complexes en logiciels robustes, scalables et maintenables.",
     ],
   },
   en: {
     title: "About Me",
     paragraphs: [
-      "A MIAGE computer science engineering graduate from EMSI Marrakech, I combine Java/Spring Boot development, React interfaces and DevOps practices. My HealthTech projects also gave me hands-on exposure to FHIR, HL7 and DICOM.",
-      "Experience across software, systems and networks helps me reason about the full chain: interface, API, data, security and delivery. I am looking for a team where this versatility can become reliable, useful products.",
+      "Holding a State Degree in Computer Science Engineering (MIAGE option) from EMSI Marrakech, I bridge full-stack software development (Java, Spring Boot, React, Next.js) with DevOps engineering (Docker, Kubernetes, CI/CD, Helm).",
+      "My technical journey started with a solid foundation in IT Systems & Networks (BTS) followed by a Bachelor's in Computer Science. This enables me to reason across the full stack: Cisco VLAN segmentation, Linux and Windows Server environments, network protocols and security (ADDS/GPO), providing authentic depth to my cloud-native delivery.",
+      "Active in the HealthTech domain through laboratory information systems (FireLIS), I have practical experience integrating critical interoperability standards including FHIR R4 and ASTM. Autonomous and solution-oriented, I translate complex business requirements into robust, scalable, and maintainable software.",
     ],
   },
 }
@@ -39,34 +41,34 @@ export const skillsContent = {
     title: "Compétences techniques",
     categories: [
       {
-        name: "Frontend & Mobile",
-        description: "Technologies pour le développement d'interfaces utilisateur modernes et mobiles.",
-        skills: ["React", "Next.js 16", "TypeScript", "Flutter / Dart", "JavaScript", "Tailwind CSS", "Framer Motion"],
+        name: "Développement Back-end",
+        description: "Architectures microservices, logique métier et APIs haute performance.",
+        skills: ["Java", "Spring Boot", "Node.js", "Express.js", "APIs REST", "GraphQL", "JEE"],
       },
       {
-        name: "Backend",
-        description: "Frameworks et langages pour le développement côté serveur et APIs robustes.",
-        skills: ["Java", "Spring Boot", "Node.js", "Express.js", "JEE", "APIs REST"],
-      },
-      {
-        name: "Bases de données",
-        description: "Systèmes de gestion de bases de données relationnelles et non-relationnelles.",
-        skills: ["MongoDB", "MySQL", "Oracle", "PostgreSQL", "SQL Server"],
+        name: "Développement Front-end",
+        description: "Interfaces utilisateur interactives, modernes et applications mobiles.",
+        skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter", "JavaScript", "Framer Motion"],
       },
       {
         name: "DevOps & Cloud",
-        description: "Plateformes cloud, conteneurisation et intégration continue.",
-        skills: ["Docker", "Kubernetes", "Microsoft Azure (Certifié)", "CI/CD", "Git", "GitHub"],
+        description: "Conteneurisation, orchestration, automatisation CI/CD et déploiement.",
+        skills: ["Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Helm", "Git", "Notions AWS", "Microsoft Azure"],
+      },
+      {
+        name: "Bases de données",
+        description: "Modélisation relationnelle, documents, cache et optimisation des requêtes.",
+        skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Oracle"],
       },
       {
         name: "Systèmes & Réseaux",
-        description: "Administration système, gestion d'infrastructure et virtualisation.",
-        skills: ["Administration Linux", "Windows Server", "Virtualisation", "PowerShell", "ADDS", "GPO"],
+        description: "Infrastructures d'entreprise, sécurité réseau et administration.",
+        skills: ["Linux (Fedora, Zorin)", "Windows Server", "Cisco (VLAN, DHCP, DNS)", "Shell/PowerShell", "ADDS", "GPO"],
       },
       {
-        name: "Méthodologies & Outils",
-        description: "Approches pour la gestion de projets et modélisation logicielle.",
-        skills: ["Agile", "Scrum", "UML", "Postman", "Gestion de projet SI"],
+        name: "HealthTech & Interopérabilité",
+        description: "Standards médicaux, flux de laboratoire et intégration hospitalière.",
+        skills: ["FHIR R4", "ASTM", "HL7 v2", "DICOM", "Mirth Connect"],
       },
     ],
   },
@@ -74,34 +76,34 @@ export const skillsContent = {
     title: "Technical Skills",
     categories: [
       {
-        name: "Frontend & Mobile",
-        description: "Technologies for modern user interfaces and mobile development.",
-        skills: ["React", "Next.js 16", "TypeScript", "Flutter / Dart", "JavaScript", "Tailwind CSS", "Framer Motion"],
+        name: "Back-end Development",
+        description: "Microservices architectures, business logic, and high-performance APIs.",
+        skills: ["Java", "Spring Boot", "Node.js", "Express.js", "REST APIs", "GraphQL", "JEE"],
       },
       {
-        name: "Backend",
-        description: "Frameworks and languages for server-side development and robust APIs.",
-        skills: ["Java", "Spring Boot", "Node.js", "Express.js", "JEE", "REST APIs"],
-      },
-      {
-        name: "Databases",
-        description: "Relational and non-relational database management systems.",
-        skills: ["MongoDB", "MySQL", "Oracle", "PostgreSQL", "SQL Server"],
+        name: "Front-end Development",
+        description: "Interactive, modern user interfaces and mobile applications.",
+        skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter", "JavaScript", "Framer Motion"],
       },
       {
         name: "DevOps & Cloud",
-        description: "Cloud platforms, containerization, and continuous integration.",
-        skills: ["Docker", "Kubernetes", "Microsoft Azure (Certified)", "CI/CD", "Git", "GitHub"],
+        description: "Containerization, orchestration, CI/CD automation, and deployment.",
+        skills: ["Docker", "Kubernetes", "CI/CD", "GitHub Actions", "Helm", "Git", "AWS basics", "Microsoft Azure"],
+      },
+      {
+        name: "Databases",
+        description: "Relational modeling, document stores, in-memory caching, and query tuning.",
+        skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Oracle"],
       },
       {
         name: "Systems & Networks",
-        description: "System administration, infrastructure management, and virtualization.",
-        skills: ["Linux Administration", "Windows Server", "Virtualization", "PowerShell", "ADDS", "GPO"],
+        description: "Enterprise infrastructure, network security, and systems administration.",
+        skills: ["Linux (Fedora, Zorin)", "Windows Server", "Cisco (VLAN, DHCP, DNS)", "Shell/PowerShell", "ADDS", "GPO"],
       },
       {
-        name: "Methodologies & Tools",
-        description: "Approaches for project management and software modeling.",
-        skills: ["Agile", "Scrum", "UML", "Postman", "IS Project Management"],
+        name: "HealthTech & Interoperability",
+        description: "Healthcare standards, laboratory workflows, and clinical integration.",
+        skills: ["FHIR R4", "ASTM", "HL7 v2", "DICOM", "Mirth Connect"],
       },
     ],
   },
@@ -112,73 +114,55 @@ export const experienceContent = {
     title: "Expériences professionnelles",
     experiences: [
       {
-        position: "Ingénieur Logiciel Fullstack (Stage de fin d'études)",
-        company: "FireThunder",
-        duration: "Février 2026 - Présent",
+        position: "Ingénieur Logiciel Full Stack & DevOps (Stage de fin d’études)",
+        company: "FireThunder, Casablanca",
+        duration: "Février 2026 – Août 2026",
         description:
-          "Conception et développement sur le système d'information de laboratoire (LIS) FireLIS/OpenELIS, en réponse aux enjeux de modernisation de la santé.",
+          "Conception et développement full stack de nouvelles fonctionnalités critiques pour le système d’information de laboratoire FireLIS.",
         tasks: [
-          "Réalisation de processus de reverse engineering et catalogage exhaustif des API selon les standards d'interopérabilité FHIR.",
-          "Implémentation de nouvelles fonctionnalités fullstack et optimisation de l'architecture logicielle existante.",
-          "Collaboration au sein d'une architecture orientée services et amélioration des workflows DevOps.",
+          "Mise en place d’une architecture backend robuste avec Spring Boot et optimisation des requêtes complexes sur PostgreSQL.",
+          "Conteneurisation (Docker) et orchestration (Kubernetes) des services pour garantir la scalabilité et la haute disponibilité.",
+          "Intégration et validation des flux d'interopérabilité conformes aux standards de santé FHIR R4 et protocoles d'automates ASTM.",
+          "Collaboration étroite avec l’équipe produit pour l’analyse des besoins techniques, la résolution de bugs et l’amélioration de l’UX.",
         ],
-        stack: ["Java", "Spring Boot", "React", "FHIR", "CI/CD", "Docker"],
+        stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "FHIR R4", "CI/CD"],
       },
       {
-        position: "Stagiaire Développeur",
+        position: "Développeur Web Full Stack (Stage)",
         company: "HA Groupe, Marrakech",
-        duration: "Juillet 2025 - Août 2025",
+        duration: "Juillet 2025 – Septembre 2025",
         description:
-          "Développement de la plateforme Mkhademia, une plateforme full-stack de mise en relation entre freelances et entreprises.",
+          "Développement de bout en bout de la plateforme Mikhamdina, dédiée à la mise en relation entre freelances et entreprises.",
         tasks: [
-          "Conception et développement de fonctionnalités frontend et backend",
-          "Intégration des services frontend/backend",
-          "Tests et optimisation des performances",
-          "Gestion de la base de données MongoDB",
+          "Création d’une architecture moderne et réactive utilisant la stack MERN : Node.js, Next.js (React), Tailwind CSS et MongoDB.",
+          "Conception des API REST sécurisées pour la gestion des profils, candidatures et missions freelances.",
+          "Optimisation des performances de rendu et structuration des schémas de données NoSQL.",
         ],
-        stack: ["Node.js", "Next.js", "MongoDB", "Tailwind CSS", "GitHub"],
+        stack: ["Node.js", "Next.js", "React", "Tailwind CSS", "MongoDB", "MERN"],
       },
       {
-        position: "Stagiaire Développeur",
+        position: "Développeur Logiciel (Stage)",
         company: "Phone Dreams, Marrakech",
-        duration: "Juillet 2024 - Septembre 2024",
-        description: "Développement d'une application desktop de gestion des clients avec authentification sécurisée.",
+        duration: "Juillet 2024 – Septembre 2024",
+        description:
+          "Conception d’une application desktop de gestion centralisée des clients, optimisant le suivi et la facturation commerciale.",
         tasks: [
-          "Conception du module de gestion des clients",
-          "Implémentation de l'authentification JWT",
-          "Développement des formulaires et interfaces",
-          "Connexion à la base de données MySQL",
-          "Génération de rapports",
+          "Développement applicatif en Java SE/EE avec interface ergonomique et persistance des données sous MySQL.",
+          "Implémentation des modules d'authentification sécurisée, suivi de facturation et édition de rapports de gestion.",
         ],
-        stack: ["Java SE/EE", "MySQL", "JDBC", "JWT", "Swing"],
+        stack: ["Java SE/EE", "MySQL", "JDBC", "Desktop UI", "Reporting"],
       },
       {
-        position: "Stagiaire Systèmes",
-        company: "Phone Dreams, Marrakech",
-        duration: "Juillet 2023 - Août 2023",
-        description: "Mise en place d'une infrastructure ADDS pour la gestion centralisée des utilisateurs.",
+        position: "Technicien Systèmes et Réseaux (Stages cumulés)",
+        company: "CHU Marrakech & Phone Dreams, Marrakech",
+        duration: "2022 – 2023",
+        description:
+          "Déploiement d’infrastructures ADDS et configuration de réseaux VLAN sécurisés sur équipements Cisco.",
         tasks: [
-          "Configuration et déploiement de Windows Server 2019",
-          "Mise en place des services Active Directory (ADDS)",
-          "Gestion des Stratégies de Groupe (GPO)",
-          "Création et gestion des comptes utilisateurs",
-          "Sécurisation des accès réseau",
+          "Segmentation réseau en VLANs sécurisés et configuration de switches/routeurs Cisco (DHCP, DNS, QoS).",
+          "Déploiement de contrôleurs de domaine Active Directory (ADDS) et déploiement de stratégies de groupe (GPO) sous Windows Server.",
         ],
-        stack: ["Windows Server 2019", "Active Directory", "GPO", "PowerShell"],
-      },
-      {
-        position: "Stagiaire Réseau & Systèmes",
-        company: "CHU Marrakech",
-        duration: "Juillet 2022 - Août 2022",
-        description: "Implémentation d'un réseau VLAN sécurisé pour optimiser la segmentation réseau.",
-        tasks: [
-          "Segmentation du réseau en VLANs",
-          "Configuration de routeurs et commutateurs Cisco",
-          "Configuration DHCP et DNS",
-          "Amélioration de la sécurité réseau",
-          "Optimisation de la qualité de service (QoS)",
-        ],
-        stack: ["Cisco IOS", "VLAN", "DHCP", "DNS", "Routeurs & Switches"],
+        stack: ["Cisco IOS", "VLAN", "Windows Server", "Active Directory (ADDS)", "DHCP/DNS", "Linux"],
       },
     ],
   },
@@ -186,72 +170,55 @@ export const experienceContent = {
     title: "Professional Experience",
     experiences: [
       {
-        position: "Fullstack Software Engineer (Graduation Internship)",
-        company: "FireThunder",
-        duration: "February 2026 - Present",
+        position: "Full Stack & DevOps Software Engineer (Graduation Internship)",
+        company: "FireThunder, Casablanca",
+        duration: "February 2026 – August 2026",
         description:
-          "Design and development on the FireLIS/OpenELIS laboratory information system (LIS), addressing health modernization challenges.",
+          "Full stack design and development of critical features for the FireLIS laboratory information system.",
         tasks: [
-          "Performed reverse engineering and comprehensive mapping of APIs according to FHIR interoperability standards.",
-          "Implemented new fullstack features and optimized the existing software architecture.",
-          "Collaborated within a service-oriented architecture and improved DevOps workflows.",
+          "Engineered a robust Spring Boot backend architecture and optimized complex queries on PostgreSQL.",
+          "Containerized services with Docker and orchestrated deployments on Kubernetes to ensure high availability and scalability.",
+          "Integrated and validated healthcare interoperability flows compliant with FHIR R4 standards and ASTM laboratory analyzer protocols.",
+          "Close collaboration with the product team on technical requirements, bug resolution, and UX enhancement.",
         ],
-        stack: ["Java", "Spring Boot", "React", "FHIR", "CI/CD", "Docker"],
+        stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "FHIR R4", "CI/CD"],
       },
       {
-        position: "Developer Intern",
+        position: "Full Stack Web Developer (Internship)",
         company: "HA Groupe, Marrakech",
-        duration: "July 2025 - August 2025",
-        description: "Development of the Mkhademia platform, a full-stack platform connecting freelancers and companies.",
+        duration: "July 2025 – September 2025",
+        description:
+          "End-to-end development of the Mikhamdina platform, connecting freelancers with enterprises.",
         tasks: [
-          "Design and development of frontend and backend features",
-          "Integration of frontend/backend services",
-          "Testing and performance optimization",
-          "MongoDB database management",
+          "Built a modern, reactive architecture using the MERN stack: Node.js, Next.js (React), Tailwind CSS, and MongoDB.",
+          "Implemented secure REST APIs for profile management, mission applications, and communication.",
+          "Optimized rendering performance and designed flexible NoSQL document schemas.",
         ],
-        stack: ["Node.js", "Next.js", "MongoDB", "Tailwind CSS", "GitHub"],
+        stack: ["Node.js", "Next.js", "React", "Tailwind CSS", "MongoDB", "MERN"],
       },
       {
-        position: "Developer Intern",
+        position: "Software Developer (Internship)",
         company: "Phone Dreams, Marrakech",
-        duration: "July 2024 - September 2024",
-        description: "Development of a desktop client management application with secure authentication.",
+        duration: "July 2024 – September 2024",
+        description:
+          "Design of a centralized client management desktop application, optimizing billing and client tracking.",
         tasks: [
-          "Design of client management module",
-          "JWT authentication implementation",
-          "Forms and UI development",
-          "MySQL database connection",
-          "Report generation",
+          "Developed modular Java SE/EE application with intuitive UI and MySQL database persistence.",
+          "Implemented authentication security, invoice generation, and commercial reporting features.",
         ],
-        stack: ["Java SE/EE", "MySQL", "JDBC", "JWT", "Swing"],
+        stack: ["Java SE/EE", "MySQL", "JDBC", "Desktop UI", "Reporting"],
       },
       {
-        position: "Systems Intern",
-        company: "Phone Dreams, Marrakech",
-        duration: "July 2023 - August 2023",
-        description: "Setup of an ADDS infrastructure for centralized user management.",
+        position: "Systems and Network Technician (Cumulative Internships)",
+        company: "CHU Marrakech & Phone Dreams, Marrakech",
+        duration: "2022 – 2023",
+        description:
+          "Deployment of ADDS infrastructures and configuration of secure VLAN networks on Cisco equipment.",
         tasks: [
-          "Windows Server 2019 configuration and deployment",
-          "Active Directory (ADDS) services setup",
-          "Group Policy (GPO) management",
-          "User account creation and management",
-          "Network access security",
+          "Network segmentation into secure VLANs and configuration of Cisco switches/routers (DHCP, DNS, QoS).",
+          "Deployment of Active Directory Domain Services (ADDS) and Group Policy Objects (GPO) under Windows Server.",
         ],
-        stack: ["Windows Server 2019", "Active Directory", "GPO", "PowerShell"],
-      },
-      {
-        position: "Network & Systems Intern",
-        company: "CHU Marrakech",
-        duration: "July 2022 - August 2022",
-        description: "Implementation of a secure VLAN network for optimized network segmentation.",
-        tasks: [
-          "Network segmentation into VLANs",
-          "Cisco routers and switches configuration",
-          "DHCP and DNS setup",
-          "Network security improvement",
-          "Quality of Service (QoS) optimization",
-        ],
-        stack: ["Cisco IOS", "VLAN", "DHCP", "DNS", "Routers & Switches"],
+        stack: ["Cisco IOS", "VLAN", "Windows Server", "Active Directory (ADDS)", "DHCP/DNS", "Linux"],
       },
     ],
   },
@@ -262,30 +229,39 @@ export const projectsContent = {
     title: "Projets clés",
     projects: [
       {
-        name: "FireLIS / OpenELIS (HealthTech)",
+        name: "Soukara (Web App)",
         description:
-          "Analyse, reverse engineering et catalogage d'API selon les standards d'interopérabilité de santé (FHIR) pour un Système d'Information de Laboratoire open-source.",
-        stack: ["Java", "Spring Boot", "FHIR", "REST API", "Docker"],
+          "Plateforme e-commerce full stack conteneurisée (Next.js, Spring Boot, PostgreSQL) avec panel d'administration et gestion complète du cycle de vie utilisateur et commandes.",
+        stack: ["Next.js", "Spring Boot", "PostgreSQL", "Docker", "Tailwind CSS"],
+      },
+      {
+        name: "FireLIS (HealthTech)",
+        description:
+          "Système d'information de laboratoire avec intégration de standards d'interopérabilité (FHIR R4, ASTM) et fiabilisation des processus d'échange de données médicales.",
+        stack: ["Java", "Spring Boot", "FHIR R4", "ASTM", "Docker", "Kubernetes"],
+      },
+      {
+        name: "freelancesTech (Mikhamdina)",
+        description:
+          "Application digitale évolutive pour freelances et entreprises développée sous architecture MERN (Next.js, Node.js, MongoDB).",
+        stack: ["Next.js", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
       },
       {
         name: "PharmaLive",
-        description: "Développement d'un SI complet de gestion de pharmacie (Java, MySQL) intégrant le contrôle des stocks et la gestion des rôles utilisateurs.",
-        stack: ["Java", "MySQL", "Spring Boot"],
+        description:
+          "Développement d'un SI complet de gestion de pharmacie (Java, MySQL, Spring Boot) intégrant le contrôle des stocks, facturation PDF et contrôle d'accès RBAC.",
+        stack: ["Java", "MySQL", "Spring Boot", "iText PDF", "BCrypt"],
       },
       {
         name: "Architecture Réseau d'Entreprise",
-        description: "Déploiement virtuel d'une infrastructure pour 100 utilisateurs avec Active Directory, DHCP, et DNS sous Windows Server.",
-        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualisation"],
-      },
-      {
-        name: "Portfolio - Next.js 16",
         description:
-          "Portfolio moderne avec SSR, support i18n, et focus sur la performance UI et l'expérience utilisateur.",
-        stack: ["Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion"],
+          "Déploiement virtuel d'une infrastructure pour 100 utilisateurs avec Active Directory (ADDS), DHCP, DNS sous Windows Server et segmentation VLAN Cisco.",
+        stack: ["Windows Server", "Active Directory", "VLAN Cisco", "DHCP/DNS", "Virtualisation"],
       },
       {
         name: "Student Management API",
-        description: "API REST complète avec opérations CRUD, documentation Swagger et déploiement Docker.",
+        description:
+          "API RESTful complète documentée avec Swagger OpenAPI, sécurisée par JWT, persistée avec Spring Data JPA et conteneurisée pour déploiement Docker.",
         stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
       },
     ],
@@ -294,28 +270,39 @@ export const projectsContent = {
     title: "Key Projects",
     projects: [
       {
-        name: "FireLIS / OpenELIS (HealthTech)",
-        description: "Analysis, reverse engineering, and API mapping using health interoperability standards (FHIR) for an open-source Laboratory Information System.",
-        stack: ["Java", "Spring Boot", "FHIR", "REST API", "Docker"],
+        name: "Soukara (Web App)",
+        description:
+          "Containerized full-stack e-commerce platform (Next.js, Spring Boot, PostgreSQL) featuring an admin dashboard and end-to-end user and order lifecycle management.",
+        stack: ["Next.js", "Spring Boot", "PostgreSQL", "Docker", "Tailwind CSS"],
+      },
+      {
+        name: "FireLIS (HealthTech)",
+        description:
+          "Laboratory information system integrating health interoperability standards (FHIR R4, ASTM) and securing data exchange workflows.",
+        stack: ["Java", "Spring Boot", "FHIR R4", "ASTM", "Docker", "Kubernetes"],
+      },
+      {
+        name: "freelancesTech (Mikhamdina)",
+        description:
+          "Scalable digital platform connecting freelancers and enterprises built with MERN architecture (Next.js, Node.js, MongoDB).",
+        stack: ["Next.js", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
       },
       {
         name: "PharmaLive",
-        description: "Development of a comprehensive pharmacy management IS (Java, MySQL) integrating stock control and user role management.",
-        stack: ["Java", "MySQL", "Spring Boot"],
+        description:
+          "Comprehensive pharmacy management IS (Java, MySQL, Spring Boot) integrating inventory management, PDF billing, and RBAC authentication.",
+        stack: ["Java", "MySQL", "Spring Boot", "iText PDF", "BCrypt"],
       },
       {
         name: "Enterprise Network Architecture",
-        description: "Virtual deployment of an infrastructure for 100 users with Active Directory, DHCP, and DNS under Windows Server.",
-        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualization"],
-      },
-      {
-        name: "Portfolio - Next.js 16",
-        description: "Modern portfolio with SSR, i18n support, and focus on UI performance and UX.",
-        stack: ["Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        description:
+          "Virtual deployment of an enterprise infrastructure for 100 users with Active Directory (ADDS), DHCP, DNS under Windows Server, and Cisco VLANs.",
+        stack: ["Windows Server", "Active Directory", "Cisco VLAN", "DHCP/DNS", "Virtualization"],
       },
       {
         name: "Student Management API",
-        description: "Complete REST API with CRUD operations, Swagger documentation and Docker deployment.",
+        description:
+          "RESTful API documented with Swagger OpenAPI, secured via JWT, persisted with Spring Data JPA, and containerized with Docker.",
         stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
       },
     ],
@@ -327,31 +314,24 @@ export const educationContent = {
     title: "Formation",
     education: [
       {
-        degree: "Cycle d'ingénieur en informatique - Option MIAGE",
-        institution: "EMSI Marrakech",
-        period: "2024 - Présent",
+        degree: "Diplôme d'Ingénieur d’État en Informatique - Option MIAGE",
+        institution: "École Marocaine des Sciences de l’Ingénieur (EMSI), Marrakech",
+        period: "2024 – 2026",
         description:
-          "Apprentissage orienté systèmes d'information, développement logiciel et gestion de projets informatiques avec focus sur les architectures et technologies modernes.",
+          "Formation d’ingénieur d’État axée sur les systèmes d’information, le génie logiciel full stack (Java/Spring Boot, JavaScript/TypeScript), le cloud computing et les pratiques DevOps.",
       },
       {
-        degree: "Licence en Informatique",
-        institution: "Université Privée de Marrakech",
-        period: "2023 - 2024",
+        degree: "Licence en Informatique & BTS Systèmes et Réseaux",
+        institution: "Université Privée de Marrakech (UPM) / Lycée Qualifiant Mohamed V",
+        period: "2021 – 2024",
         description:
-          "Formation générale en informatique couvrant les fondamentaux de la programmation, des bases de données et des systèmes informatiques.",
-      },
-      {
-        degree: "BTS en Systèmes et Réseaux Informatiques",
-        institution: "Lycée Qualifiant Mohamed V, Essaouira",
-        period: "2021 - 2023",
-        description:
-          "Formation spécialisée en systèmes informatiques, réseaux, administration de serveurs et infrastructure informatique.",
+          "Double cursus combinant les fondamentaux du développement informatique (algorithmique, POO, bases de données) et l’administration des réseaux et systèmes d’entreprise (Cisco, Linux, Windows Server).",
       },
       {
         degree: "Baccalauréat Sciences et Technologies Électriques",
         institution: "Lycée Qualifiant Mohamed VI, Marrakech",
         period: "2021",
-        description: "Formation secondaire avec orientation sciences et technologies.",
+        description: "Formation secondaire technique avec orientation sciences de l'ingénieur et technologies.",
       },
     ],
   },
@@ -359,30 +339,24 @@ export const educationContent = {
     title: "Education",
     education: [
       {
-        degree: "Engineering Degree in Computer Science - MIAGE Option",
-        institution: "EMSI Marrakech",
-        period: "2024 - Present",
+        degree: "State Computer Science Engineering Degree - MIAGE Option",
+        institution: "Moroccan School of Engineering Sciences (EMSI), Marrakech",
+        period: "2024 – 2026",
         description:
-          "Learning focused on information systems, software development and IT project management with emphasis on modern architectures and technologies.",
+          "State engineering program focused on enterprise information systems, full-stack software engineering (Java/Spring Boot, JS/TS), cloud computing, and DevOps engineering.",
       },
       {
-        degree: "Bachelor's Degree in Computer Science",
-        institution: "Private University of Marrakech",
-        period: "2023 - 2024",
+        degree: "Bachelor's in Computer Science & BTS in Systems & Networks",
+        institution: "Private University of Marrakech (UPM) / Mohamed V Qualified High School",
+        period: "2021 – 2024",
         description:
-          "General computer science training covering programming fundamentals, databases and computer systems.",
+          "Combined academic background bridging computer science foundations (OOP, databases, software design) and hands-on systems & networking administration (Cisco, Linux, Windows Server).",
       },
       {
-        degree: "BTS in IT Systems and Networks",
-        institution: "Mohamed V Qualified High School, Essaouira",
-        period: "2021 - 2023",
-        description: "Specialized training in IT systems, networks, server administration and IT infrastructure.",
-      },
-      {
-        degree: "Baccalaureate in Electrical Sciences and Technologies",
+        degree: "Baccalaureate in Electrical Sciences & Technologies",
         institution: "Mohamed VI Qualified High School, Marrakech",
         period: "2021",
-        description: "Secondary education with science and technology focus.",
+        description: "Secondary technical education with an emphasis on engineering sciences and technologies.",
       },
     ],
   },
@@ -532,14 +506,14 @@ export const contactContent = {
   fr: {
     title: "Prendre contact",
     message:
-      "Vous cherchez un développeur web full-stack motivé et autonome pour rejoindre votre équipe ? Je serais enchanté de discuter de comment je peux contribuer à vos projets. N'hésitez pas à me contacter pour un emploi ou une simple conversation.",
+      "Vous recherchez un Ingénieur d’État en Informatique – Full Stack & DevOps rigoureux, autonome et force de proposition ? Je suis disponible immédiatement pour échanger sur vos projets, une mission ou un poste en CDI (Maroc ou Remote).",
     cta: "M'envoyer un email",
-    socials: "Connectez-vous avec moi sur les réseaux:",
+    socials: "Connectez-vous avec moi sur les réseaux :",
   },
   en: {
     title: "Get in Touch",
     message:
-      "Looking for a motivated and autonomous full-stack web developer to join your team? I would be delighted to discuss how I can contribute to your projects. Feel free to contact me for a job opportunity or a simple conversation.",
+      "Looking for a rigorous, autonomous Full Stack & DevOps Software Engineer to strengthen your technical team? I am immediately available to discuss your projects, consulting missions, or full-time roles (Morocco or Remote).",
     cta: "Send me an email",
     socials: "Connect with me on social networks:",
   },

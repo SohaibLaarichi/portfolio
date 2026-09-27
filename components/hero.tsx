@@ -7,6 +7,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { toast } from "sonner"
 import PdfViewerModal from "./pdf-viewer-modal"
+import { StatusWidget } from "@/components/ui/status-widget"
 import {
   Braces,
   Check,
@@ -47,9 +48,9 @@ export default function Hero() {
     { icon: Code2, label: "Full-stack" },
   ]
   const engineeringSignals = [
-    { icon: Braces, label: "Frontend", value: "React + Next.js" },
-    { icon: TerminalSquare, label: "Backend", value: "Node.js + Java" },
-    { icon: ShieldCheck, label: "Security", value: "JWT + NAC + ISO" },
+    { icon: Braces, label: "Full Stack", value: "Java / Spring + Next.js" },
+    { icon: TerminalSquare, label: "DevOps & Cloud", value: "Docker + Kubernetes" },
+    { icon: ShieldCheck, label: "HealthTech & Net", value: "FHIR R4 + Cisco VLAN" },
   ]
 
   return (
@@ -61,34 +62,25 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <motion.div
-              className="mb-5 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-bold text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-              </span>
-              {lang === "fr" ? "Disponible immédiatement pour CDI / Mission · Maroc ou Remote" : "Available immediately for Full-time / Freelance · Morocco or Remote"}
-            </motion.div>
+            <div className="mb-5">
+              <StatusWidget />
+            </div>
 
             <motion.h1
-              className="mb-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.96]"
+              className="mb-6 text-4xl sm:text-6xl lg:text-7xl font-black leading-[0.96] tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
               <span className="text-foreground">Sohaib</span>
               <br />
-              <span className="bg-gradient-to-r from-primary via-sky-300 to-emerald-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-500 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
                 LAARICHI
               </span>
             </motion.h1>
 
             <motion.h2
-              className="max-w-2xl text-2xl lg:text-3xl font-semibold text-foreground/80 mb-3"
+              className="max-w-2xl text-xl sm:text-2xl lg:text-3xl font-semibold text-foreground/85 mb-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -136,81 +128,85 @@ export default function Hero() {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-3 mb-8"
+              className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <motion.a
-                href="#projects"
-                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_18px_50px_rgba(14,165,233,0.25)] hover:bg-primary/90"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-              >
-                <FolderKanban size={18} />
-                {lang === "fr" ? "Voir mes projets" : "View my projects"}
-              </motion.a>
+              <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 flex-1">
+                <motion.a
+                  href="#projects"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_12px_32px_rgba(99,102,241,0.28)] hover:bg-primary/90"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <FolderKanban size={18} />
+                  {lang === "fr" ? "Voir mes projets" : "View my projects"}
+                </motion.a>
 
-              <motion.button
-                onClick={() => setIsPdfOpen(true)}
-                type="button"
-                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-              >
-                <Eye size={18} className="text-primary" />
-                <span>{lang === "fr" ? "Aperçu du CV" : "Preview Resume"}</span>
-              </motion.button>
+                <motion.button
+                  onClick={() => setIsPdfOpen(true)}
+                  type="button"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <Eye size={18} className="text-primary" />
+                  <span>{lang === "fr" ? "Aperçu du CV" : "Preview Resume"}</span>
+                </motion.button>
 
-              <motion.a
-                href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
-                download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-              >
-                <Download size={18} />
-                {lang === "fr" ? "Télécharger CV" : "Download Resume"}
-              </motion.a>
+                <motion.a
+                  href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
+                  download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  <Download size={18} />
+                  {lang === "fr" ? "Télécharger CV" : "Download Resume"}
+                </motion.a>
 
-              <motion.button
-                onClick={handleCopyEmail}
-                type="button"
-                className="inline-flex w-full sm:w-auto min-h-12 items-center justify-center gap-2 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-                aria-label="Copier l'adresse email"
-                title={emailAddress}
-              >
-                {copiedEmail ? <Check size={18} className="text-emerald-400" /> : <Copy size={18} />}
-                <span>{copiedEmail ? (lang === "fr" ? "Email copié !" : "Email copied!") : (lang === "fr" ? "Copier Email" : "Copy Email")}</span>
-              </motion.button>
+                <motion.button
+                  onClick={handleCopyEmail}
+                  type="button"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  aria-label="Copier l'adresse email"
+                  title={emailAddress}
+                >
+                  {copiedEmail ? <Check size={18} className="text-emerald-400" /> : <Copy size={18} />}
+                  <span>{copiedEmail ? (lang === "fr" ? "Email copié !" : "Email copied!") : (lang === "fr" ? "Copier Email" : "Copy Email")}</span>
+                </motion.button>
+              </div>
 
-              <motion.a
-                href="https://www.linkedin.com/in/laarichi-sohaib"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="grid h-12 w-12 place-items-center rounded-lg border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-              >
-                <Linkedin size={19} />
-              </motion.a>
+              <div className="flex items-center gap-2.5">
+                <motion.a
+                  href="https://www.linkedin.com/in/laarichi-sohaib"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="flex-1 sm:flex-none grid h-12 w-12 place-items-center rounded-xl border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  <Linkedin size={19} />
+                </motion.a>
 
-              <motion.a
-                href="https://github.com/Sohaib-Laarichi"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="grid h-12 w-12 place-items-center rounded-lg border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-              >
-                <Github size={19} />
-              </motion.a>
+                <motion.a
+                  href="https://github.com/Sohaib-Laarichi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="flex-1 sm:flex-none grid h-12 w-12 place-items-center rounded-xl border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  <Github size={19} />
+                </motion.a>
+              </div>
             </motion.div>
 
             <motion.div

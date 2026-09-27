@@ -19,16 +19,16 @@ export default function HealthTechFlow() {
   const steps = [
     {
       id: 0,
-      title: lang === "fr" ? "1. Émission HL7v2 (SIH)" : "1. HL7v2 Transmission (HIS)",
-      short: "HL7 Message",
+      title: lang === "fr" ? "1. Émission HL7v2 / ASTM (SIH & Automates)" : "1. HL7v2 / ASTM Transmission (HIS & Analyzers)",
+      short: "HL7 & ASTM",
       icon: Hospital,
-      badge: "Source SIH",
-      tech: "HL7 v2.5 / ADT / ORU",
+      badge: "Source SIH & Labo",
+      tech: "HL7 v2.5 / ASTM E1381-E1394",
       description:
         lang === "fr"
-          ? "Un Système d'Information Hospitalier (SIH) génère un message médical brut (ex: admission patient ADT_A01 ou résultat de laboratoire ORU_R01)."
-          : "A Hospital Information System (HIS) generates raw medical data (e.g. ADT_A01 patient admission or ORU_R01 lab result).",
-      payload: `MSH|^~\\&|HIS_PIMS|HOSPITAL|MIRTH|DEST|20260727183000||ADT^A01|MSG1001|P|2.5\nPID|1||1001^^^MRN||LAARICHI^SOHAIB||20010101|M|||MARRAKECH^^MA`,
+          ? "Un Système d'Information Hospitalier (SIH) ou un automate de laboratoire (norme ASTM) génère un message médical ou un résultat d'analyse brut."
+          : "A Hospital Information System (HIS) or laboratory analyzer (ASTM standard) generates raw test results or patient events.",
+      payload: `MSH|^~\\&|HIS_PIMS|HOSPITAL|MIRTH|DEST|20260727183000||ADT^A01|MSG1001|P|2.5\nPID|1||1001^^^MRN||LAARICHI^SOHAIB||20010101|M|||MARRAKECH^^MA\nOBX|1|NM|GLU^Glucose||5.4|mmol/L|3.9-6.1|N|||F`,
     },
     {
       id: 1,
@@ -76,17 +76,17 @@ export default function HealthTechFlow() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70">
       <div className="mb-8 text-center max-w-3xl mx-auto">
-        <p className="mb-2 inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-400/10 px-3 py-1 text-xs font-bold text-sky-400">
+        <p className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
           <BrainCircuit size={14} />
           {lang === "fr" ? "Architecture Interopérabilité HealthTech" : "HealthTech Interoperability Architecture"}
         </p>
         <h3 className="text-3xl font-black text-foreground">
-          {lang === "fr" ? "Démonstrateur de Flux FHIR & HL7v2" : "FHIR & HL7v2 Flow Visualizer"}
+          {lang === "fr" ? "Démonstrateur de Flux FHIR R4, ASTM & HL7v2" : "FHIR R4, ASTM & HL7v2 Flow Visualizer"}
         </h3>
         <p className="mt-2 text-sm text-muted-foreground">
           {lang === "fr"
-            ? "Visualisez comment Sohaib conçoit et interconnecte les Systèmes d'Information Hospitaliers avec les standards de santé internationaux."
-            : "Explore how Sohaib designs and interconnects Hospital Information Systems with international health standards."}
+            ? "Visualisez comment Sohaib conçoit et interconnecte les Systèmes d'Information Hospitaliers et automates avec les standards de santé internationaux."
+            : "Explore how Sohaib designs and interconnects Hospital Information Systems and laboratory analyzers with international health standards."}
         </p>
       </div>
 
@@ -102,17 +102,17 @@ export default function HealthTechFlow() {
               type="button"
               className={`p-4 rounded-xl border text-left transition-all ${
                 isActive
-                  ? "border-sky-500 bg-sky-500/15 shadow-lg shadow-sky-500/15 scale-[1.02]"
-                  : "border-border/70 bg-card/40 hover:border-sky-500/40 hover:bg-card/70"
+                  ? "border-primary bg-primary/15 shadow-lg shadow-primary/15 scale-[1.02]"
+                  : "border-border/70 bg-card/40 hover:border-primary/40 hover:bg-card/70"
               }`}
             >
               <div className="flex items-center justify-between mb-2">
                 <span className={`grid h-9 w-9 place-items-center rounded-lg border ${
-                  isActive ? "border-sky-400 bg-sky-400/20 text-sky-300" : "border-border/70 bg-background text-muted-foreground"
+                  isActive ? "border-primary/40 bg-primary/20 text-primary" : "border-border/70 bg-background text-muted-foreground"
                 }`}>
                   <Icon size={18} />
                 </span>
-                <span className="text-[11px] font-mono font-bold uppercase text-sky-400">{step.badge}</span>
+                <span className="text-[11px] font-mono font-bold uppercase text-primary">{step.badge}</span>
               </div>
               <p className={`font-bold text-sm ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                 {step.short}
@@ -130,11 +130,11 @@ export default function HealthTechFlow() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.25 }}
-          className="rounded-xl border border-sky-500/30 bg-slate-950 p-6 shadow-xl"
+          className="rounded-xl border border-primary/30 bg-slate-950 p-6 shadow-xl"
         >
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
-              <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wide">
+              <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wide">
                 {currentStep.tech}
               </span>
               <h4 className="text-xl font-bold text-slate-100">{currentStep.title}</h4>
@@ -144,7 +144,7 @@ export default function HealthTechFlow() {
               <button
                 onClick={() => setActiveStep((prev) => (prev + 1) % steps.length)}
                 type="button"
-                className="inline-flex items-center gap-2 rounded-lg bg-sky-500/20 hover:bg-sky-500/30 border border-sky-500/40 px-4 py-2 text-xs font-bold text-sky-300 transition-colors"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary/20 hover:bg-primary/30 border border-primary/40 px-4 py-2 text-xs font-bold text-indigo-300 transition-colors"
               >
                 <span>{lang === "fr" ? "Étape suivante" : "Next step"}</span>
                 <ArrowRight size={14} />

@@ -19,11 +19,13 @@ import {
   X,
 } from "lucide-react"
 import GitHubRepos from "./github-repos"
+import { BorderBeam } from "./ui/border-beam"
+import { SpotlightCard } from "./ui/spotlight-card"
 
 interface ProjectItem {
   name: string
   type: string
-  category: "healthtech" | "java" | "systems"
+  category: "healthtech" | "fullstack" | "systems"
   description: string
   stack: string[]
   image?: string
@@ -37,12 +39,12 @@ const projectContent = {
     filterLabel: "Filtrer par domaine :",
     caseLabel: "Projet d’ingénierie principal",
     caseTitle: "FireLIS / OpenELIS",
-    caseSubtitle: "Système d’information de laboratoire modernisé pour gérer les demandes d’analyses, les échantillons, les résultats et la traçabilité.",
+    caseSubtitle: "Système d’information de laboratoire modernisé intégrant les normes FHIR R4 et protocoles ASTM pour la traçabilité complète des analyses.",
     challenge:
-      "Moderniser des parcours de laboratoire critiques tout en préservant la fiabilité des données patient, la traçabilité des échantillons et la conformité des opérations.",
+      "Moderniser des parcours de laboratoire critiques tout en garantissant l'interopérabilité des données de santé, la traçabilité des échantillons et la conformité aux normes internationales.",
     solution:
-      "Contribution full-stack aux parcours de demandes d’analyses, au catalogage et reverse engineering des API, ainsi qu’au module de surveillance de la chaîne du froid.",
-    impact: ["Java / Spring Boot", "React", "FHIR", "Workflows laboratoire", "Docker / CI/CD"],
+      "Contribution full-stack aux parcours de demandes d’analyses, interconnexion aux normes FHIR R4 et ASTM, optimisation PostgreSQL sous Spring Boot, et conteneurisation Docker / Kubernetes.",
+    impact: ["Java / Spring Boot", "React", "FHIR R4 / ASTM", "PostgreSQL", "Docker / Kubernetes"],
     architectureTitle: "Architecture applicative",
     evidenceTitle: "Ce que démontrent les captures",
     evidence:
@@ -52,35 +54,55 @@ const projectContent = {
     galleryLabel: "Captures réelles du projet FireLIS",
     categories: [
       { id: "all", label: "Tous les projets" },
-      { id: "healthtech", label: "HealthTech & FHIR" },
-      { id: "java", label: "Java EE & Enterprise" },
+      { id: "fullstack", label: "Full Stack & Cloud" },
+      { id: "healthtech", label: "HealthTech & FHIR/ASTM" },
       { id: "systems", label: "Systèmes & DevOps" },
     ],
     architecture: [
       { label: "Client", detail: "React & Next.js", icon: Code2 },
       { label: "API Services", detail: "Spring Boot Microservices", icon: ServerCog },
-      { label: "Standard", detail: "Interopérabilité FHIR", icon: BrainCircuit },
-      { label: "Bases de données", detail: "PostgreSQL / MySQL", icon: Database },
-      { label: "DevOps & Cloud", detail: "Docker & CI/CD", icon: Boxes },
+      { label: "Standard", detail: "Interopérabilité FHIR R4 & ASTM", icon: BrainCircuit },
+      { label: "Bases de données", detail: "PostgreSQL & Redis", icon: Database },
+      { label: "DevOps & Cloud", detail: "Docker & Kubernetes (CI/CD)", icon: Boxes },
     ],
     projects: [
       {
-        name: "FireINTERO",
+        name: "Soukara (Web App)",
+        type: "E-Commerce Full Stack Conteneurisé",
+        category: "fullstack" as const,
+        description:
+          "Plateforme e-commerce full stack conteneurisée (Next.js, Spring Boot, PostgreSQL) avec panel d'administration et gestion du cycle de vie utilisateur.",
+        stack: ["Next.js", "Spring Boot", "PostgreSQL", "Docker", "Tailwind CSS"],
+        githubUrl: "https://github.com/Sohaib-Laarichi",
+        details: "Architecture conteneurisée moderne comprenant un frontend Next.js performant, une API backend robuste sous Spring Boot, persistance optimisée sur PostgreSQL et interface d'administration pour la gestion des catalogues, utilisateurs et flux de commandes.",
+      },
+      {
+        name: "FireINTERO & FireLIS",
         type: "Interopérabilité HealthTech",
         category: "healthtech" as const,
         description:
-          "Plateforme multi-rôles reliant SIH, Mirth Connect, HL7, FHIR et DICOM, avec supervision des flux et dossier patient unifié.",
-        stack: ["HL7 v2", "FHIR R4", "DICOM", "Mirth Connect", "OAuth2 / OIDC"],
+          "Plateforme reliant SIH, Mirth Connect, HL7, FHIR R4 et protocoles d'automates ASTM, avec supervision des flux et dossier patient unifié.",
+        stack: ["FHIR R4", "ASTM", "HL7 v2", "Spring Boot", "Mirth Connect", "Docker"],
         image: "/projects/fireintero-dashboard.png",
-        details: "Plateforme reliant les Systèmes d'Information Hospitaliers (SIH) aux moteurs d'intégration Mirth Connect, permettant la normalisation automatique des messages HL7v2 vers FHIR R4 avec chiffrement des données de santé.",
+        details: "Plateforme reliant les Systèmes d'Information Hospitaliers (SIH) aux moteurs d'intégration Mirth Connect, permettant la normalisation automatique des messages médicaux vers FHIR R4 et ASTM avec chiffrement des données de santé.",
+      },
+      {
+        name: "freelancesTech (Mikhamdina)",
+        type: "Plateforme Freelance MERN",
+        category: "fullstack" as const,
+        description:
+          "Application digitale évolutive pour freelances et entreprises développée sous architecture MERN (Next.js, Node.js, MongoDB) avec gestion des missions.",
+        stack: ["Next.js", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
+        githubUrl: "https://github.com/Sohaib-Laarichi",
+        details: "Plateforme complète facilitant la mise en relation B2B/Freelances, gestion des profils vérifiés, publication et suivi des propositions de mission avec interface réactive.",
       },
       {
         name: "PharmaLive",
         type: "Gestion Pharmaceutique SI",
-        category: "java" as const,
+        category: "fullstack" as const,
         description:
-          "Application web complète de gestion de pharmacie (Java EE, Servlets, JSP, MySQL) avec suivi des stocks/lots, alertes de péremption, génération de factures PDF et authentification RBAC (BCrypt).",
-        stack: ["Java EE", "Servlets / JSP", "MySQL", "BCrypt", "iText PDF", "Bootstrap"],
+          "Application web complète de gestion de pharmacie (Java EE, MySQL) avec suivi des stocks/lots, alertes de péremption, génération de factures PDF et authentification RBAC.",
+        stack: ["Java EE", "Spring Boot", "MySQL", "BCrypt", "iText PDF", "Bootstrap"],
         image: "/projects/pharmalive-dashboard.png",
         githubUrl: "https://github.com/Sohaib-Laarichi/PharmaLive",
         details: "Système complet avec gestion des utilisateurs multi-rôles (Admin, Pharmacien, Vendeur), module de vente rapide, traçabilité des lots et péremptions, et génération dynamique de reçus PDF.",
@@ -89,14 +111,14 @@ const projectContent = {
         name: "Architecture Réseau d'Entreprise",
         type: "Systems & Infrastructure",
         category: "systems" as const,
-        description: "Déploiement virtuel d'une infrastructure pour 100 utilisateurs avec Active Directory, DHCP, et DNS sous Windows Server.",
-        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualisation"],
+        description: "Déploiement virtuel d'une infrastructure pour 100 utilisateurs avec Active Directory (ADDS), DHCP, DNS sous Windows Server et VLANs Cisco.",
+        stack: ["Windows Server", "Active Directory", "VLAN Cisco", "DHCP", "DNS"],
         details: "Mise en place d'un domaine Active Directory d'entreprise avec règles GPO, segmentation VLAN, serveur DHCP redondant et DNS sécurisé sous environnement virtuel.",
       },
       {
         name: "Student Management API",
         type: "Backend & Microservices",
-        category: "java" as const,
+        category: "fullstack" as const,
         description: "API REST complète avec opérations CRUD, documentation Swagger et déploiement Docker.",
         stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
         githubUrl: "https://github.com/Sohaib-Laarichi",
@@ -109,12 +131,12 @@ const projectContent = {
     filterLabel: "Filter by domain:",
     caseLabel: "Main engineering project",
     caseTitle: "FireLIS / OpenELIS",
-    caseSubtitle: "Modernized laboratory information system managing test orders, samples, results and end-to-end traceability.",
+    caseSubtitle: "Modernized laboratory information system integrating FHIR R4 and ASTM protocols for end-to-end clinical traceability.",
     challenge:
-      "Modernize critical laboratory workflows while preserving patient data reliability, sample traceability and operational compliance.",
+      "Modernize critical laboratory workflows while preserving patient data reliability, sample traceability and operational compliance with international standards.",
     solution:
-      "Full-stack contribution to test-order workflows, API cataloging and reverse engineering, plus the cold-storage monitoring module.",
-    impact: ["Java / Spring Boot", "React", "FHIR", "Laboratory workflows", "Docker / CI/CD"],
+      "Full-stack contribution to test-order workflows, FHIR R4 and ASTM compliance, Spring Boot & PostgreSQL query optimization, and Docker / Kubernetes containerization.",
+    impact: ["Java / Spring Boot", "React", "FHIR R4 / ASTM", "PostgreSQL", "Docker / Kubernetes"],
     architectureTitle: "Application architecture",
     evidenceTitle: "What the screenshots demonstrate",
     evidence:
@@ -124,35 +146,55 @@ const projectContent = {
     galleryLabel: "Real screenshots from the FireLIS project",
     categories: [
       { id: "all", label: "All Projects" },
-      { id: "healthtech", label: "HealthTech & FHIR" },
-      { id: "java", label: "Java EE & Enterprise" },
+      { id: "fullstack", label: "Full Stack & Cloud" },
+      { id: "healthtech", label: "HealthTech & FHIR/ASTM" },
       { id: "systems", label: "Systems & DevOps" },
     ],
     architecture: [
       { label: "Client", detail: "React & Next.js", icon: Code2 },
       { label: "API Services", detail: "Spring Boot Microservices", icon: ServerCog },
-      { label: "Standard", detail: "FHIR Interoperability", icon: BrainCircuit },
-      { label: "Databases", detail: "PostgreSQL / MySQL", icon: Database },
-      { label: "DevOps & Cloud", detail: "Docker & CI/CD", icon: Boxes },
+      { label: "Standard", detail: "FHIR R4 & ASTM Interoperability", icon: BrainCircuit },
+      { label: "Databases", detail: "PostgreSQL & Redis", icon: Database },
+      { label: "DevOps & Cloud", detail: "Docker & Kubernetes (CI/CD)", icon: Boxes },
     ],
     projects: [
       {
-        name: "FireINTERO",
+        name: "Soukara (Web App)",
+        type: "Containerized Full Stack E-Commerce",
+        category: "fullstack" as const,
+        description:
+          "Containerized full stack e-commerce platform (Next.js, Spring Boot, PostgreSQL) featuring an admin dashboard and user lifecycle management.",
+        stack: ["Next.js", "Spring Boot", "PostgreSQL", "Docker", "Tailwind CSS"],
+        githubUrl: "https://github.com/Sohaib-Laarichi",
+        details: "Modern containerized architecture with a responsive Next.js frontend, a robust Spring Boot microservice backend, PostgreSQL database, and admin management console.",
+      },
+      {
+        name: "FireINTERO & FireLIS",
         type: "HealthTech Interoperability",
         category: "healthtech" as const,
         description:
-          "Multi-role platform connecting HIS, Mirth Connect, HL7, FHIR and DICOM with flow monitoring and a unified patient record.",
-        stack: ["HL7 v2", "FHIR R4", "DICOM", "Mirth Connect", "OAuth2 / OIDC"],
+          "Platform connecting HIS, Mirth Connect, HL7, FHIR R4 and ASTM analyzer protocols with flow monitoring and unified patient records.",
+        stack: ["FHIR R4", "ASTM", "HL7 v2", "Spring Boot", "Mirth Connect", "Docker"],
         image: "/projects/fireintero-dashboard.png",
-        details: "Interoperability bridge connecting Hospital Information Systems (HIS) with Mirth Connect integration engines, standardizing HL7v2 to FHIR R4.",
+        details: "Interoperability bridge connecting Hospital Information Systems (HIS) with Mirth Connect and laboratory analyzers, standardizing medical messages to FHIR R4 and ASTM.",
+      },
+      {
+        name: "freelancesTech (Mikhamdina)",
+        type: "Freelance Marketplace MERN",
+        category: "fullstack" as const,
+        description:
+          "Scalable digital platform connecting freelancers and enterprises built with MERN architecture (Next.js, Node.js, MongoDB).",
+        stack: ["Next.js", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
+        githubUrl: "https://github.com/Sohaib-Laarichi",
+        details: "End-to-end freelance marketplace enabling verified client-freelancer matchmaking, proposal submissions, and real-time mission management.",
       },
       {
         name: "PharmaLive",
         type: "Pharmacy Management IS",
-        category: "java" as const,
+        category: "fullstack" as const,
         description:
-          "Comprehensive pharmacy management web application (Java EE, Servlets, JSP, MySQL) featuring stock & batch tracking, expiry alerts, PDF invoice generation, and RBAC authentication (BCrypt).",
-        stack: ["Java EE", "Servlets / JSP", "MySQL", "BCrypt", "iText PDF", "Bootstrap"],
+          "Comprehensive pharmacy management web application (Java EE, MySQL) featuring stock & batch tracking, expiry alerts, PDF invoice generation, and RBAC authentication.",
+        stack: ["Java EE", "Spring Boot", "MySQL", "BCrypt", "iText PDF", "Bootstrap"],
         image: "/projects/pharmalive-dashboard.png",
         githubUrl: "https://github.com/Sohaib-Laarichi/PharmaLive",
         details: "Full pharmacy management system with multi-role RBAC (Admin, Pharmacist, Seller), stock batch tracking, expiry alerts, and dynamic PDF invoice generation.",
@@ -161,14 +203,14 @@ const projectContent = {
         name: "Enterprise Network Architecture",
         type: "Systems & Infrastructure",
         category: "systems" as const,
-        description: "Virtual deployment of an infrastructure for 100 users with Active Directory, DHCP, and DNS under Windows Server.",
-        stack: ["Windows Server", "Active Directory", "DHCP", "DNS", "Virtualization"],
+        description: "Virtual deployment of an infrastructure for 100 users with Active Directory (ADDS), DHCP, and DNS under Windows Server and Cisco VLANs.",
+        stack: ["Windows Server", "Active Directory", "Cisco VLAN", "DHCP", "DNS"],
         details: "Enterprise Active Directory domain setup with GPO policies, VLAN segmentation, redundant DHCP and secure DNS in a virtualized environment.",
       },
       {
         name: "Student Management API",
         type: "Backend & Microservices",
-        category: "java" as const,
+        category: "fullstack" as const,
         description: "Complete REST API with CRUD operations, Swagger documentation and Docker deployment.",
         stack: ["Spring Boot 3", "JPA", "MySQL", "Swagger", "Docker"],
         githubUrl: "https://github.com/Sohaib-Laarichi",
@@ -208,11 +250,12 @@ export default function Projects() {
       <SectionTitle>{content.title}</SectionTitle>
 
       <motion.div
-        className="mb-8 overflow-hidden rounded-lg border border-primary/25 bg-card/55 shadow-xl shadow-black/5 backdrop-blur"
+        className="relative mb-8 overflow-hidden rounded-xl border border-primary/25 bg-card/55 shadow-xl shadow-black/5 backdrop-blur"
         initial={{ opacity: 0, y: 20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
+        <BorderBeam size={350} duration={12} colorFrom="#6366f1" colorTo="#06b6d4" />
         <div className="p-6 lg:p-8">
           <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div className="max-w-3xl">
@@ -310,15 +353,15 @@ export default function Projects() {
       </motion.div>
 
       {/* Category Filter Tabs */}
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <p className="text-sm font-bold text-muted-foreground">{content.filterLabel}</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full no-scrollbar">
           {content.categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               type="button"
-              className={`rounded-lg px-4 py-2 text-xs font-bold transition-all ${
+              className={`shrink-0 rounded-lg px-4 py-2 text-xs font-bold transition-all ${
                 activeCategory === cat.id
                   ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-105"
                   : "border border-border/70 bg-card/40 text-muted-foreground hover:bg-secondary hover:text-foreground"
@@ -338,64 +381,70 @@ export default function Projects() {
         variants={containerVariants}
       >
         {filteredProjects.map((project) => (
-          <motion.article
+          <motion.div
             key={project.name}
-            onClick={() => setSelectedModalProject(project as ProjectItem)}
-            className="group relative cursor-pointer overflow-hidden rounded-lg border border-border/70 bg-card/45 p-5 shadow-lg shadow-black/5 backdrop-blur transition-all hover:border-primary/50 hover:bg-card/70"
             variants={cardVariants}
             whileHover={{ y: -4 }}
+            className="h-full"
           >
-            {"image" in project && project.image && (
-              <div className="relative -mx-5 -mt-5 mb-5 aspect-[16/9] overflow-hidden border-b border-border/70 bg-background">
-                <Image
-                  src={project.image}
-                  alt={lang === "fr" ? `Aperçu du projet ${project.name}` : `${project.name} project preview`}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            )}
-            <div className="mb-4 flex items-start justify-between gap-4">
+            <SpotlightCard
+              onClick={() => setSelectedModalProject(project as ProjectItem)}
+              className="group relative cursor-pointer overflow-hidden p-5 h-full flex flex-col justify-between"
+            >
               <div>
-                <p className="mb-2 text-xs font-bold uppercase text-primary">{project.type}</p>
-                <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors">
-                  {project.name}
-                </h3>
-              </div>
-              <div className="flex items-center gap-2">
-                {"githubUrl" in project && project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="grid h-8 w-8 place-items-center rounded-md border border-border/70 bg-background/50 text-muted-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
-                    aria-label={`Voir le projet ${project.name} sur GitHub`}
-                    title="Voir le code source sur GitHub"
-                  >
-                    <Github size={16} />
-                  </a>
+                {"image" in project && project.image && (
+                  <div className="relative -mx-5 -mt-5 mb-5 aspect-[16/9] overflow-hidden border-b border-border/70 bg-background">
+                    <Image
+                      src={project.image}
+                      alt={lang === "fr" ? `Aperçu du projet ${project.name}` : `${project.name} project preview`}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 )}
-                <span className="grid h-8 w-8 place-items-center rounded-md border border-border/70 bg-background/40 text-muted-foreground group-hover:border-primary/40 group-hover:text-primary">
-                  <Info size={16} />
-                </span>
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="mb-2 text-xs font-bold uppercase text-primary">{project.type}</p>
+                    <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors">
+                      {project.name}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {"githubUrl" in project && project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="grid h-8 w-8 place-items-center rounded-md border border-border/70 bg-background/50 text-muted-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+                        aria-label={`Voir le projet ${project.name} sur GitHub`}
+                        title="Voir le code source sur GitHub"
+                      >
+                        <Github size={16} />
+                      </a>
+                    )}
+                    <span className="grid h-8 w-8 place-items-center rounded-md border border-border/70 bg-background/40 text-muted-foreground group-hover:border-primary/40 group-hover:text-primary">
+                      <Info size={16} />
+                    </span>
+                  </div>
+                </div>
+
+                <p className="mb-5 text-sm leading-relaxed text-muted-foreground line-clamp-3">{project.description}</p>
               </div>
-            </div>
 
-            <p className="mb-5 text-sm leading-relaxed text-muted-foreground line-clamp-3">{project.description}</p>
-
-            <div className="flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-border/70 bg-background/45 px-2.5 py-1 text-xs font-semibold text-foreground/80"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </motion.article>
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-border/70 bg-background/45 px-2.5 py-1 text-xs font-semibold text-foreground/80"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </SpotlightCard>
+          </motion.div>
         ))}
       </motion.div>
 

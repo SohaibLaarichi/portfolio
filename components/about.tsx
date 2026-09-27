@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 import AnimatedIcon from "./animated-icon"
 import { TechIcons } from "./icons/tech-icons"
 import Image from "next/image"
+import { Globe } from "lucide-react"
 
 export default function About() {
   const { lang } = useLanguage()
@@ -72,11 +73,11 @@ export default function About() {
                 </div>
               </AnimatedIcon>
               <span className="text-sm font-semibold text-primary">
-                {lang === "fr" ? "Recherche d'Emploi" : "Seeking Job / CDI"}
+                {lang === "fr" ? "Ingénieur d'État · EMSI MIAGE" : "State Engineer · EMSI MIAGE"}
               </span>
             </div>
             <p className="text-xs text-muted-foreground">
-              {lang === "fr" ? "Disponible immédiatement" : "Available immediately"}
+              {lang === "fr" ? "Disponible immédiatement (CDI / Mission)" : "Available immediately (Full-time / Freelance)"}
             </p>
           </motion.div>
         </motion.div>
@@ -104,10 +105,10 @@ export default function About() {
             variants={itemVariants}
           >
             {[
-              { icon: TechIcons.frontend, title: "Frontend Expert", desc: "React, Next.js, TypeScript" },
-              { icon: TechIcons.backend, title: "Backend Skills", desc: "Node.js, Java EE, APIs" },
-              { icon: TechIcons.database, title: "Databases", desc: "MongoDB, MySQL, PostgreSQL" },
-              { icon: TechIcons.cloud, title: "Cloud & DevOps", desc: "Azure, Docker, Git" }
+              { icon: TechIcons.frontend, title: "Full Stack Development", desc: "React, Next.js, Spring Boot, Node.js" },
+              { icon: TechIcons.cloud, title: "DevOps & Cloud", desc: "Docker, Kubernetes, CI/CD, Helm" },
+              { icon: TechIcons.database, title: "Bases de données", desc: "PostgreSQL, MySQL, MongoDB, Redis" },
+              { icon: TechIcons.backend, title: "HealthTech & Réseaux", desc: "FHIR R4, ASTM, Linux, Cisco VLAN" }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -124,6 +125,31 @@ export default function About() {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Langues */}
+          <motion.div
+            className="mt-6 rounded-lg border border-border/70 bg-card/40 p-4 backdrop-blur shadow-sm"
+            variants={itemVariants}
+          >
+            <div className="flex items-center gap-2 mb-3 text-xs font-bold uppercase text-primary">
+              <Globe size={15} />
+              <span>{lang === "fr" ? "Langues maîtrisées" : "Languages"}</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="rounded-md border border-border/60 bg-background/50 p-2.5">
+                <p className="font-bold text-sm text-foreground">{lang === "fr" ? "Français" : "French"}</p>
+                <p className="text-xs text-muted-foreground">{lang === "fr" ? "Courant / Bilingue" : "Fluent / Bilingual"}</p>
+              </div>
+              <div className="rounded-md border border-border/60 bg-background/50 p-2.5">
+                <p className="font-bold text-sm text-foreground">{lang === "fr" ? "Anglais" : "English"}</p>
+                <p className="text-xs text-muted-foreground">{lang === "fr" ? "Professionnel / Technique" : "Professional / Technical"}</p>
+              </div>
+              <div className="rounded-md border border-border/60 bg-background/50 p-2.5">
+                <p className="font-bold text-sm text-foreground">{lang === "fr" ? "Arabe" : "Arabic"}</p>
+                <p className="text-xs text-muted-foreground">{lang === "fr" ? "Langue maternelle" : "Native language"}</p>
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>

@@ -9,6 +9,7 @@ import type { Variants } from "framer-motion"
 import { useState } from "react"
 import { Cloud, Code2, Database, Layers3, Network, Search, ShieldCheck, Workflow } from "lucide-react"
 import { BrandIcon } from "./icons/brand-icons"
+import { SpotlightCard } from "./ui/spotlight-card"
 
 const categoryMeta = [
   {
@@ -135,51 +136,52 @@ export default function Skills() {
             return (
               <motion.article
                 key={category.name}
-                className="group rounded-lg border border-border/70 bg-card/45 p-5 shadow-lg shadow-black/5 backdrop-blur transition-colors hover:border-primary/45 hover:bg-card/70"
                 variants={cardVariants}
               >
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-[0.92fr_1.08fr] md:items-start">
-                  <div>
-                    <div className="mb-4 flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
-                          <Icon size={20} />
+                <SpotlightCard className="p-5 bg-card/45 hover:bg-card/70 transition-all duration-300">
+                  <div className="grid grid-cols-1 gap-5 md:grid-cols-[0.92fr_1.08fr] md:items-start">
+                    <div>
+                      <div className="mb-4 flex items-start justify-between gap-4">
+                        <div className="flex items-center gap-3">
+                          <div className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
+                            <Icon size={20} />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-black text-foreground">{category.name}</h3>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="text-xl font-black text-foreground">{category.name}</h3>
-                        </div>
+                        <span className="rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-bold text-primary">
+                          {practiceLabels[index]}
+                        </span>
                       </div>
-                      <span className="rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-bold text-primary">
-                        {practiceLabels[index]}
-                      </span>
+
+                      <p className="text-sm leading-relaxed text-muted-foreground">{category.description}</p>
                     </div>
 
-                    <p className="text-sm leading-relaxed text-muted-foreground">{category.description}</p>
-                  </div>
-
-                  <div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => {
-                        const isMatch =
-                          searchTerm.trim() !== "" &&
-                          skill.toLowerCase().includes(searchTerm.toLowerCase())
-                        return (
-                          <span
-                            key={skill}
-                            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all ${
-                              isMatch
-                                ? "border-sky-400 bg-sky-500/25 text-sky-200 font-bold scale-110 shadow-lg shadow-sky-500/20"
-                                : "border-border/70 bg-background/45 text-foreground/82 group-hover:border-primary/20"
-                            }`}
-                          >
-                            <BrandIcon name={skill} fallback={Icon} />
-                            {skill}
-                          </span>
-                        )
-                      })}
+                    <div>
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill) => {
+                          const isMatch =
+                            searchTerm.trim() !== "" &&
+                            skill.toLowerCase().includes(searchTerm.toLowerCase())
+                          return (
+                            <span
+                              key={skill}
+                              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all ${
+                                isMatch
+                                  ? "border-sky-400 bg-sky-500/25 text-sky-200 font-bold scale-110 shadow-lg shadow-sky-500/20"
+                                  : "border-border/70 bg-background/45 text-foreground/82 group-hover:border-primary/20"
+                              }`}
+                            >
+                              <BrandIcon name={skill} fallback={Icon} />
+                              {skill}
+                            </span>
+                          )
+                        })}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </SpotlightCard>
               </motion.article>
             )
           })}

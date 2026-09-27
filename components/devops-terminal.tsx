@@ -19,16 +19,18 @@ export default function DevOpsTerminal() {
         <pre className="text-emerald-400 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
 {`{
   "engineer": "Sohaib LAARICHI",
-  "degree": "MIAGE - EMSI Marrakech",
-  "specialties": ["Fullstack", "HealthTech", "DevOps & Cloud"],
+  "title": "Ingénieur d'État en Informatique – Full Stack & DevOps",
+  "education": "EMSI Marrakech (MIAGE 2024-2026) | UPM (Licence & BTS)",
+  "specialties": ["Full Stack", "DevOps & Cloud", "HealthTech & Systems"],
   "tech_stack": {
-    "frontend": ["React", "Next.js 16", "TypeScript", "Tailwind CSS"],
-    "backend": ["Java EE", "Spring Boot", "Node.js", "Express.js"],
-    "databases": ["MySQL", "PostgreSQL", "MongoDB", "Oracle"],
-    "devops_cloud": ["Docker", "Kubernetes", "Microsoft Azure", "CI/CD"],
-    "healthtech": ["FHIR R4", "HL7 v2", "DICOM", "Mirth Connect"]
+    "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Flutter"],
+    "backend": ["Java", "Spring Boot", "Node.js", "Express.js", "GraphQL", "REST APIs"],
+    "databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    "devops_cloud": ["Docker", "Kubernetes", "CI/CD (GitHub Actions)", "Helm", "Azure / AWS"],
+    "systems_network": ["Linux (Fedora/Zorin)", "Windows Server", "Cisco VLAN", "Bash/PowerShell"],
+    "healthtech": ["FHIR R4", "ASTM", "HL7 v2", "DICOM", "Mirth Connect"]
   },
-  "status": "Available for Full-time Hiring (Maroc / Remote)"
+  "status": "Available for Full-time Hiring / CDI / Freelance (Maroc / Remote)"
 }`}
         </pre>
       ),
@@ -38,11 +40,25 @@ export default function DevOpsTerminal() {
       cmd: "docker ps --format 'table {{.Names}}\\t{{.Status}}\\t{{.Ports}}'",
       content: (
         <pre className="text-sky-300 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
-{`CONTAINER ID   NAMES                  STATUS          PORTS
-a1b2c3d4e5f6   pharmalive-web-1       Up 48 hours     0.0.0.0:8089->8089/tcp
-f6e5d4c3b2a1   pharmalive-db-mysql    Up 48 hours     0.0.0.0:3306->3306/tcp
-1029384756ab   firelis-interop-fhir   Up 5 days       0.0.0.0:8080->8080/tcp
-9876543210cd   mirth-connect-router   Up 5 days       0.0.0.0:8443->8443/tcp`}
+{`CONTAINER ID   NAMES                    STATUS          PORTS
+7a8b9c0d1e2f   soukara-web-nextjs       Up 3 days       0.0.0.0:3000->3000/tcp
+a1b2c3d4e5f6   soukara-backend-spring   Up 3 days       0.0.0.0:8080->8080/tcp
+f6e5d4c3b2a1   postgres-production-db   Up 3 days       0.0.0.0:5432->5432/tcp
+1029384756ab   firelis-interop-fhir     Up 5 days       0.0.0.0:8089->8089/tcp
+9876543210cd   mirth-connect-router     Up 5 days       0.0.0.0:8443->8443/tcp`}
+        </pre>
+      ),
+    },
+    k8s: {
+      label: "kubectl get pods",
+      cmd: "kubectl get pods -n production",
+      content: (
+        <pre className="text-emerald-300 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto">
+{`NAME                                   READY   STATUS    RESTARTS   AGE
+firelis-api-deployment-784d9f67-a12b   1/1     Running   0          3d
+soukara-web-deployment-5c67f89d-43bc   1/1     Running   0          3d
+soukara-service-spring-69d8b74-9f82    1/1     Running   0          3d
+fhir-gateway-ingress-7b44d7d8-x99z     1/1     Running   0          5d`}
         </pre>
       ),
     },
@@ -51,9 +67,9 @@ f6e5d4c3b2a1   pharmalive-db-mysql    Up 48 hours     0.0.0.0:3306->3306/tcp
       cmd: "./fhir-check.sh --endpoint https://api.sohaiblaarichi.tech/fhir/R4",
       content: (
         <div className="font-mono text-xs sm:text-sm space-y-1 text-slate-200">
-          <p className="text-yellow-400">[INFO] Initializing FHIR R4 Bundle Validator...</p>
-          <p className="text-emerald-400">[OK] Patient/101 schema validated against HL7 FHIR specification.</p>
-          <p className="text-emerald-400">[OK] Observation/cold-chain temperature alert handler active.</p>
+          <p className="text-yellow-400">[INFO] Initializing FHIR R4 & ASTM Bundle Validator...</p>
+          <p className="text-emerald-400">[OK] Patient/101 schema validated against HL7 FHIR R4 specification.</p>
+          <p className="text-emerald-400">[OK] Observation/laboratory ASTM protocol analyzer interface active.</p>
           <p className="text-sky-400">[HTTP 200] Interoperability bridge operational.</p>
         </div>
       ),
@@ -64,9 +80,9 @@ f6e5d4c3b2a1   pharmalive-db-mysql    Up 48 hours     0.0.0.0:3306->3306/tcp
       content: (
         <div className="font-mono text-xs sm:text-sm space-y-1 text-emerald-300">
           <p><strong>User:</strong> Sohaib LAARICHI</p>
-          <p><strong>Role:</strong> Software Engineer (Fullstack & DevOps)</p>
-          <p><strong>Education:</strong> Cycle d'ingénieur MIAGE @ EMSI Marrakech</p>
-          <p><strong>Uptime:</strong> 100% motivation, ready for new challenges!</p>
+          <p><strong>Role:</strong> Ingénieur d'État en Informatique (Full Stack & DevOps)</p>
+          <p><strong>Education:</strong> Diplôme d'Ingénieur MIAGE @ EMSI Marrakech (2024-2026)</p>
+          <p><strong>Uptime:</strong> 100% motivation, ready for high-impact challenges!</p>
         </div>
       ),
     },
@@ -91,7 +107,7 @@ f6e5d4c3b2a1   pharmalive-db-mysql    Up 48 hours     0.0.0.0:3306->3306/tcp
             <span className="h-3 w-3 rounded-full bg-amber-500/80" />
             <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
             <span className="ml-2 flex items-center gap-1.5 text-xs font-semibold text-slate-400">
-              <Terminal size={14} className="text-sky-400" />
+              <Terminal size={14} className="text-indigo-400" />
               sohaib@devops-console:~
             </span>
           </div>
@@ -122,21 +138,21 @@ f6e5d4c3b2a1   pharmalive-db-mysql    Up 48 hours     0.0.0.0:3306->3306/tcp
               type="button"
               className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-mono font-medium transition-all ${
                 activeTab === key
-                  ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-sm"
+                  ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 shadow-sm"
                   : "text-slate-400 hover:bg-slate-800 hover:text-slate-200 border border-transparent"
               }`}
             >
-              <Play size={11} className={activeTab === key ? "text-sky-400 fill-sky-400" : "opacity-40"} />
+              <Play size={11} className={activeTab === key ? "text-indigo-400 fill-indigo-400" : "opacity-40"} />
               <span>{item.label}</span>
             </button>
           ))}
         </div>
 
         {/* Terminal Screen Output */}
-        <div className="p-5 font-mono min-h-[220px] bg-slate-950/90 selection:bg-sky-500/30">
+        <div className="p-5 font-mono min-h-[220px] bg-slate-950/90 selection:bg-indigo-500/30">
           <div className="flex items-center gap-2 mb-3 text-xs sm:text-sm text-slate-400">
             <span className="text-emerald-400 font-bold">sohaib@marrakech:~$</span>
-            <span className="text-sky-300 font-semibold">{current.cmd}</span>
+            <span className="text-cyan-300 font-semibold">{current.cmd}</span>
           </div>
 
           <AnimatePresence mode="wait">

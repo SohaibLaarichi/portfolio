@@ -4,24 +4,25 @@ import { useLanguage } from "@/hooks/use-language"
 import { motion } from "framer-motion"
 import { Award, BriefcaseBusiness, Layers3, TerminalSquare } from "lucide-react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
 
 const statsContent = {
   fr: {
-    title: "Repères professionnels",
+    title: "Repères professionnels & Expertise",
     stats: [
-      { value: "5", label: "Expériences terrain", suffix: "" },
-      { value: "4", label: "Domaines : logiciel, cloud, systèmes et réseau", suffix: "" },
-      { value: "FR/EN", label: "Portfolio et communication bilingues", suffix: "" },
-      { value: "Oui", label: "Disponible immédiatement", suffix: "" },
+      { value: "4+", label: "Expériences professionnelles (Stages & PFE)", suffix: "" },
+      { value: "Full Stack", label: "Java / Spring Boot & React / Next.js", suffix: "" },
+      { value: "DevOps", label: "Docker, Kubernetes, CI/CD, Helm", suffix: "" },
+      { value: "2026", label: "Diplôme d'Ingénieur d'État (EMSI MIAGE)", suffix: "" },
     ],
   },
   en: {
-    title: "Professional highlights",
+    title: "Professional Highlights & Expertise",
     stats: [
-      { value: "5", label: "Hands-on experiences", suffix: "" },
-      { value: "4", label: "Domains: software, cloud, systems and networks", suffix: "" },
-      { value: "FR/EN", label: "Bilingual portfolio and communication", suffix: "" },
-      { value: "Yes", label: "Available immediately", suffix: "" },
+      { value: "4+", label: "Professional experiences (Internships & PFE)", suffix: "" },
+      { value: "Full Stack", label: "Java / Spring Boot & React / Next.js", suffix: "" },
+      { value: "DevOps", label: "Docker, Kubernetes, CI/CD, Helm", suffix: "" },
+      { value: "2026", label: "State Engineer Degree (EMSI MIAGE)", suffix: "" },
     ],
   },
 }
@@ -82,15 +83,9 @@ export default function Stats() {
                     </div>
                   )
                 })()}
-                <motion.div
-                  className="text-3xl lg:text-4xl font-black text-primary mb-2"
-                  initial={{ opacity: 0 }}
-                  animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ delay: index * 0.08 + 0.2, duration: 0.35 }}
-                >
-                  {stat.value}
-                  <span className="text-2xl lg:text-3xl">{stat.suffix}</span>
-                </motion.div>
+                <div className="text-3xl lg:text-4xl font-black text-primary mb-2">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
                 <p className="text-sm lg:text-base text-muted-foreground font-semibold">
                   {stat.label}
                 </p>
