@@ -10,6 +10,7 @@ import { useState } from "react"
 import { Cloud, Code2, Database, Layers3, Network, Search, ShieldCheck, Workflow } from "lucide-react"
 import { BrandIcon } from "./icons/brand-icons"
 import { SpotlightCard } from "./ui/spotlight-card"
+import { SkillRadarChart } from "./ui/skill-radar-chart"
 
 const categoryMeta = [
   {
@@ -94,32 +95,21 @@ export default function Skills() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[0.72fr_1.28fr] gap-6 lg:gap-8">
-        <aside className="lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-lg border border-border/70 bg-card/50 p-5 shadow-xl shadow-black/5 backdrop-blur">
-            <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase text-primary">
+      <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-8 items-start">
+        <aside className="lg:sticky lg:top-24 lg:self-start space-y-4">
+          <SkillRadarChart />
+
+          <div className="rounded-xl border border-border/70 bg-card/40 p-4 shadow-xl backdrop-blur">
+            <p className="mb-1.5 flex items-center gap-2 text-xs font-bold uppercase text-primary">
               <Network size={14} />
               {labels.profile}
             </p>
-            <h3 className="text-2xl font-black leading-tight text-foreground">{labels.stack}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <h4 className="text-lg font-black leading-tight text-foreground">{labels.stack}</h4>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
               {lang === "fr"
-                ? "Une base full-stack renforcée par réseau, sécurité et systèmes. C'est cette combinaison qui rend ton profil moins standard."
-                : "A full-stack foundation strengthened by networking, security, and systems. This combination makes the profile less generic."}
+                ? "Une base full-stack solide (Spring Boot & Next.js) propulsée par l'ingénierie DevOps et le socle systèmes/réseau."
+                : "A solid full-stack foundation (Spring Boot & Next.js) powered by DevOps engineering and systems/networking expertise."}
             </p>
-
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              {[labels.core, labels.architecture, labels.security].map((item) => (
-                <div key={item} className="rounded-lg border border-border/60 bg-background/45 p-3 text-center">
-                  <p className="font-mono text-lg font-black text-primary">0{item.length % 3 + 1}</p>
-                  <p className="text-[0.68rem] font-bold uppercase text-muted-foreground">{item}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-5 rounded-lg border border-primary/20 bg-primary/10 p-3">
-              <p className="text-xs font-semibold text-primary">{labels.scroll}</p>
-            </div>
           </div>
         </aside>
 
