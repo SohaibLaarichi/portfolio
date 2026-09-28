@@ -33,7 +33,7 @@ export default function DevOpsTerminal() {
   const [isMaximized, setIsMaximized] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  const terminalEndRef = useRef<HTMLDivElement>(null)
+  const terminalBodyRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const getTimeString = () => {
@@ -109,9 +109,14 @@ export default function DevOpsTerminal() {
     },
   ])
 
-  // Scroll to bottom when entries update
+  // Scroll ONLY the internal terminal box, NEVER the window/page
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTo({
+        top: terminalBodyRef.current.scrollHeight,
+        behavior: "smooth",
+      })
+    }
   }, [entries])
 
   const executeCommand = (cmdText: string) => {
@@ -394,6 +399,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    e.stopPropagation()
     executeCommand(inputVal)
   }
 
@@ -509,6 +515,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
 
         {/* Terminal Screen / Output Body */}
         <div
+          ref={terminalBodyRef}
           onClick={() => inputRef.current?.focus()}
           className={`p-4 sm:p-5 font-mono bg-slate-950/95 overflow-y-auto selection:bg-indigo-500/30 cursor-text ${
             isMaximized ? "h-[calc(100vh-140px)]" : "max-h-[380px] min-h-[260px]"
@@ -558,7 +565,6 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
               </button>
             </div>
           </form>
-          <div ref={terminalEndRef} />
         </div>
 
         {/* Terminal Footer Bar */}
