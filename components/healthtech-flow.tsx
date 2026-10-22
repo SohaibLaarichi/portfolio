@@ -74,9 +74,9 @@ export default function HealthTechFlow() {
   const currentStep = steps[activeStep]
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70">
+    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke">
       <div className="mb-8 text-center max-w-3xl mx-auto">
-        <p className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+        <p className="mb-2 inline-flex items-center gap-2 rounded-full border border-stroke bg-surface px-3 py-1 text-xs font-bold text-accent">
           <BrainCircuit size={14} />
           {lang === "fr" ? "Architecture Interopérabilité HealthTech" : "HealthTech Interoperability Architecture"}
         </p>
@@ -100,19 +100,19 @@ export default function HealthTechFlow() {
               key={step.id}
               onClick={() => setActiveStep(step.id)}
               type="button"
-              className={`p-4 rounded-xl border text-left transition-all ${
+              className={`glass-card p-4 rounded-2xl border text-left transition-all ${
                 isActive
-                  ? "border-primary bg-primary/15 shadow-lg shadow-primary/15 scale-[1.02]"
-                  : "border-border/70 bg-card/40 hover:border-primary/40 hover:bg-card/70"
+                  ? "border-stroke-hi bg-surface-2 shadow-lg shadow-black/5 scale-[1.02]"
+                  : "border-stroke bg-card/45 hover:border-stroke-hi hover:bg-surface-2"
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className={`grid h-9 w-9 place-items-center rounded-lg border ${
-                  isActive ? "border-primary/40 bg-primary/20 text-primary" : "border-border/70 bg-background text-muted-foreground"
+                <span className={`grid h-9 w-9 place-items-center rounded-xl border ${
+                  isActive ? "border-stroke-hi bg-surface text-accent" : "border-stroke bg-surface text-muted-foreground"
                 }`}>
                   <Icon size={18} />
                 </span>
-                <span className="text-[11px] font-mono font-bold uppercase text-primary">{step.badge}</span>
+                <span className="text-[10px] font-mono font-bold uppercase text-accent">{step.badge}</span>
               </div>
               <p className={`font-bold text-sm ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                 {step.short}
@@ -130,31 +130,31 @@ export default function HealthTechFlow() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.25 }}
-          className="rounded-xl border border-primary/30 bg-slate-950 p-6 shadow-xl"
+          className="glass-card rounded-2xl border border-stroke bg-card/60 p-6 shadow-2xl backdrop-blur-2xl"
         >
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-stroke">
             <div>
-              <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wide">
+              <span className="text-xs font-mono font-bold text-accent uppercase tracking-wide">
                 {currentStep.tech}
               </span>
-              <h4 className="text-xl font-bold text-slate-100">{currentStep.title}</h4>
+              <h4 className="text-xl font-bold text-foreground">{currentStep.title}</h4>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setActiveStep((prev) => (prev + 1) % steps.length)}
                 type="button"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary/20 hover:bg-primary/30 border border-primary/40 px-4 py-2 text-xs font-bold text-indigo-300 transition-colors"
+                className="inline-flex items-center gap-2 rounded-full border border-stroke bg-surface hover:bg-surface-2 hover:border-stroke-hi px-4 py-2 text-xs font-bold text-foreground transition-all"
               >
                 <span>{lang === "fr" ? "Étape suivante" : "Next step"}</span>
-                <ArrowRight size={14} />
+                <ArrowRight size={14} className="text-accent" />
               </button>
             </div>
           </div>
 
-          <p className="my-4 text-sm text-slate-300 leading-relaxed">{currentStep.description}</p>
+          <p className="my-4 text-sm text-foreground/85 leading-relaxed">{currentStep.description}</p>
 
-          <div className="rounded-lg border border-slate-800 bg-slate-900/90 p-4">
+          <div className="rounded-xl border border-white/10 bg-[#0B0D13] p-4 shadow-inner">
             <p className="text-xs font-mono font-bold text-slate-400 mb-2 uppercase">
               {lang === "fr" ? "Structure de la donnée / Payload de démonstration :" : "Data Structure / Demo Payload:"}
             </p>

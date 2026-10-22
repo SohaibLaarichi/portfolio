@@ -100,7 +100,7 @@ export default function Footer() {
 
   return (
     <motion.footer 
-      className="border-t border-border bg-card/50 backdrop-blur-sm"
+      className="border-t border-stroke bg-card/40 backdrop-blur-xl"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -113,10 +113,10 @@ export default function Footer() {
             <h3 className="text-xl font-bold text-foreground mb-4">
               Sohaib LAARICHI
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
+            <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
               {content.description}
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {content.social.links.map((social, index) => {
                 const Icon = social.icon
                 return (
@@ -125,11 +125,11 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center"
+                    className="w-10 h-10 rounded-full border border-stroke bg-surface text-muted-foreground hover:border-accent hover:text-accent hover:bg-surface-2 transition-all flex items-center justify-center"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4" />
                   </motion.a>
                 )
               })}
@@ -146,7 +146,7 @@ export default function Footer() {
                 <li key={index}>
                   <motion.button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors text-left"
+                    className="text-sm text-muted-foreground hover:text-accent transition-colors text-left cursor-pointer"
                     whileHover={{ x: 4 }}
                   >
                     {link.label}
@@ -168,11 +168,11 @@ export default function Footer() {
                   <li key={index}>
                     <motion.a
                       href={item.href}
-                      className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors group"
                       whileHover={{ x: 4 }}
                     >
                       <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm">{item.label}</span>
+                      <span>{item.label}</span>
                     </motion.a>
                   </li>
                 )
@@ -183,7 +183,7 @@ export default function Footer() {
 
         {/* Séparateur */}
         <motion.div 
-          className="border-t border-border pt-8"
+          className="border-t border-stroke pt-8"
           variants={itemVariants}
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -204,7 +204,7 @@ export default function Footer() {
               >
                 <Heart className="w-4 h-4 text-red-500 fill-current" />
               </motion.div>
-              <span className="text-primary font-medium">
+              <span className="text-foreground font-medium">
                 {content.technologies}
               </span>
             </motion.div>

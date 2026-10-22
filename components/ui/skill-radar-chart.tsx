@@ -11,7 +11,6 @@ import {
   Database,
   Activity,
   Sparkles,
-  Layers,
 } from "lucide-react"
 
 interface SkillAxis {
@@ -133,12 +132,12 @@ export function SkillRadarChart() {
     .join(" ")
 
   return (
-    <div className="rounded-2xl border border-indigo-500/25 bg-card/60 p-5 shadow-2xl backdrop-blur-xl transition-all duration-300">
+    <div className="glass-card rounded-2xl border border-stroke bg-card/60 p-5 shadow-2xl backdrop-blur-2xl transition-all duration-300">
       {/* Title Header */}
-      <div className="flex items-center justify-between border-b border-border/60 pb-3 mb-4">
-        <div className="flex items-center gap-2">
-          <div className="grid h-8 w-8 place-items-center rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-            <Sparkles size={16} />
+      <div className="flex items-center justify-between border-b border-stroke pb-3 mb-4">
+        <div className="flex items-center gap-2.5">
+          <div className="grid h-8 w-8 place-items-center rounded-xl bg-surface text-accent border border-stroke">
+            <Sparkles size={15} />
           </div>
           <div>
             <h4 className="text-sm font-bold text-foreground">
@@ -150,7 +149,7 @@ export function SkillRadarChart() {
           </div>
         </div>
 
-        <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-0.5 text-[10px] font-mono font-bold text-emerald-400">
+        <span className="rounded-full bg-surface border border-stroke px-2.5 py-0.5 text-[10px] font-mono font-bold text-accent">
           PRO-LEVEL
         </span>
       </div>
@@ -159,14 +158,14 @@ export function SkillRadarChart() {
       <div className="relative flex justify-center items-center py-2">
         <svg
           viewBox={`0 0 ${size} ${size}`}
-          className="w-full max-w-[280px] sm:max-w-[300px] h-auto drop-shadow-[0_0_25px_rgba(99,102,241,0.15)]"
+          className="w-full max-w-[280px] sm:max-w-[300px] h-auto drop-shadow-[0_0_20px_rgba(229,168,85,0.2)]"
         >
           <defs>
             {/* Gradient for the radar polygon area */}
             <radialGradient id="radarAreaGradient" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.4" />
-              <stop offset="60%" stopColor="#6366f1" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#4f46e5" stopOpacity="0.08" />
+              <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.45" />
+              <stop offset="65%" stopColor="var(--accent)" stopOpacity="0.18" />
+              <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.04" />
             </radialGradient>
             {/* Glow filter */}
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
@@ -182,7 +181,7 @@ export function SkillRadarChart() {
               points={getPolygonPoints(level)}
               fill="none"
               stroke="currentColor"
-              className="text-border/40 stroke-dasharray-[2_2]"
+              className="text-muted-foreground/20 stroke-dasharray-[2_2]"
               strokeWidth="0.8"
             />
           ))}
@@ -198,8 +197,8 @@ export function SkillRadarChart() {
                 x2={end.x}
                 y2={end.y}
                 stroke="currentColor"
-                className="text-border/60"
-                strokeWidth="1"
+                className="text-border"
+                strokeWidth="0.9"
               />
             )
           })}
@@ -208,7 +207,7 @@ export function SkillRadarChart() {
           <motion.polygon
             points={dataPolygonPoints}
             fill="url(#radarAreaGradient)"
-            stroke="#6366f1"
+            stroke="var(--accent)"
             strokeWidth="2"
             filter="url(#glow)"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -235,7 +234,7 @@ export function SkillRadarChart() {
                     cx={x}
                     cy={y}
                     r={9}
-                    className="fill-indigo-500/30 stroke-indigo-400 stroke-1 animate-ping"
+                    className="fill-accent/30 stroke-accent stroke-1 animate-ping"
                   />
                 )}
                 {/* Node circle */}
@@ -243,8 +242,8 @@ export function SkillRadarChart() {
                   cx={x}
                   cy={y}
                   r={isSelected ? 5.5 : 4}
-                  fill={isSelected ? "#06b6d4" : "#6366f1"}
-                  stroke="#ffffff"
+                  fill={isSelected ? "var(--foreground)" : "var(--accent)"}
+                  stroke="var(--background)"
                   strokeWidth={isSelected ? 2 : 1}
                   className="transition-all duration-200"
                 />
@@ -273,7 +272,7 @@ export function SkillRadarChart() {
                 onMouseLeave={() => setHoveredAxisIndex(null)}
                 className={`text-[10px] sm:text-[11px] font-mono cursor-pointer transition-colors duration-200 select-none ${
                   isSelected
-                    ? "fill-indigo-400 font-bold drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]"
+                    ? "fill-accent font-bold drop-shadow-[0_0_8px_rgba(229,168,85,0.4)]"
                     : "fill-muted-foreground hover:fill-foreground"
                 }`}
               >
@@ -285,7 +284,7 @@ export function SkillRadarChart() {
       </div>
 
       {/* Axis Selector Chips for Mobile / Quick tap */}
-      <div className="flex flex-wrap gap-1.5 justify-center py-2 border-t border-border/50">
+      <div className="flex flex-wrap gap-1.5 justify-center py-2.5 border-t border-stroke">
         {skillAxes.map((axis, i) => {
           const isSelected = activeIndex === i
           const Icon = axis.icon
@@ -297,10 +296,10 @@ export function SkillRadarChart() {
                 setHoveredAxisIndex(null)
               }}
               type="button"
-              className={`flex items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-medium transition-all ${
+              className={`flex items-center gap-1 rounded-full px-2.5 py-1 text-[11px] font-medium transition-all ${
                 isSelected
-                  ? "bg-primary text-primary-foreground font-bold shadow-md shadow-primary/20 scale-105"
-                  : "bg-background/40 text-muted-foreground hover:bg-secondary hover:text-foreground border border-border/50"
+                  ? "bg-foreground text-background font-bold shadow-xs scale-102"
+                  : "bg-surface text-muted-foreground hover:bg-surface-2 hover:border-stroke-hi hover:text-foreground border border-stroke"
               }`}
             >
               <Icon size={12} />
@@ -318,18 +317,18 @@ export function SkillRadarChart() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.2 }}
-          className="mt-3 rounded-xl border border-indigo-500/20 bg-background/50 p-3.5"
+          className="mt-3 glass-card rounded-xl border border-stroke bg-surface/70 p-3.5 backdrop-blur-xl"
         >
           <div className="flex items-center justify-between mb-1.5">
             <div className="flex items-center gap-2">
-              {React.createElement(activeAxis.icon, { size: 16, className: "text-primary" })}
+              {React.createElement(activeAxis.icon, { size: 15, className: "text-accent" })}
               <h5 className="font-bold text-xs sm:text-sm text-foreground">
                 {lang === "fr" ? activeAxis.labelFr : activeAxis.labelEn}
               </h5>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-[11px] font-mono text-muted-foreground">Maîtrise :</span>
-              <span className="font-mono text-xs font-black text-cyan-400">
+              <span className="font-mono text-xs font-black text-accent">
                 {activeAxis.score}%
               </span>
             </div>
@@ -343,7 +342,7 @@ export function SkillRadarChart() {
             {activeAxis.technologies.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md border border-indigo-500/20 bg-indigo-500/10 px-2 py-0.5 font-mono text-[10px] font-semibold text-indigo-300"
+                className="rounded-full border border-stroke bg-surface px-2.5 py-0.5 font-mono text-[10px] font-semibold text-muted-foreground"
               >
                 {tech}
               </span>

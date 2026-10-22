@@ -7,7 +7,6 @@ import {
   Home,
   FolderKanban,
   Code2,
-  BriefcaseBusiness,
   Search,
   FileText,
   Mail,
@@ -79,7 +78,7 @@ export function MobileNavDock({
     },
     {
       id: "skills",
-      label: lang === "fr" ? "Skills" : "Skills",
+      label: lang === "fr" ? "Compétences" : "Skills",
       icon: Code2,
       action: () => scrollTo("skills"),
     },
@@ -114,7 +113,7 @@ export function MobileNavDock({
           transition={{ duration: 0.28, ease: "easeOut" }}
           className="fixed bottom-4 left-0 right-0 z-40 flex justify-center px-4 pointer-events-none lg:hidden"
         >
-          <div className="pointer-events-auto flex items-center gap-1 sm:gap-2 rounded-2xl border border-white/10 bg-card/85 px-3 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+          <div className="pointer-events-auto flex items-center gap-1 sm:gap-1.5 rounded-full border border-stroke bg-card/80 px-3 py-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl glass-card">
             {items.map((item) => {
               const Icon = item.icon
               const isActive = activeSection === item.id
@@ -127,9 +126,9 @@ export function MobileNavDock({
                     type="button"
                     aria-label={item.label}
                     whileTap={{ scale: 0.88 }}
-                    className="relative mx-1 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white shadow-[0_4px_20px_rgba(99,102,241,0.45)]"
+                    className="relative mx-1 flex h-10 w-10 items-center justify-center rounded-full bg-foreground text-background shadow-md hover:opacity-90"
                   >
-                    <Icon size={19} />
+                    <Icon size={18} />
                     <span className="sr-only">{item.label}</span>
                   </motion.button>
                 )
@@ -140,20 +139,22 @@ export function MobileNavDock({
                   key={item.id}
                   onClick={item.action}
                   type="button"
+                  aria-label={item.label}
+                  aria-current={isActive ? "page" : undefined}
                   whileTap={{ scale: 0.9 }}
-                  className={`relative flex flex-col items-center justify-center rounded-xl px-2.5 py-1.5 transition-colors min-w-[48px] ${
+                  className={`relative flex flex-col items-center justify-center rounded-full px-2 py-1 transition-colors min-w-[42px] ${
                     isActive
-                      ? "text-primary font-bold"
+                      ? "text-accent font-bold"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <Icon size={18} className={isActive ? "text-primary" : ""} />
-                  <span className="text-[10px] mt-0.5 tracking-tight">{item.label}</span>
+                  <Icon size={17} className={isActive ? "text-accent" : ""} />
+                  <span className="text-[9px] mt-0.5 tracking-tight">{item.label}</span>
 
                   {isActive && (
                     <motion.div
                       layoutId="activeDockIndicator"
-                      className="absolute -bottom-1 h-1 w-4 rounded-full bg-primary"
+                      className="absolute -bottom-0.5 h-1 w-3 rounded-full bg-accent"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -161,13 +162,25 @@ export function MobileNavDock({
               )
             })}
 
-            {/* Quick Lang/Theme separator & pill */}
-            <div className="h-6 w-px bg-border/60 mx-1" />
+            {/* Quick Lang/Theme separator & pills */}
+            <div className="h-5 w-px bg-stroke mx-0.5" />
+
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                type="button"
+                aria-label={lang === "fr" ? "Changer le thème" : "Toggle theme"}
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-surface text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors border border-stroke"
+              >
+                {theme === "dark" ? <Sun size={13} /> : <Moon size={13} />}
+              </button>
+            )}
 
             <button
               onClick={toggleLanguage}
               type="button"
-              className="flex h-8 w-8 items-center justify-center rounded-lg bg-secondary/80 text-[11px] font-bold text-foreground hover:bg-secondary transition-colors"
+              aria-label={lang === "fr" ? "Afficher le site en anglais" : "Display the site in French"}
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-surface text-[10px] font-mono font-bold text-foreground hover:bg-surface-2 transition-colors border border-stroke"
             >
               {lang === "fr" ? "EN" : "FR"}
             </button>

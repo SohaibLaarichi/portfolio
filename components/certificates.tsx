@@ -29,11 +29,11 @@ export default function Certificates() {
   }
 
   return (
-    <section className="max-w-4xl mx-auto px-6 py-16 border-t border-border" ref={ref}>
+    <section className="max-w-4xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
 
       <motion.div
-        className="space-y-3"
+        className="space-y-3.5"
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariants}
@@ -43,10 +43,10 @@ export default function Certificates() {
           return (
             <motion.div
               key={i}
-              className={`p-4 sm:p-5 rounded-xl border transition-all group ${
+              className={`glass-card p-4 sm:p-5 rounded-2xl border transition-all duration-300 group ${
                 isHighlight
-                  ? "border-sky-500/40 bg-sky-500/10 shadow-lg shadow-sky-500/10"
-                  : "border-border/70 bg-card/45 hover:border-primary/50"
+                  ? "border-accent/40 shadow-lg shadow-accent/5"
+                  : "border-stroke hover:border-stroke-hi"
               }`}
               variants={cardVariants}
               whileHover="hover"
@@ -54,9 +54,13 @@ export default function Certificates() {
               <div className="flex items-start gap-4">
                 <AnimatedIcon animation="pop" delay={i * 0.1} hoverScale={1.2}>
                   {isHighlight ? (
-                    <ShieldCheck size={26} className="text-sky-400 flex-shrink-0 mt-0.5" />
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent/15 border border-accent/30 text-accent">
+                      <ShieldCheck size={22} />
+                    </div>
                   ) : (
-                    <Award size={22} className="text-primary flex-shrink-0 mt-0.5" />
+                    <div className="grid h-10 w-10 place-items-center rounded-xl bg-surface border border-stroke text-accent">
+                      <Award size={20} />
+                    </div>
                   )}
                 </AnimatedIcon>
 
@@ -64,16 +68,16 @@ export default function Certificates() {
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-base">
+                        <h3 className="font-bold text-foreground group-hover:text-accent transition-colors text-base">
                           {cert.name}
                         </h3>
                         {isHighlight && (
-                          <span className="inline-flex items-center gap-1 rounded-full border border-sky-400/30 bg-sky-400/20 px-2.5 py-0.5 text-[11px] font-bold text-sky-300">
+                          <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent/15 px-2.5 py-0.5 text-[11px] font-bold text-accent">
                             <CheckCircle2 size={11} /> Verified Certification
                           </span>
                         )}
                       </div>
-                      <p className="mt-1 text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors leading-relaxed">
+                      <p className="mt-1 text-sm text-muted-foreground group-hover:text-foreground/90 transition-colors leading-relaxed">
                         {cert.description}
                       </p>
                     </div>
@@ -88,7 +92,7 @@ export default function Certificates() {
                           href={cert.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs font-bold bg-primary/10 hover:bg-primary/20 text-primary px-3 py-1.5 rounded-lg transition-colors border border-primary/20"
+                          className="inline-flex items-center gap-1 text-xs font-semibold rounded-full border border-stroke bg-surface hover:border-accent hover:text-accent px-3 py-1.5 transition-all"
                         >
                           <span>{lang === "fr" ? "Vérifier le badge" : "Verify Badge"}</span>
                           <ExternalLink size={12} />

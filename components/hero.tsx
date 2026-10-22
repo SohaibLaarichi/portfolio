@@ -67,20 +67,20 @@ export default function Hero() {
             </div>
 
             <motion.h1
-              className="mb-6 text-4xl sm:text-6xl lg:text-7xl font-black leading-[0.96] tracking-tight"
+              className="mb-6 text-4xl sm:text-6xl lg:text-7xl font-bold leading-[0.98] tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <span className="text-foreground">Sohaib</span>
+              <span className="text-foreground font-light">Sohaib</span>
               <br />
-              <span className="bg-gradient-to-r from-indigo-500 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-foreground font-black tracking-tight">
                 LAARICHI
               </span>
             </motion.h1>
 
             <motion.h2
-              className="max-w-2xl text-xl sm:text-2xl lg:text-3xl font-semibold text-foreground/85 mb-3"
+              className="max-w-2xl text-xl sm:text-2xl lg:text-3xl font-semibold text-foreground/90 mb-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
@@ -89,17 +89,17 @@ export default function Hero() {
             </motion.h2>
 
             <motion.p
-              className="mb-6 inline-flex items-center gap-2 rounded-md border border-border/60 bg-card/40 px-3 py-1 text-xs font-semibold text-muted-foreground"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-stroke bg-surface px-3.5 py-1 text-xs font-semibold text-muted-foreground backdrop-blur-md"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.33, duration: 0.5 }}
             >
-              <MapPin size={14} className="text-primary" />
+              <MapPin size={13} className="text-accent" />
               <span>{lang === "fr" ? "Ingénieur Informatique basé à Marrakech, Maroc" : "Software Engineer based in Marrakech, Morocco"}</span>
             </motion.p>
 
             <motion.div
-              className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-2"
+              className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-2.5"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35, duration: 0.5 }}
@@ -107,12 +107,12 @@ export default function Hero() {
               {engineeringSignals.map((signal) => {
                 const Icon = signal.icon
                 return (
-                  <div key={signal.label} className="rounded-lg border border-border/60 bg-card/35 p-3">
-                    <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase text-primary">
-                      <Icon size={14} />
+                  <div key={signal.label} className="glass-card rounded-xl p-3 border border-stroke">
+                    <div className="mb-1.5 flex items-center gap-1.5 text-xs font-bold uppercase text-accent">
+                      <Icon size={13} />
                       {signal.label}
                     </div>
-                    <p className="text-sm font-semibold text-foreground/90">{signal.value}</p>
+                    <p className="text-xs font-semibold text-foreground/90">{signal.value}</p>
                   </div>
                 )
               })}
@@ -136,22 +136,22 @@ export default function Hero() {
               <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 flex-1">
                 <motion.a
                   href="#projects"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-[0_12px_32px_rgba(99,102,241,0.28)] hover:bg-primary/90"
+                  className="nowotch-btn min-h-11 px-5 py-2.5 text-sm font-semibold shadow-md"
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <FolderKanban size={18} />
+                  <FolderKanban size={17} />
                   {lang === "fr" ? "Voir mes projets" : "View my projects"}
                 </motion.a>
 
                 <motion.button
                   onClick={() => setIsPdfOpen(true)}
                   type="button"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-xl hover:border-stroke-hi hover:bg-surface-2 transition-all"
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <Eye size={18} className="text-primary" />
+                  <Eye size={16} className="text-accent" />
                   <span>{lang === "fr" ? "Aperçu du CV" : "Preview Resume"}</span>
                 </motion.button>
 
@@ -160,39 +160,39 @@ export default function Hero() {
                   download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border/80 bg-card/70 px-5 py-3 text-sm font-semibold text-card-foreground shadow-lg shadow-black/10 backdrop-blur hover:border-primary/40 hover:bg-card"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-xl hover:border-stroke-hi hover:bg-surface-2 transition-all"
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                 >
-                  <Download size={18} />
+                  <Download size={16} />
                   {lang === "fr" ? "Télécharger CV" : "Download Resume"}
                 </motion.a>
 
                 <motion.button
                   onClick={handleCopyEmail}
                   type="button"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary/20"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-xl hover:border-stroke-hi hover:bg-surface-2 transition-all"
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   aria-label="Copier l'adresse email"
                   title={emailAddress}
                 >
-                  {copiedEmail ? <Check size={18} className="text-emerald-400" /> : <Copy size={18} />}
+                  {copiedEmail ? <Check size={16} className="text-emerald-500" /> : <Copy size={16} />}
                   <span>{copiedEmail ? (lang === "fr" ? "Email copié !" : "Email copied!") : (lang === "fr" ? "Copier Email" : "Copy Email")}</span>
                 </motion.button>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <motion.a
                   href="https://www.linkedin.com/in/laarichi-sohaib"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="flex-1 sm:flex-none grid h-12 w-12 place-items-center rounded-xl border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
-                  whileHover={{ scale: 1.04, y: -2 }}
-                  whileTap={{ scale: 0.96 }}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-stroke bg-surface text-foreground hover:bg-surface-2 hover:border-stroke-hi transition-all"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Linkedin size={19} />
+                  <Linkedin size={18} />
                 </motion.a>
 
                 <motion.a
@@ -200,47 +200,48 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="flex-1 sm:flex-none grid h-12 w-12 place-items-center rounded-xl border border-border/80 bg-secondary/80 text-secondary-foreground hover:bg-secondary"
-                  whileHover={{ scale: 1.04, y: -2 }}
-                  whileTap={{ scale: 0.96 }}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-stroke bg-surface text-foreground hover:bg-surface-2 hover:border-stroke-hi transition-all"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Github size={19} />
+                  <Github size={18} />
                 </motion.a>
               </div>
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm"
+              className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1.4fr] gap-2.5 text-xs"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
-              <div className="rounded-lg border border-border/60 bg-card/40 p-3 backdrop-blur">
-                <span className="mb-1 flex items-center gap-2 text-muted-foreground font-medium">
-                  <MapPin size={14} />
-                  {content.location}
+              <div className="glass-card rounded-xl p-3 border border-stroke min-w-0">
+                <span className="mb-1 flex items-center gap-1.5 text-muted-foreground font-medium">
+                  <MapPin size={13} className="text-accent shrink-0" />
+                  <span className="truncate">{content.locationLabel}</span>
                 </span>
-                <span className="text-foreground">Marrakech, Maroc</span>
+                <span className="text-foreground font-semibold truncate block">{content.location}</span>
               </div>
-              <div className="rounded-lg border border-border/60 bg-card/40 p-3 backdrop-blur">
-                <span className="mb-1 flex items-center gap-2 text-muted-foreground font-medium">
-                  <Phone size={14} />
-                  {content.phone}
+              <div className="glass-card rounded-xl p-3 border border-stroke min-w-0">
+                <span className="mb-1 flex items-center gap-1.5 text-muted-foreground font-medium">
+                  <Phone size={13} className="text-accent shrink-0" />
+                  <span className="truncate">{content.phoneLabel}</span>
                 </span>
-                <a href="tel:+212701820101" className="text-foreground hover:text-primary transition-colors">
-                  +212 701-820101
+                <a href={`tel:${content.phone.replace(/[\s-]/g, "")}`} className="text-foreground font-semibold hover:text-accent transition-colors whitespace-nowrap block">
+                  {content.phone}
                 </a>
               </div>
-              <div className="rounded-lg border border-border/60 bg-card/40 p-3 backdrop-blur">
-                <span className="mb-1 flex items-center gap-2 text-muted-foreground font-medium">
-                  <Mail size={14} />
-                  {content.email}
+              <div className="glass-card rounded-xl p-3 border border-stroke min-w-0">
+                <span className="mb-1 flex items-center gap-1.5 text-muted-foreground font-medium">
+                  <Mail size={13} className="text-accent shrink-0" />
+                  <span className="truncate">{content.emailLabel}</span>
                 </span>
                 <a
-                  href="mailto:sohaiblaarichi112@gmail.com?subject=Contact%20depuis%20le%20portfolio%20-%20Sohaib%20LAARICHI"
-                  className="break-all text-foreground hover:text-primary transition-colors"
+                  href={`mailto:${content.email}?subject=Contact%20depuis%20le%20portfolio%20-%20Sohaib%20LAARICHI`}
+                  className="whitespace-nowrap text-foreground font-semibold hover:text-accent transition-colors block text-[11.5px] sm:text-xs"
+                  title={content.email}
                 >
-                  sohaiblaarichi112@gmail.com
+                  {content.email}
                 </a>
               </div>
             </motion.div>
@@ -254,8 +255,8 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
           >
-            <div className="absolute -inset-3 rounded-[1.5rem] bg-gradient-to-br from-primary/16 via-transparent to-emerald-400/10 blur-xl" />
-            <div className="relative overflow-hidden rounded-lg border border-border/70 bg-card/60 shadow-2xl shadow-black/20 backdrop-blur">
+            <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-accent/30 via-accent/10 to-transparent blur-3xl" />
+            <div className="glass-card relative overflow-hidden rounded-2xl border border-stroke bg-card/60 shadow-2xl backdrop-blur-2xl">
               <div className="relative aspect-[5/6] max-h-[30rem]">
                 <Image
                   src="/moi.png"
@@ -264,6 +265,7 @@ export default function Hero() {
                   className="object-cover object-[50%_28%]"
                   sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 384px"
                   priority
+                  loading="eager"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background via-background/45 to-transparent" />
               </div>
@@ -273,9 +275,9 @@ export default function Hero() {
                   return (
                     <div
                       key={item.label}
-                      className="rounded-md border border-white/10 bg-background/72 p-2 text-center backdrop-blur-xl"
+                      className="glass-card rounded-xl border border-stroke bg-background/80 p-2 text-center backdrop-blur-xl"
                     >
-                      <Icon className="mx-auto mb-1 text-primary" size={16} />
+                      <Icon className="mx-auto mb-1 text-accent" size={15} />
                       <p className="text-[0.68rem] font-semibold text-foreground sm:text-xs">{item.label}</p>
                     </div>
                   )

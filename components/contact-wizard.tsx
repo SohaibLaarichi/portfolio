@@ -1,15 +1,13 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { useLanguage } from "@/hooks/use-language"
 import {
   Briefcase,
   Code2,
   Activity,
   Coffee,
-  MapPin,
-  Clock,
   Send,
   CheckCircle2,
   ArrowRight,
@@ -17,7 +15,6 @@ import {
   MessageSquare,
   Sparkles,
   Phone,
-  Mail,
   RotateCcw,
 } from "lucide-react"
 import { toast } from "sonner"
@@ -174,12 +171,12 @@ ${formData.name || "Recruteur / Client"}`
   }
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-card/65 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+    <div className="glass-card relative overflow-hidden rounded-2xl border border-stroke bg-card/60 p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
       {/* Stepper Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+            <span className="grid h-8 w-8 place-items-center rounded-xl bg-accent/15 text-accent border border-accent/30 shadow-xs shadow-accent/10">
               <Sparkles size={16} />
             </span>
             <div>
@@ -194,15 +191,15 @@ ${formData.name || "Recruteur / Client"}`
             </div>
           </div>
 
-          <span className="rounded-full bg-primary/10 border border-primary/25 px-3 py-1 font-mono text-xs font-bold text-primary">
+          <span className="rounded-full bg-accent/15 border border-accent/30 px-3 py-1 font-mono text-xs font-bold text-accent shadow-xs shadow-accent/10">
             {isSubmitted ? "3/3" : `${currentStep}/3`}
           </span>
         </div>
 
         {/* Progress Bar */}
-        <div className="h-1.5 w-full rounded-full bg-border/60 overflow-hidden">
+        <div className="h-1.5 w-full rounded-full bg-surface-2 border border-stroke overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-cyan-400"
+            className="h-full bg-gradient-to-r from-accent via-amber-400 to-amber-200"
             initial={{ width: "33%" }}
             animate={{ width: isSubmitted ? "100%" : `${(currentStep / 3) * 100}%` }}
             transition={{ duration: 0.3 }}
@@ -235,21 +232,23 @@ ${formData.name || "Recruteur / Client"}`
                       key={item.id}
                       type="button"
                       onClick={() => setFormData({ ...formData, opportunityType: item.id })}
-                      className={`flex items-start gap-3 rounded-xl border p-4 text-left transition-all ${
+                      className={`flex items-start gap-3 rounded-xl border p-4 text-left transition-all cursor-pointer ${
                         isSelected
-                          ? "border-primary bg-primary/10 shadow-lg shadow-primary/10 ring-1 ring-primary/40"
-                          : "border-border/70 bg-card/40 hover:border-primary/40 hover:bg-card/70"
+                          ? "border-accent bg-accent/15 shadow-lg shadow-accent/10 ring-1 ring-accent/40"
+                          : "border-stroke bg-surface/40 hover:border-stroke-hi hover:bg-surface/70"
                       }`}
                     >
                       <div
-                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-lg ${
-                          isSelected ? "bg-primary text-primary-foreground" : "bg-secondary text-primary"
+                        className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl transition-colors ${
+                          isSelected
+                            ? "bg-accent text-accent-foreground font-bold shadow-md shadow-accent/25"
+                            : "bg-surface border border-stroke text-accent"
                         }`}
                       >
                         <Icon size={20} />
                       </div>
                       <div>
-                        <p className="font-bold text-sm text-foreground">
+                        <p className={`font-bold text-sm ${isSelected ? "text-accent" : "text-foreground"}`}>
                           {lang === "fr" ? item.titleFr : item.titleEn}
                         </p>
                         <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
@@ -285,10 +284,10 @@ ${formData.name || "Recruteur / Client"}`
                         key={mode.id}
                         type="button"
                         onClick={() => setFormData({ ...formData, workMode: mode.id })}
-                        className={`rounded-xl border p-3 text-left text-xs font-semibold transition-all ${
+                        className={`rounded-xl border p-3 text-left text-xs font-semibold transition-all cursor-pointer ${
                           isSelected
-                            ? "border-primary bg-primary/10 text-primary ring-1 ring-primary/30"
-                            : "border-border/70 bg-card/40 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                            ? "border-accent bg-accent/15 text-accent ring-1 ring-accent/40 font-bold shadow-xs shadow-accent/10"
+                            : "border-stroke bg-surface/40 text-muted-foreground hover:bg-surface hover:text-foreground hover:border-stroke-hi"
                         }`}
                       >
                         {lang === "fr" ? mode.labelFr : mode.labelEn}
@@ -310,10 +309,10 @@ ${formData.name || "Recruteur / Client"}`
                         key={time.id}
                         type="button"
                         onClick={() => setFormData({ ...formData, timeline: time.id })}
-                        className={`rounded-xl border p-3 text-left text-xs font-semibold transition-all ${
+                        className={`rounded-xl border p-3 text-left text-xs font-semibold transition-all cursor-pointer ${
                           isSelected
-                            ? "border-primary bg-primary/10 text-primary ring-1 ring-primary/30"
-                            : "border-border/70 bg-card/40 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                            ? "border-accent bg-accent/15 text-accent ring-1 ring-accent/40 font-bold shadow-xs shadow-accent/10"
+                            : "border-stroke bg-surface/40 text-muted-foreground hover:bg-surface hover:text-foreground hover:border-stroke-hi"
                         }`}
                       >
                         {lang === "fr" ? time.labelFr : time.labelEn}
@@ -349,7 +348,7 @@ ${formData.name || "Recruteur / Client"}`
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Ex: Sarah Benjelloun"
-                    className="w-full rounded-xl border border-border/80 bg-background/50 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-stroke bg-surface/60 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none transition-all"
                   />
                 </div>
 
@@ -362,7 +361,7 @@ ${formData.name || "Recruteur / Client"}`
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Ex: TechCorp / Hôpital / Startup"
-                    className="w-full rounded-xl border border-border/80 bg-background/50 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-stroke bg-surface/60 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none transition-all"
                   />
                 </div>
               </div>
@@ -376,7 +375,7 @@ ${formData.name || "Recruteur / Client"}`
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="nom@entreprise.com"
-                  className="w-full rounded-xl border border-border/80 bg-background/50 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none"
+                  className="w-full rounded-xl border border-stroke bg-surface/60 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none transition-all"
                 />
               </div>
 
@@ -393,19 +392,19 @@ ${formData.name || "Recruteur / Client"}`
                       ? "Précisez vos attentes, stack requise, ou convenons d'un créneau d'échange..."
                       : "Describe your expectations, required stack, or suggest a call time..."
                   }
-                  className="w-full rounded-xl border border-border/80 bg-background/50 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none resize-none"
+                  className="w-full rounded-xl border border-stroke bg-surface/60 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none resize-none transition-all"
                 />
               </div>
             </motion.div>
           )}
 
           {/* Stepper Navigation Buttons */}
-          <div className="mt-8 flex items-center justify-between border-t border-border/60 pt-4">
+          <div className="mt-8 flex items-center justify-between border-t border-stroke pt-4">
             {currentStep > 1 ? (
               <button
                 type="button"
                 onClick={handlePrev}
-                className="inline-flex items-center gap-1.5 rounded-xl border border-border/80 bg-card px-4 py-2 text-xs font-bold text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-stroke bg-surface px-4 py-2 text-xs font-bold text-muted-foreground hover:border-stroke-hi hover:bg-surface-2 hover:text-foreground transition-all cursor-pointer"
               >
                 <ArrowLeft size={14} />
                 <span>{lang === "fr" ? "Précédent" : "Previous"}</span>
@@ -418,7 +417,7 @@ ${formData.name || "Recruteur / Client"}`
               <button
                 type="button"
                 onClick={handleNext}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:scale-102"
+                className="inline-flex items-center gap-1.5 rounded-xl bg-accent text-accent-foreground px-5 py-2.5 text-xs font-bold shadow-lg shadow-accent/25 hover:bg-accent/90 transition-all hover:scale-102 cursor-pointer"
               >
                 <span>{lang === "fr" ? "Suivant" : "Next"}</span>
                 <ArrowRight size={14} />
@@ -428,7 +427,7 @@ ${formData.name || "Recruteur / Client"}`
                 <button
                   type="button"
                   onClick={handleSendWhatsApp}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-xs font-bold text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2.5 text-xs font-bold text-emerald-400 hover:bg-emerald-500/20 transition-colors cursor-pointer"
                 >
                   <MessageSquare size={14} />
                   <span>WhatsApp</span>
@@ -437,7 +436,7 @@ ${formData.name || "Recruteur / Client"}`
                 <button
                   type="button"
                   onClick={handleSendEmail}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 transition-all hover:scale-102"
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-accent text-accent-foreground px-5 py-2.5 text-xs font-bold shadow-lg shadow-accent/25 hover:bg-accent/90 transition-all hover:scale-102 cursor-pointer"
                 >
                   <Send size={14} />
                   <span>{lang === "fr" ? "Envoyer par Email" : "Send by Email"}</span>
@@ -470,16 +469,16 @@ ${formData.name || "Recruteur / Client"}`
           <div className="pt-2 flex flex-wrap justify-center gap-3">
             <a
               href="tel:+212701820101"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-border/80 bg-card px-4 py-2 text-xs font-bold text-foreground hover:bg-secondary"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-stroke bg-surface px-4 py-2 text-xs font-bold text-foreground hover:border-stroke-hi hover:bg-surface-2 transition-all"
             >
-              <Phone size={14} className="text-primary" />
+              <Phone size={14} className="text-accent" />
               <span>+212 701-820101</span>
             </a>
 
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-primary/10 border border-primary/30 px-4 py-2 text-xs font-bold text-primary hover:bg-primary/20"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-accent/15 border border-accent/30 px-4 py-2 text-xs font-bold text-accent hover:bg-accent/25 transition-all cursor-pointer"
             >
               <RotateCcw size={14} />
               <span>{lang === "fr" ? "Nouvelle demande" : "New inquiry"}</span>

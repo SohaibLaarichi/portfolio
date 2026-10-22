@@ -52,7 +52,7 @@ export default function Stats() {
   }
 
   return (
-    <section ref={ref} className="max-w-6xl mx-auto px-6 py-14 border-t border-border/50">
+    <section ref={ref} className="max-w-6xl mx-auto px-6 py-14 border-t border-stroke">
       <motion.div
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
@@ -60,7 +60,7 @@ export default function Stats() {
         className="text-center"
       >
         <motion.h2 
-          className="text-2xl lg:text-3xl font-black text-foreground mb-10"
+          className="text-2xl lg:text-3xl font-black text-foreground mb-10 tracking-tight"
           variants={statVariants}
         >
           {content.title}
@@ -74,28 +74,28 @@ export default function Stats() {
               variants={statVariants}
               whileHover={{ y: -3 }}
             >
-              <div className="h-full rounded-lg border border-border/70 bg-card/55 p-5 text-left shadow-lg shadow-black/5 backdrop-blur transition-all duration-300 hover:border-primary/45 hover:bg-card/80 hover:shadow-primary/10">
+              <div className="glass-card h-full rounded-2xl border border-stroke p-5 text-left transition-all duration-300 hover:border-stroke-hi hover:shadow-xl">
                 {(() => {
                   const Icon = icons[index]
                   return (
-                    <div className="mb-4 grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <div className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-surface border border-stroke text-accent">
                       <Icon size={19} />
                     </div>
                   )
                 })()}
-                <div className="text-3xl lg:text-4xl font-black text-primary mb-2">
+                <div className="text-3xl lg:text-4xl font-black text-foreground mb-1.5 tracking-tight">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <p className="text-sm lg:text-base text-muted-foreground font-semibold">
+                <p className="text-xs lg:text-sm text-muted-foreground font-medium leading-relaxed">
                   {stat.label}
                 </p>
               </div>
 
-              {/* Effet de brillance au hover */}
-              <motion.div
-                className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              {/* Effet de brillance ambrée au hover */}
+              <div
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
-                  background: "linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.1), transparent)",
+                  background: "radial-gradient(circle at 50% 0%, var(--halo), transparent 70%)",
                 }}
               />
             </motion.div>

@@ -78,19 +78,19 @@ export default function Skills() {
       : ["Core expertise", "Core expertise", "Regular practice", "Project practice", "Technical foundation", "Working methods"]
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70" ref={ref}>
+    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
 
       {/* Live Search Input */}
       <div className="mb-8 max-w-xl mx-auto">
         <div className="relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={17} />
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={labels.searchPlaceholder}
-            className="w-full rounded-xl border border-border/80 bg-card/60 py-3 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur"
+            className="w-full rounded-full border border-stroke bg-surface py-2.5 pl-11 pr-4 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 backdrop-blur-xl transition-all"
           />
         </div>
       </div>
@@ -99,8 +99,8 @@ export default function Skills() {
         <aside className="lg:sticky lg:top-24 lg:self-start space-y-4">
           <SkillRadarChart />
 
-          <div className="rounded-xl border border-border/70 bg-card/40 p-4 shadow-xl backdrop-blur">
-            <p className="mb-1.5 flex items-center gap-2 text-xs font-bold uppercase text-primary">
+          <div className="glass-card rounded-2xl border border-stroke bg-card/45 p-4 shadow-xl backdrop-blur-xl">
+            <p className="mb-1.5 flex items-center gap-2 text-xs font-bold uppercase text-accent">
               <Network size={14} />
               {labels.profile}
             </p>
@@ -128,19 +128,19 @@ export default function Skills() {
                 key={category.name}
                 variants={cardVariants}
               >
-                <SpotlightCard className="p-5 bg-card/45 hover:bg-card/70 transition-all duration-300">
+                <SpotlightCard className="p-5 glass-card bg-card/45 hover:bg-card/70 transition-all duration-300">
                   <div className="grid grid-cols-1 gap-5 md:grid-cols-[0.92fr_1.08fr] md:items-start">
                     <div>
                       <div className="mb-4 flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary">
-                            <Icon size={20} />
+                          <div className="grid h-10 w-10 place-items-center rounded-xl bg-surface border border-stroke text-accent">
+                            <Icon size={19} />
                           </div>
                           <div>
                             <h3 className="text-xl font-black text-foreground">{category.name}</h3>
                           </div>
                         </div>
-                        <span className="rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-bold text-primary">
+                        <span className="rounded-full border border-stroke bg-surface px-3 py-1 text-xs font-bold text-accent">
                           {practiceLabels[index]}
                         </span>
                       </div>
@@ -157,10 +157,10 @@ export default function Skills() {
                           return (
                             <span
                               key={skill}
-                              className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition-all ${
+                              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition-all ${
                                 isMatch
-                                  ? "border-sky-400 bg-sky-500/25 text-sky-200 font-bold scale-110 shadow-lg shadow-sky-500/20"
-                                  : "border-border/70 bg-background/45 text-foreground/82 group-hover:border-primary/20"
+                                  ? "border-accent bg-accent/25 text-foreground font-bold scale-105 shadow-md shadow-accent/20"
+                                  : "border-stroke bg-surface text-muted-foreground hover:border-stroke-hi hover:text-foreground"
                               }`}
                             >
                               <BrandIcon name={skill} fallback={Icon} />

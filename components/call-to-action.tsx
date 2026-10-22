@@ -54,60 +54,35 @@ export default function CallToAction() {
     },
   }
 
-  const floatingElements = [
-    { icon: "💼", delay: 0, left: "20%", top: "10%" },
-    { icon: "🚀", delay: 1, left: "40%", top: "70%" },
-    { icon: "⚡", delay: 2, left: "60%", top: "10%" },
-    { icon: "🎯", delay: 3, left: "80%", top: "60%" },
-  ]
-
   return (
-    <section ref={ref} className="max-w-6xl mx-auto px-6 py-20">
+    <section ref={ref} className="max-w-5xl mx-auto px-6 py-20">
       <motion.div
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border border-primary/20"
+        className="glass-card relative overflow-hidden rounded-3xl border border-stroke p-8 lg:p-14 text-center shadow-2xl"
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariants}
       >
-        {/* Éléments flottants de fond */}
-        {floatingElements.map((element, index) => (
-          <motion.div
-            key={index}
-            className="absolute text-6xl opacity-10"
-            style={{
-              left: element.left,
-              top: element.top,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              rotate: [0, 5, -5, 0],
-            }}
-            transition={{
-              duration: 6,
-              delay: element.delay,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
-            {element.icon}
-          </motion.div>
-        ))}
+        {/* Ambient Top Glow */}
+        <div
+          className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full opacity-35 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--halo), transparent 70%)" }}
+        />
 
-        <div className="relative z-10 p-8 lg:p-12 text-center">
+        <div className="relative z-10">
           {/* Badge de disponibilité */}
           <motion.div 
             className="inline-block mb-6"
             variants={itemVariants}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              {content.availability}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-semibold">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+              <span>{content.availability}</span>
             </div>
           </motion.div>
 
           {/* Titre principal */}
           <motion.h2 
-            className="text-4xl lg:text-5xl font-bold text-foreground mb-4"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-3 tracking-tight"
             variants={itemVariants}
           >
             {content.title}
@@ -115,7 +90,7 @@ export default function CallToAction() {
 
           {/* Sous-titre */}
           <motion.h3 
-            className="text-xl lg:text-2xl text-primary font-semibold mb-6"
+            className="text-lg sm:text-xl text-accent font-semibold mb-5 tracking-tight"
             variants={itemVariants}
           >
             {content.subtitle}
@@ -123,7 +98,7 @@ export default function CallToAction() {
 
           {/* Description */}
           <motion.p 
-            className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             {content.description}
@@ -131,36 +106,36 @@ export default function CallToAction() {
 
           {/* Boutons d'action */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-8"
+            className="flex flex-wrap justify-center gap-3.5 mb-8"
             variants={itemVariants}
           >
             <motion.a
               href="mailto:sohaiblaarichi112@gmail.com?subject=Opportunit%C3%A9%20d%27emploi%20-%20Sohaib%20LAARICHI&body=Bonjour%20Sohaib%2C%0A%0AJe%20vous%20contacte%20concernant%20une%20opportunit%C3%A9%20d%27emploi.%0A%0ACordialement"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium shadow-lg"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="nowotch-btn inline-flex items-center gap-2"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <Mail className="w-5 h-5" />
-              {content.buttons.contact}
+              <Mail className="w-4 h-4" />
+              <span>{content.buttons.contact}</span>
               <ArrowRight className="w-4 h-4" />
             </motion.a>
 
             <motion.a
-              href="https://calendly.com/votre-lien" // Remplacez par votre lien Calendly
+              href="https://calendly.com/votre-lien"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-card border border-border text-card-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-all duration-300 font-medium"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-stroke bg-surface hover:border-stroke-hi hover:bg-surface-2 text-foreground font-semibold text-sm transition-all"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <Calendar className="w-5 h-5" />
-              {content.buttons.schedule}
+              <Calendar className="w-4 h-4 text-accent" />
+              <span>{content.buttons.schedule}</span>
             </motion.a>
           </motion.div>
 
           {/* Actions secondaires */}
           <motion.div 
-            className="flex flex-wrap justify-center gap-4 text-sm"
+            className="flex flex-wrap justify-center gap-3 text-xs sm:text-sm"
             variants={itemVariants}
           >
             <motion.a
@@ -168,38 +143,25 @@ export default function CallToAction() {
               download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-primary transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-1.5 rounded-full border border-stroke bg-surface/70 px-4 py-1.5 text-muted-foreground hover:border-accent hover:text-accent transition-all font-medium"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <Download className="w-4 h-4" />
-              {content.buttons.cv}
+              <Download className="w-3.5 h-3.5" />
+              <span>{content.buttons.cv}</span>
             </motion.a>
 
             <motion.a
               href="tel:+212701820101"
-              className="inline-flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-primary transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-1.5 rounded-full border border-stroke bg-surface/70 px-4 py-1.5 text-muted-foreground hover:border-accent hover:text-accent transition-all font-medium"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <Phone className="w-4 h-4" />
-              +212 701-820101
+              <Phone className="w-3.5 h-3.5" />
+              <span>+212 701-820101</span>
             </motion.a>
           </motion.div>
         </div>
-
-        {/* Effet de brillance animé */}
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          animate={{
-            background: [
-              "linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.1), transparent)",
-              "linear-gradient(225deg, transparent, rgba(6, 182, 212, 0.1), transparent)",
-              "linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.1), transparent)",
-            ],
-          }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
-        />
       </motion.div>
     </section>
   )

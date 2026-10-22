@@ -10,7 +10,6 @@ import {
   Copy,
   Download,
   Eye,
-  FileText,
   FolderGit2,
   Github,
   Globe,

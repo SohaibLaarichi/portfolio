@@ -2,15 +2,12 @@
 
 import React, { useState, useRef, useEffect, type FormEvent, type KeyboardEvent } from "react"
 import { useLanguage } from "@/hooks/use-language"
-import { motion, AnimatePresence } from "framer-motion"
 import {
   Terminal,
   Copy,
   Check,
   RotateCcw,
-  Sparkles,
   CornerDownLeft,
-  ChevronRight,
   Maximize2,
   Minimize2,
 } from "lucide-react"
@@ -48,20 +45,20 @@ export default function DevOpsTerminal() {
       command: "whoami && uptime",
       time: "10:00:00",
       output: (
-        <div className="font-mono text-xs sm:text-sm space-y-1 text-emerald-300">
+        <div className="font-mono text-xs sm:text-sm space-y-1 text-emerald-400">
           <p>
-            <span className="text-muted-foreground">User:</span>{" "}
+            <span className="text-slate-400">User:</span>{" "}
             <strong className="text-white">Sohaib LAARICHI</strong>
           </p>
           <p>
-            <span className="text-muted-foreground">Title:</span>{" "}
-            <strong>Ingénieur d'État en Informatique – Full Stack & DevOps</strong>
+            <span className="text-slate-400">Title:</span>{" "}
+            <strong className="text-slate-100">Ingénieur d'État en Informatique – Full Stack & DevOps</strong>
           </p>
           <p>
-            <span className="text-muted-foreground">Education:</span> EMSI Marrakech (MIAGE 2024–2026) · UPM
+            <span className="text-slate-400">Education:</span> <span className="text-slate-300">EMSI Marrakech (MIAGE 2024–2026) · UPM</span>
           </p>
           <p>
-            <span className="text-muted-foreground">Status:</span>{" "}
+            <span className="text-slate-400">Status:</span>{" "}
             <span className="text-emerald-400 font-bold">● DISPONIBLE IMMÉDIATEMENT (CDI / Mission)</span>
           </p>
         </div>
@@ -283,7 +280,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
               <a
                 href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
                 download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
-                className="inline-flex items-center gap-1.5 rounded bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground hover:bg-primary/90"
+                className="inline-flex items-center gap-1.5 rounded-md bg-accent px-3 py-1.5 text-xs font-bold text-black hover:bg-accent/90 transition-colors"
               >
                 📥 {lang === "fr" ? "Télécharger le CV (PDF)" : "Download Resume (PDF)"}
               </a>
@@ -346,7 +343,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
         )
         break
 
-      case normalized === "theme":
+      case normalized === "theme": {
         const nextTheme = theme === "dark" ? "light" : "dark"
         setTheme(nextTheme)
         responseOutput = (
@@ -355,6 +352,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
           </p>
         )
         break
+      }
 
       case normalized.startsWith("sudo"):
         responseOutput = (
@@ -440,27 +438,40 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
   return (
     <section className="max-w-6xl mx-auto px-6 py-12">
       <div
-        className={`overflow-hidden rounded-2xl border border-indigo-500/30 bg-slate-950 shadow-2xl shadow-black/60 transition-all duration-300 ${
+        className={`overflow-hidden rounded-2xl border border-white/10 bg-[#0B0D13] shadow-2xl shadow-black/40 backdrop-blur-2xl transition-all duration-300 ring-1 ring-white/5 ${
           isMaximized ? "fixed inset-4 z-50 rounded-xl" : "relative"
         }`}
       >
         {/* Terminal Header Bar */}
-        <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/90 px-4 py-3">
+        <div className="flex items-center justify-between border-b border-white/10 bg-[#12151E] px-4 py-3 backdrop-blur-md">
           <div className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-full bg-rose-500/80 cursor-pointer hover:opacity-80" onClick={() => setEntries([])} title="Clear" />
-            <span className="h-3 w-3 rounded-full bg-amber-500/80 cursor-pointer hover:opacity-80" onClick={() => setIsMaximized(!isMaximized)} title="Minimize/Maximize" />
-            <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-            <span className="ml-2 flex items-center gap-1.5 text-xs font-semibold text-slate-300">
-              <Terminal size={14} className="text-indigo-400" />
-              sohaib@devops-cluster:~ (interactive zsh)
-            </span>
+            <span
+              className="h-3 w-3 rounded-full bg-[#FF5F56] cursor-pointer hover:brightness-110 transition-all shadow-xs shadow-red-500/20"
+              onClick={() => setEntries([])}
+              title="Clear"
+            />
+            <span
+              className="h-3 w-3 rounded-full bg-[#FFBD2E] cursor-pointer hover:brightness-110 transition-all shadow-xs shadow-amber-500/20"
+              onClick={() => setIsMaximized(!isMaximized)}
+              title="Minimize/Maximize"
+            />
+            <span
+              className="h-3 w-3 rounded-full bg-[#27C93F] cursor-pointer hover:brightness-110 transition-all shadow-xs shadow-green-500/20"
+              title="Active session"
+            />
+            <div className="ml-2.5 flex items-center gap-2 rounded-md bg-white/5 px-2.5 py-1 border border-white/10">
+              <Terminal size={13} className="text-accent" />
+              <span className="font-mono text-xs font-semibold text-white tracking-wide">
+                sohaib@devops-cluster:~ (interactive zsh)
+              </span>
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={() => setEntries([])}
               type="button"
-              className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/60 px-2 py-1 text-xs text-slate-300 hover:bg-slate-700 transition-colors"
+              className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-xs text-slate-300 hover:border-white/30 hover:text-white transition-all cursor-pointer"
               title="Réinitialiser l'écran"
             >
               <RotateCcw size={12} />
@@ -470,7 +481,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
             <button
               onClick={handleCopyLast}
               type="button"
-              className="inline-flex items-center gap-1 rounded-md border border-slate-700 bg-slate-800/60 px-2 py-1 text-xs text-slate-300 hover:bg-slate-700 transition-colors"
+              className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-xs text-slate-300 hover:border-white/30 hover:text-white transition-all cursor-pointer"
               title="Copier les commandes"
             >
               {copied ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
@@ -480,7 +491,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
             <button
               onClick={() => setIsMaximized(!isMaximized)}
               type="button"
-              className="hidden sm:inline-flex items-center justify-center h-6 w-6 rounded-md border border-slate-700 bg-slate-800/60 text-slate-300 hover:bg-slate-700 transition-colors"
+              className="hidden sm:inline-flex items-center justify-center h-6 w-6 rounded-full border border-white/15 bg-white/5 text-slate-300 hover:border-white/30 hover:text-white transition-all cursor-pointer"
               title={isMaximized ? "Réduire" : "Plein écran"}
             >
               {isMaximized ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
@@ -489,8 +500,8 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
         </div>
 
         {/* Quick Suggestion Chips */}
-        <div className="flex flex-wrap items-center gap-1.5 border-b border-slate-800/80 bg-slate-900/60 px-4 py-2">
-          <span className="text-[11px] font-mono text-muted-foreground mr-1 hidden sm:inline">
+        <div className="flex flex-wrap items-center gap-1.5 border-b border-white/10 bg-[#0E1017] px-4 py-2">
+          <span className="text-[11px] font-mono text-slate-400 mr-1 hidden sm:inline">
             Suggestions :
           </span>
           {[
@@ -506,7 +517,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
               key={cmd}
               onClick={() => handleQuickChip(cmd)}
               type="button"
-              className="rounded-md border border-slate-800 bg-slate-800/50 px-2.5 py-1 font-mono text-[11px] text-cyan-300 hover:border-indigo-500/50 hover:bg-indigo-500/10 hover:text-white transition-all active:scale-95"
+              className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 font-mono text-[11px] text-slate-300 hover:border-accent hover:text-accent hover:bg-white/10 transition-all active:scale-95 cursor-pointer"
             >
               {cmd}
             </button>
@@ -517,7 +528,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
         <div
           ref={terminalBodyRef}
           onClick={() => inputRef.current?.focus()}
-          className={`p-4 sm:p-5 font-mono bg-slate-950/95 overflow-y-auto selection:bg-indigo-500/30 cursor-text ${
+          className={`p-4 sm:p-5 font-mono bg-[#0B0D13] text-[#E6EDF3] overflow-y-auto selection:bg-accent/30 cursor-text ${
             isMaximized ? "h-[calc(100vh-140px)]" : "max-h-[380px] min-h-[260px]"
           }`}
         >
@@ -525,12 +536,12 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
             <div key={entry.id} className="mb-4">
               <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 mb-1.5">
                 <span className="text-emerald-400 font-bold">sohaib@marrakech:~$</span>
-                <span className="text-cyan-300 font-semibold">{entry.command}</span>
-                <span className="ml-auto text-[10px] text-slate-600 font-mono hidden sm:inline">
+                <span className="text-white font-semibold">{entry.command}</span>
+                <span className="ml-auto text-[10px] text-slate-500 font-mono hidden sm:inline">
                   {entry.time}
                 </span>
               </div>
-              <div className="pl-0 sm:pl-3 border-l-2 border-indigo-500/20">{entry.output}</div>
+              <div className="pl-0 sm:pl-3 border-l-2 border-white/10">{entry.output}</div>
             </div>
           ))}
 
@@ -551,7 +562,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
                     ? "Tapez une commande (ex: docker ps, kubectl get pods, help)..."
                     : "Type a command (e.g. docker ps, kubectl get pods, help)..."
                 }
-                className="w-full bg-transparent font-mono text-xs sm:text-sm text-white placeholder:text-slate-600 focus:outline-hidden"
+                className="w-full bg-transparent font-mono text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-hidden"
                 autoComplete="off"
                 autoCapitalize="off"
                 spellCheck="false"
@@ -559,7 +570,7 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
               <button
                 type="submit"
                 aria-label="Exécuter"
-                className="ml-2 text-slate-500 hover:text-cyan-300 transition-colors"
+                className="ml-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
               >
                 <CornerDownLeft size={14} />
               </button>
@@ -568,12 +579,12 @@ postgres-statefulset-0                     1/1     Running   0          7d     1
         </div>
 
         {/* Terminal Footer Bar */}
-        <div className="border-t border-slate-900 bg-slate-950 px-4 py-2 flex items-center justify-between text-[11px] font-mono text-slate-500">
+        <div className="border-t border-white/10 bg-[#0E1017] px-4 py-2 flex items-center justify-between text-[11px] font-mono text-slate-400">
           <span className="flex items-center gap-1.5 text-emerald-400">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>Interactive Console Ready</span>
           </span>
-          <span className="hidden sm:inline">Use ↑ / ↓ for history · Press Enter to run</span>
+          <span className="hidden sm:inline text-slate-500">Use ↑ / ↓ for history · Press Enter to run</span>
         </div>
       </div>
     </section>

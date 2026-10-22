@@ -1,16 +1,22 @@
 export const heroContent = {
   fr: {
     title: "Ingénieur d’État en Informatique – Full Stack & DevOps",
+    locationLabel: "Localisation",
     location: "Marrakech, Maroc",
-    phone: "07 01 82 01 01",
+    phoneLabel: "Téléphone",
+    phone: "+212 701-820101",
+    emailLabel: "Email officiel",
     email: "sohaiblaarichi112@gmail.com",
     description:
       "Ingénieur d’État en Informatique polyvalent, maîtrisant le développement web Full Stack (écosystèmes JavaScript/TypeScript et Java/Spring Boot) et l’ingénierie DevOps (CI/CD, Docker, Kubernetes). Habitué à concevoir des architectures microservices, à développer des API REST sécurisées et à fiabiliser les déploiements cloud. J’interviens sur l’ensemble du cycle de vie des applications logicielles, de l’analyse des besoins métiers jusqu’à la mise en production.",
   },
   en: {
     title: "State Graduate Computer Engineer – Full Stack & DevOps",
+    locationLabel: "Location",
     location: "Marrakech, Morocco",
-    phone: "07 01 82 01 01",
+    phoneLabel: "Phone",
+    phone: "+212 701-820101",
+    emailLabel: "Official Email",
     email: "sohaiblaarichi112@gmail.com",
     description:
       "Versatile State Graduate Computer Engineer skilled in Full Stack web development (JavaScript/TypeScript and Java/Spring Boot ecosystems) and DevOps engineering (CI/CD, Docker, Kubernetes). Experienced in architecting microservices, developing secure RESTful APIs, and streamlining resilient cloud deployments across the end-to-end software lifecycle.",

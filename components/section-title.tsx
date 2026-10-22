@@ -20,9 +20,9 @@ export default function SectionTitle({ children }: { children: React.ReactNode }
 
       {/* Animated underline accent */}
       <motion.div
-        className="absolute -bottom-3 left-0 h-1 bg-gradient-to-r from-primary via-emerald-300 to-transparent rounded-full"
+        className="absolute -bottom-3 left-0 h-1 bg-gradient-to-r from-accent via-accent/40 to-transparent rounded-full"
         initial={{ width: 0 }}
-        animate={isVisible ? { width: 60 } : { width: 0 }}
+        animate={isVisible ? { width: 56 } : { width: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       />
     </motion.div>

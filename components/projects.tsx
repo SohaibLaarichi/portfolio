@@ -246,31 +246,31 @@ export default function Projects() {
   }
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70" ref={ref}>
+    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
 
       <motion.div
-        className="relative mb-8 overflow-hidden rounded-xl border border-primary/25 bg-card/55 shadow-xl shadow-black/5 backdrop-blur"
+        className="glass-card relative mb-8 overflow-hidden rounded-2xl border border-stroke bg-card/60 shadow-xl backdrop-blur-2xl"
         initial={{ opacity: 0, y: 20 }}
         animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
       >
-        <BorderBeam size={350} duration={12} colorFrom="#6366f1" colorTo="#06b6d4" />
+        <BorderBeam size={350} duration={12} colorFrom="#F59E0B" colorTo="#FF7A00" />
         <div className="p-6 lg:p-8">
           <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
             <div className="max-w-3xl">
-            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold uppercase text-primary">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-stroke bg-surface px-3 py-1 text-xs font-bold uppercase text-accent">
               <BrainCircuit size={14} />
               {content.caseLabel}
             </p>
             <h3 className="text-3xl font-black text-foreground">{content.caseTitle}</h3>
-            <p className="mt-2 max-w-2xl text-base font-semibold text-foreground/80">{content.caseSubtitle}</p>
+            <p className="mt-2 max-w-2xl text-base font-semibold text-foreground/85">{content.caseSubtitle}</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {content.impact.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-primary/15 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary"
+                  className="rounded-full border border-stroke bg-surface px-3 py-1.5 text-xs font-semibold text-muted-foreground"
                 >
                   {item}
                 </span>
@@ -361,10 +361,10 @@ export default function Projects() {
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               type="button"
-              className={`shrink-0 rounded-lg px-4 py-2 text-xs font-bold transition-all ${
+              className={`shrink-0 rounded-full px-4 py-1.5 text-xs font-bold transition-all ${
                 activeCategory === cat.id
-                  ? "bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-105"
-                  : "border border-border/70 bg-card/40 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  ? "bg-foreground text-background shadow-xs scale-102"
+                  : "border border-stroke bg-surface text-muted-foreground hover:bg-surface-2 hover:border-stroke-hi hover:text-foreground"
               }`}
             >
               {cat.label}

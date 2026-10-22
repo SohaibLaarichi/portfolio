@@ -30,7 +30,7 @@ export default function About() {
   }
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70" ref={ref}>
+    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
 
       <motion.div
@@ -46,8 +46,8 @@ export default function About() {
         >
           <div className="relative">
             <motion.div
-              className="relative w-64 h-80 mx-auto lg:mx-0 overflow-hidden rounded-lg border border-border/70 bg-card/60 shadow-xl shadow-black/10"
-              whileHover={{ scale: 1.02, y: -5 }}
+              className="glass-card relative w-64 h-80 mx-auto lg:mx-0 overflow-hidden rounded-2xl border border-stroke bg-card/60 shadow-xl"
+              whileHover={{ scale: 1.02, y: -4 }}
               transition={{ duration: 0.3 }}
             >
               <Image
@@ -57,22 +57,22 @@ export default function About() {
                 className="object-cover object-[50%_30%]"
                 sizes="(max-width: 768px) 256px, 256px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
             </motion.div>
           </div>
 
           <motion.div
-            className="mt-6 rounded-lg border border-border/70 bg-card/55 p-4 text-center shadow-lg shadow-black/5 backdrop-blur"
+            className="glass-card mt-6 rounded-2xl border border-stroke bg-card/50 p-4 text-center shadow-lg backdrop-blur-xl"
             variants={itemVariants}
             whileHover={{ scale: 1.02 }}
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <AnimatedIcon animation="float" delay={0.2} hoverScale={1.15}>
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-surface border border-stroke flex items-center justify-center text-accent">
                   {TechIcons.frontend}
                 </div>
               </AnimatedIcon>
-              <span className="text-sm font-semibold text-primary">
+              <span className="text-sm font-semibold text-accent">
                 {lang === "fr" ? "Ingénieur d'État · EMSI MIAGE" : "State Engineer · EMSI MIAGE"}
               </span>
             </div>
@@ -112,11 +112,11 @@ export default function About() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-3 rounded-lg border border-border/70 bg-card/35 p-4 shadow-sm shadow-black/5 transition-colors hover:border-primary/50 hover:bg-card/60"
+                className="glass-card flex items-center gap-3 rounded-2xl border border-stroke p-4 backdrop-blur-xl transition-all"
                 whileHover={{ scale: 1.02 }}
                 variants={itemVariants}
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-surface border border-stroke flex items-center justify-center flex-shrink-0 text-accent">
                   {item.icon}
                 </div>
                 <div>
@@ -129,23 +129,23 @@ export default function About() {
 
           {/* Langues */}
           <motion.div
-            className="mt-6 rounded-lg border border-border/70 bg-card/40 p-4 backdrop-blur shadow-sm"
+            className="glass-card mt-6 rounded-2xl border border-stroke p-4 backdrop-blur-xl"
             variants={itemVariants}
           >
-            <div className="flex items-center gap-2 mb-3 text-xs font-bold uppercase text-primary">
+            <div className="flex items-center gap-2 mb-3 text-xs font-bold uppercase text-accent">
               <Globe size={15} />
               <span>{lang === "fr" ? "Langues maîtrisées" : "Languages"}</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="rounded-md border border-border/60 bg-background/50 p-2.5">
+              <div className="rounded-xl border border-stroke bg-surface p-3">
                 <p className="font-bold text-sm text-foreground">{lang === "fr" ? "Français" : "French"}</p>
                 <p className="text-xs text-muted-foreground">{lang === "fr" ? "Courant / Bilingue" : "Fluent / Bilingual"}</p>
               </div>
-              <div className="rounded-md border border-border/60 bg-background/50 p-2.5">
+              <div className="rounded-xl border border-stroke bg-surface p-3">
                 <p className="font-bold text-sm text-foreground">{lang === "fr" ? "Anglais" : "English"}</p>
                 <p className="text-xs text-muted-foreground">{lang === "fr" ? "Professionnel / Technique" : "Professional / Technical"}</p>
               </div>
-              <div className="rounded-md border border-border/60 bg-background/50 p-2.5">
+              <div className="rounded-xl border border-stroke bg-surface p-3">
                 <p className="font-bold text-sm text-foreground">{lang === "fr" ? "Arabe" : "Arabic"}</p>
                 <p className="text-xs text-muted-foreground">{lang === "fr" ? "Langue maternelle" : "Native language"}</p>
               </div>

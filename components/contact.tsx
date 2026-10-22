@@ -6,7 +6,6 @@ import SectionTitle from "./section-title"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { motion } from "framer-motion"
 import {
-  Mail,
   Phone,
   MapPin,
   Clock,
@@ -14,7 +13,6 @@ import {
   Copy,
   Check,
   MessageSquare,
-  ShieldCheck,
 } from "lucide-react"
 import { FaLinkedinIn } from "react-icons/fa6"
 import { SiGithub, SiGmail } from "react-icons/si"
@@ -53,7 +51,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border/70" ref={ref}>
+    <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
 
       <motion.div
@@ -70,9 +68,9 @@ export default function Contact() {
         {/* Right Column: Direct Channels & Verified Badges */}
         <motion.div variants={itemVariants} className="space-y-4">
           {/* Quick Direct Channels Card */}
-          <div className="rounded-2xl border border-border/70 bg-card/55 p-6 shadow-xl backdrop-blur-xl">
+          <div className="glass-card rounded-2xl border border-stroke p-6 shadow-xl">
             <h4 className="text-base font-bold text-foreground mb-4 flex items-center gap-2">
-              <span className="grid h-7 w-7 place-items-center rounded-lg bg-primary/10 text-primary">
+              <span className="grid h-7 w-7 place-items-center rounded-xl bg-surface border border-stroke text-accent">
                 <Sparkles size={15} />
               </span>
               <span>{lang === "fr" ? "Canaux directs rapides" : "Instant Direct Channels"}</span>
@@ -80,9 +78,9 @@ export default function Contact() {
 
             <div className="space-y-3">
               {/* Email direct */}
-              <div className="flex items-center justify-between rounded-xl border border-border/60 bg-background/50 p-3.5 transition-colors hover:border-primary/40">
+              <div className="flex items-center justify-between rounded-xl border border-stroke bg-surface/40 p-3.5 transition-colors hover:border-stroke-hi">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-rose-500/10 text-rose-400">
+                  <div className="grid h-9 w-9 place-items-center rounded-xl bg-rose-500/10 text-rose-500">
                     <SiGmail size={18} />
                   </div>
                   <div>
@@ -96,13 +94,13 @@ export default function Contact() {
                     onClick={handleCopyEmail}
                     type="button"
                     title="Copier l'email"
-                    className="grid h-8 w-8 place-items-center rounded-lg border border-border/70 bg-card text-muted-foreground hover:bg-secondary hover:text-foreground"
+                    className="grid h-8 w-8 place-items-center rounded-full border border-stroke bg-surface text-muted-foreground hover:text-foreground hover:border-stroke-hi transition-all cursor-pointer"
                   >
-                    {copiedEmail ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                    {copiedEmail ? <Check size={14} className="text-emerald-500" /> : <Copy size={14} />}
                   </button>
                   <a
                     href={`mailto:${emailAddress}?subject=Prise%20de%20contact%20-%20Sohaib%20LAARICHI`}
-                    className="rounded-lg bg-primary px-3 py-1.5 text-xs font-bold text-primary-foreground hover:bg-primary/90"
+                    className="rounded-full border border-stroke bg-surface hover:border-accent hover:text-accent px-3 py-1.5 text-xs font-semibold text-foreground transition-all"
                   >
                     Écrire
                   </a>
@@ -110,9 +108,9 @@ export default function Contact() {
               </div>
 
               {/* Téléphone / WhatsApp */}
-              <div className="flex items-center justify-between rounded-xl border border-border/60 bg-background/50 p-3.5 transition-colors hover:border-primary/40">
+              <div className="flex items-center justify-between rounded-xl border border-stroke bg-surface/40 p-3.5 transition-colors hover:border-stroke-hi">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-9 w-9 place-items-center rounded-lg bg-emerald-500/10 text-emerald-400">
+                  <div className="grid h-9 w-9 place-items-center rounded-xl bg-emerald-500/10 text-emerald-500">
                     <Phone size={18} />
                   </div>
                   <div>
@@ -126,14 +124,14 @@ export default function Contact() {
                     href="https://wa.me/212701820101?text=Bonjour%20Sohaib,%20j'ai%20vu%20votre%20portfolio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="grid h-8 w-8 place-items-center rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20"
+                    className="grid h-8 w-8 place-items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20 transition-all"
                     title="WhatsApp direct"
                   >
                     <MessageSquare size={14} />
                   </a>
                   <a
                     href="tel:+212701820101"
-                    className="rounded-lg border border-border/80 bg-card px-3 py-1.5 text-xs font-bold text-foreground hover:bg-secondary"
+                    className="rounded-full border border-stroke bg-surface px-3 py-1.5 text-xs font-semibold text-foreground hover:border-stroke-hi transition-all"
                   >
                     Appeler
                   </a>
@@ -142,29 +140,29 @@ export default function Contact() {
 
               {/* Localisation & Réponse */}
               <div className="grid grid-cols-2 gap-2.5 pt-1">
-                <div className="rounded-xl border border-border/60 bg-background/40 p-3">
+                <div className="rounded-xl border border-stroke bg-surface/40 p-3">
                   <span className="flex items-center gap-1.5 text-[11px] font-semibold text-muted-foreground mb-1">
-                    <MapPin size={13} className="text-primary" />
+                    <MapPin size={13} className="text-accent" />
                     Localisation
                   </span>
                   <p className="text-xs font-bold text-foreground">Marrakech (UTC+1)</p>
                   <p className="text-[10px] text-muted-foreground">Mobilité Maroc / Remote</p>
                 </div>
 
-                <div className="rounded-xl border border-border/60 bg-background/40 p-3">
+                <div className="rounded-xl border border-stroke bg-surface/40 p-3">
                   <span className="flex items-center gap-1.5 text-[11px] font-semibold text-muted-foreground mb-1">
-                    <Clock size={13} className="text-emerald-400" />
+                    <Clock size={13} className="text-emerald-500" />
                     Réactivité
                   </span>
                   <p className="text-xs font-bold text-foreground">&lt; 24 heures</p>
-                  <p className="text-[10px] text-emerald-400 font-semibold">Disponible immédiatement</p>
+                  <p className="text-[10px] text-emerald-500 font-semibold">Disponible immédiatement</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Social Profiles Pill Cards */}
-          <div className="rounded-2xl border border-border/70 bg-card/55 p-6 shadow-xl backdrop-blur-xl">
+          <div className="glass-card rounded-2xl border border-stroke p-6 shadow-xl">
             <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
               {lang === "fr" ? "Réseaux Professionnels & Code" : "Professional Profiles & Code"}
             </h4>
@@ -174,9 +172,9 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/laarichi-sohaib"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-xl border border-border/70 bg-background/50 p-3 text-xs font-bold text-foreground hover:border-primary/50 hover:bg-secondary transition-all"
+                className="flex items-center gap-3 rounded-xl border border-stroke bg-surface/40 p-3 text-xs font-bold text-foreground hover:border-accent hover:bg-surface-2 transition-all"
               >
-                <div className="grid h-8 w-8 place-items-center rounded-lg bg-blue-500/10 text-blue-400">
+                <div className="grid h-8 w-8 place-items-center rounded-xl bg-blue-500/10 text-blue-500">
                   <FaLinkedinIn size={16} />
                 </div>
                 <div>
@@ -189,9 +187,9 @@ export default function Contact() {
                 href="https://github.com/Sohaib-Laarichi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-xl border border-border/70 bg-background/50 p-3 text-xs font-bold text-foreground hover:border-primary/50 hover:bg-secondary transition-all"
+                className="flex items-center gap-3 rounded-xl border border-stroke bg-surface/40 p-3 text-xs font-bold text-foreground hover:border-accent hover:bg-surface-2 transition-all"
               >
-                <div className="grid h-8 w-8 place-items-center rounded-lg bg-slate-500/10 text-foreground">
+                <div className="grid h-8 w-8 place-items-center rounded-xl bg-surface border border-stroke text-foreground">
                   <SiGithub size={16} />
                 </div>
                 <div>

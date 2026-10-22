@@ -20,7 +20,7 @@ import { MobileNavDock } from "@/components/mobile-nav-dock"
 import PdfViewerModal from "@/components/pdf-viewer-modal"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowUp, Menu, X, Download, Moon, Sun, Search, Eye, Sparkles } from "lucide-react"
+import { ArrowUp, Menu, X, Download, Moon, Sun, Search, Eye } from "lucide-react"
 import { useTheme } from "next-themes"
 
 export default function Home() {
@@ -61,7 +61,8 @@ export default function Home() {
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -88,39 +89,48 @@ export default function Home() {
 
   return (
     <>
-      <main className="min-h-screen bg-background text-foreground">
+      <a href="#main-content" className="skip-link">
+        {lang === "fr" ? "Aller au contenu" : "Skip to content"}
+      </a>
+      <main id="main-content" className="min-h-screen overflow-x-clip bg-background text-foreground">
         {/* Indicateur de progression de scroll */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-1 origin-left bg-gradient-to-r from-primary via-indigo-400 to-cyan-400 z-50"
+          className="fixed top-0 left-0 right-0 h-[2px] origin-left bg-gradient-to-r from-accent via-foreground to-accent z-50"
           style={{ scaleX: scrollProgress / 100 }}
           initial={{ scaleX: 0 }}
           transition={{ duration: 0.1 }}
         />
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-border/60 bg-background/72 backdrop-blur-xl">
+      <nav
+        aria-label={lang === "fr" ? "Navigation principale" : "Main navigation"}
+        className="sticky top-0 z-50 border-b border-stroke bg-background/80 backdrop-blur-2xl transition-colors"
+      >
         <div className="max-w-6xl mx-auto px-6 py-3">
           <div className="flex justify-between items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-              <Link href="#" className="group inline-flex items-center gap-3 text-sm font-bold text-foreground transition-colors hover:text-primary">
-                <span className="grid h-10 w-10 place-items-center rounded-lg border border-primary/25 bg-primary/10 text-primary shadow-[0_0_30px_rgba(99,102,241,0.18)]">
+              <Link href="#" className="group inline-flex items-center gap-3 text-sm font-bold text-foreground transition-colors hover:text-accent">
+                <span className="grid h-9 w-9 place-items-center rounded-full border border-stroke-hi bg-surface text-xs font-semibold text-foreground shadow-xs group-hover:border-accent transition-colors">
                   LS
                 </span>
-                <span className="hidden sm:inline">Sohaib LAARICHI</span>
+                <span className="hidden sm:inline tracking-tight font-semibold">Sohaib LAARICHI</span>
               </Link>
             </motion.div>
 
             {/* Navigation Desktop */}
-            <div className="hidden lg:flex items-center gap-1 rounded-lg border border-border/60 bg-card/35 p-1 backdrop-blur">
+            <div className="hidden lg:flex items-center gap-1 rounded-full border border-stroke bg-surface/75 p-1 backdrop-blur-xl shadow-xs">
               {navigationItems.map((item) => (
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === item.id ? "bg-primary/10 text-primary" : "text-muted-foreground"
+                  aria-current={activeSection === item.id ? "page" : undefined}
+                  className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-all ${
+                    activeSection === item.id
+                      ? "bg-foreground text-background font-semibold shadow-xs"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
                 >
                   {item.label}
                 </motion.button>
@@ -134,14 +144,14 @@ export default function Home() {
                 onClick={() => setCommandMenuOpen(true)}
                 type="button"
                 aria-label="Ouvrir la palette de commandes (Cmd+K)"
-                className="hidden sm:inline-flex items-center gap-1.5 rounded-lg border border-border/70 bg-card/40 px-2.5 py-2 text-xs text-muted-foreground hover:border-primary/40 hover:text-foreground backdrop-blur"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.96 }}
+                className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-stroke bg-surface px-3 py-1.5 text-xs text-muted-foreground hover:border-stroke-hi hover:text-foreground backdrop-blur-xl transition-all"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
-                <Search size={14} className="text-primary" />
+                <Search size={13} className="text-accent" />
                 <span className="hidden xl:inline text-[11px] font-medium">{lang === "fr" ? "Recherche" : "Search"}</span>
-                <kbd className="inline-flex items-center gap-0.5 rounded border border-border/80 bg-background/80 px-1.5 py-0.5 font-mono text-[10px] font-semibold text-muted-foreground shadow-xs">
-                  <span className="text-[11px]">⌘</span>K
+                <kbd className="inline-flex items-center gap-0.5 rounded-md border border-stroke bg-card/60 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-muted-foreground shadow-2xs">
+                  <span className="text-[10px]">⌘</span>K
                 </kbd>
               </motion.button>
 
@@ -151,11 +161,11 @@ export default function Home() {
                 download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex min-h-10 items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-[0_12px_34px_rgba(99,102,241,0.25)] hover:bg-primary/90"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="hidden md:flex nowotch-btn text-xs font-semibold py-2 px-4.5"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
-                <Download size={16} />
+                <Download size={14} />
                 <span>{lang === "fr" ? "CV" : "Resume"}</span>
               </motion.a>
 
@@ -163,7 +173,7 @@ export default function Home() {
               <motion.button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Changer le thème"
-                className="grid h-10 w-10 place-items-center rounded-lg border border-border/60 bg-card/40 hover:bg-secondary"
+                className="grid h-9 w-9 place-items-center rounded-full border border-stroke bg-surface hover:bg-surface-2 hover:border-stroke-hi text-foreground transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -176,18 +186,18 @@ export default function Home() {
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
                     </motion.div>
                   </AnimatePresence>
                 ) : (
-                  <div className="w-[18px] h-[18px]" />
+                  <div className="w-[16px] h-[16px]" />
                 )}
               </motion.button>
 
               {/* Toggle langue */}
               <motion.button
                 onClick={toggleLanguage}
-                className="min-h-10 rounded-lg border border-border/60 bg-card/40 px-4 py-2 text-sm font-bold text-secondary-foreground hover:bg-secondary"
+                className="min-h-9 rounded-full border border-stroke bg-surface px-3 py-1 font-mono text-xs font-bold text-foreground hover:bg-surface-2 hover:border-stroke-hi transition-all"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -201,11 +211,13 @@ export default function Home() {
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-                className="grid h-10 w-10 place-items-center rounded-lg border border-border/60 bg-card/40 hover:bg-secondary lg:hidden"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
+                className="grid h-9 w-9 place-items-center rounded-full border border-stroke bg-surface hover:bg-surface-2 lg:hidden text-foreground"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
               </motion.button>
             </div>
           </div>
@@ -214,6 +226,7 @@ export default function Home() {
           <AnimatePresence>
             {mobileMenuOpen && (
               <motion.div
+                id="mobile-navigation"
                 className="lg:hidden mt-3 overflow-hidden rounded-2xl border border-border/70 bg-card/90 p-3 shadow-2xl backdrop-blur-2xl"
                 initial={{ opacity: 0, height: 0, scale: 0.98 }}
                 animate={{ opacity: 1, height: "auto", scale: 1 }}
@@ -243,6 +256,7 @@ export default function Home() {
                     <motion.button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
+                      aria-current={activeSection === item.id ? "page" : undefined}
                       className={`flex w-full items-center justify-between rounded-xl px-3.5 py-2 text-sm font-semibold transition-colors ${
                         activeSection === item.id 
                           ? "bg-primary text-primary-foreground font-bold shadow-md shadow-primary/20" 
