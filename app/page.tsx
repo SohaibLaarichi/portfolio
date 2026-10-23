@@ -23,6 +23,7 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUp, Menu, X, Download, Moon, Sun, Search, Eye } from "lucide-react"
 import { useTheme } from "next-themes"
+import { track } from "@vercel/analytics"
 
 export default function Home() {
   const { lang, toggleLanguage } = useLanguage()
@@ -162,6 +163,7 @@ export default function Home() {
                 download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => track("resume_downloaded", { language: lang, location: "navigation" })}
                 className="hidden md:flex nowotch-btn text-xs font-semibold py-2 px-4.5"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}

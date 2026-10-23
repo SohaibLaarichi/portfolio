@@ -19,6 +19,7 @@ import { SiGithub, SiGmail } from "react-icons/si"
 import { useState } from "react"
 import { toast } from "sonner"
 import { ContactWizard } from "./contact-wizard"
+import { track } from "@vercel/analytics"
 
 export default function Contact() {
   const { lang } = useLanguage()
@@ -113,6 +114,7 @@ export default function Contact() {
                   </button>
                   <a
                     href={`mailto:${emailAddress}?subject=Prise%20de%20contact%20-%20Sohaib%20LAARICHI`}
+                    onClick={() => track("direct_contact_opened", { channel: "email" })}
                     className="rounded-full border border-stroke bg-surface hover:border-accent hover:text-accent px-3 py-1.5 text-xs font-semibold text-foreground transition-all"
                   >
                     Écrire
@@ -135,6 +137,7 @@ export default function Contact() {
                 <div className="flex items-center gap-1.5">
                   <a
                     href="https://wa.me/212701820101?text=Bonjour%20Sohaib,%20j'ai%20vu%20votre%20portfolio"
+                    onClick={() => track("direct_contact_opened", { channel: "whatsapp" })}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="grid h-8 w-8 place-items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-500 hover:bg-emerald-500/20 transition-all"
@@ -183,6 +186,7 @@ export default function Contact() {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href="https://www.linkedin.com/in/laarichi-sohaib"
+                onClick={() => track("professional_profile_opened", { profile: "LinkedIn", location: "contact" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-xl border border-stroke bg-surface/40 p-3 text-xs font-bold text-foreground hover:border-accent hover:bg-surface-2 transition-all"
@@ -198,6 +202,7 @@ export default function Contact() {
 
               <a
                 href="https://github.com/Sohaib-Laarichi"
+                onClick={() => track("professional_profile_opened", { profile: "GitHub", location: "contact" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-xl border border-stroke bg-surface/40 p-3 text-xs font-bold text-foreground hover:border-accent hover:bg-surface-2 transition-all"

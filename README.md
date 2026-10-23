@@ -209,6 +209,18 @@ npm run start    # Serveur de production
 npm run lint     # Vérification ESLint
 ```
 
+### Formulaire de contact
+
+Copier `.env.example` vers `.env.local`, puis renseigner une clé Resend et une adresse d’envoi validée :
+
+```bash
+RESEND_API_KEY=re_xxxxxxxxx
+RESEND_FROM_EMAIL="Portfolio <contact@votre-domaine.com>"
+CONTACT_TO_EMAIL=sohaiblaarichi112@gmail.com
+```
+
+Sans cette configuration, le formulaire ouvre automatiquement le client email du visiteur avec le message prérempli afin qu’aucune demande ne soit perdue.
+
 ---
 
 ## 🚀 Déploiement

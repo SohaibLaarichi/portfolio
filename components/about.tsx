@@ -51,7 +51,7 @@ export default function About() {
               transition={{ duration: 0.3 }}
             >
               <Image
-                src="/moi.png"
+                src="/moi.webp"
                 alt="Sohaib LAARICHI"
                 fill
                 className="object-cover object-[50%_30%]"

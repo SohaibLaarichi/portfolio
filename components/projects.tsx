@@ -5,6 +5,8 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { motion, AnimatePresence } from "framer-motion"
 import type { Variants } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
+import { track } from "@vercel/analytics"
 import {
   ArrowRight,
   Boxes,
@@ -30,6 +32,7 @@ interface ProjectItem {
   image?: string
   githubUrl?: string
   details?: string
+  caseSlug?: string
 }
 
 const projectContent = {
@@ -67,6 +70,7 @@ const projectContent = {
     projects: [
       {
         name: "Soukara (Web App)",
+        caseSlug: "soukara",
         type: "E-Commerce Full Stack Conteneurisé",
         category: "fullstack" as const,
         description:
@@ -77,16 +81,18 @@ const projectContent = {
       },
       {
         name: "FireINTERO & FireLIS",
+        caseSlug: "firelis-openelis",
         type: "Interopérabilité HealthTech",
         category: "healthtech" as const,
         description:
           "Plateforme reliant SIH, Mirth Connect, HL7, FHIR R4 et protocoles d'automates ASTM, avec supervision des flux et dossier patient unifié.",
         stack: ["FHIR R4", "ASTM", "HL7 v2", "Spring Boot", "Mirth Connect", "Docker"],
-        image: "/projects/fireintero-dashboard.png",
+        image: "/projects/fireintero-dashboard.webp",
         details: "Plateforme reliant les Systèmes d'Information Hospitaliers (SIH) aux moteurs d'intégration Mirth Connect, permettant la normalisation automatique des messages médicaux vers FHIR R4 et ASTM avec chiffrement des données de santé.",
       },
       {
         name: "freelancesTech (Mikhamdina)",
+        caseSlug: "mikhamdina",
         type: "Plateforme Freelance MERN",
         category: "fullstack" as const,
         description:
@@ -97,12 +103,13 @@ const projectContent = {
       },
       {
         name: "PharmaLive",
+        caseSlug: "pharmalive",
         type: "Gestion Pharmaceutique SI",
         category: "fullstack" as const,
         description:
           "Application web complète de gestion de pharmacie (Java EE, MySQL) avec suivi des stocks/lots, alertes de péremption, génération de factures PDF et authentification RBAC.",
         stack: ["Java EE", "Spring Boot", "MySQL", "BCrypt", "iText PDF", "Bootstrap"],
-        image: "/projects/pharmalive-dashboard.png",
+        image: "/projects/pharmalive-dashboard.webp",
         githubUrl: "https://github.com/Sohaib-Laarichi/PharmaLive",
         details: "Système complet avec gestion des utilisateurs multi-rôles (Admin, Pharmacien, Vendeur), module de vente rapide, traçabilité des lots et péremptions, et génération dynamique de reçus PDF.",
       },
@@ -159,6 +166,7 @@ const projectContent = {
     projects: [
       {
         name: "Soukara (Web App)",
+        caseSlug: "soukara",
         type: "Containerized Full Stack E-Commerce",
         category: "fullstack" as const,
         description:
@@ -169,16 +177,18 @@ const projectContent = {
       },
       {
         name: "FireINTERO & FireLIS",
+        caseSlug: "firelis-openelis",
         type: "HealthTech Interoperability",
         category: "healthtech" as const,
         description:
           "Platform connecting HIS, Mirth Connect, HL7, FHIR R4 and ASTM analyzer protocols with flow monitoring and unified patient records.",
         stack: ["FHIR R4", "ASTM", "HL7 v2", "Spring Boot", "Mirth Connect", "Docker"],
-        image: "/projects/fireintero-dashboard.png",
+        image: "/projects/fireintero-dashboard.webp",
         details: "Interoperability bridge connecting Hospital Information Systems (HIS) with Mirth Connect and laboratory analyzers, standardizing medical messages to FHIR R4 and ASTM.",
       },
       {
         name: "freelancesTech (Mikhamdina)",
+        caseSlug: "mikhamdina",
         type: "Freelance Marketplace MERN",
         category: "fullstack" as const,
         description:
@@ -189,12 +199,13 @@ const projectContent = {
       },
       {
         name: "PharmaLive",
+        caseSlug: "pharmalive",
         type: "Pharmacy Management IS",
         category: "fullstack" as const,
         description:
           "Comprehensive pharmacy management web application (Java EE, MySQL) featuring stock & batch tracking, expiry alerts, PDF invoice generation, and RBAC authentication.",
         stack: ["Java EE", "Spring Boot", "MySQL", "BCrypt", "iText PDF", "Bootstrap"],
-        image: "/projects/pharmalive-dashboard.png",
+        image: "/projects/pharmalive-dashboard.webp",
         githubUrl: "https://github.com/Sohaib-Laarichi/PharmaLive",
         details: "Full pharmacy management system with multi-role RBAC (Admin, Pharmacist, Seller), stock batch tracking, expiry alerts, and dynamic PDF invoice generation.",
       },
@@ -287,7 +298,7 @@ export default function Projects() {
             <figure className="overflow-hidden rounded-lg border border-border/70 bg-background">
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/projects/firelis-order.png"
+                  src="/projects/firelis-order.webp"
                   alt={lang === "fr" ? "Création d’une demande d’analyse dans FireLIS" : "Creating a test order in FireLIS"}
                   fill
                   className="object-cover object-top"
@@ -301,7 +312,7 @@ export default function Projects() {
             <figure className="overflow-hidden rounded-lg border border-border/70 bg-background">
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/projects/firelis-cold-storage.png"
+                  src="/projects/firelis-cold-storage.webp"
                   alt={lang === "fr" ? "Rapports de surveillance de la chaîne du froid FireLIS" : "FireLIS cold-storage monitoring reports"}
                   fill
                   className="object-cover object-center"
@@ -353,6 +364,16 @@ export default function Projects() {
                 )
               })}
             </div>
+          </div>
+          <div className="mt-6 flex justify-end">
+            <Link
+              href="/projects/firelis-openelis"
+              onClick={() => track("case_study_opened", { project: "FireLIS" })}
+              className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-bold text-background transition-transform hover:-translate-y-0.5"
+            >
+              {lang === "fr" ? "Lire l’étude de cas complète" : "Read the full case study"}
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </motion.div>
@@ -448,6 +469,19 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+              {"caseSlug" in project && project.caseSlug && (
+                <Link
+                  href={`/projects/${project.caseSlug}`}
+                  onClick={(event) => {
+                    event.stopPropagation()
+                    track("case_study_opened", { project: project.name })
+                  }}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent hover:underline"
+                >
+                  {lang === "fr" ? "Voir l’étude de cas" : "View case study"}
+                  <ArrowRight size={15} />
+                </Link>
+              )}
             </SpotlightCard>
           </motion.div>
         ))}
@@ -533,8 +567,19 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {selectedModalProject.githubUrl && (
-                  <div className="pt-4 border-t border-border/70 flex justify-end gap-3">
+                {(selectedModalProject.githubUrl || selectedModalProject.caseSlug) && (
+                  <div className="pt-4 border-t border-border/70 flex flex-wrap justify-end gap-3">
+                    {selectedModalProject.caseSlug && (
+                      <Link
+                        href={`/projects/${selectedModalProject.caseSlug}`}
+                        onClick={() => track("case_study_opened", { project: selectedModalProject.name })}
+                        className="inline-flex items-center gap-2 rounded-lg border border-stroke bg-surface px-5 py-2.5 text-sm font-bold text-foreground hover:border-accent"
+                      >
+                        <ArrowRight size={18} />
+                        <span>{lang === "fr" ? "Étude de cas complète" : "Full case study"}</span>
+                      </Link>
+                    )}
+                    {selectedModalProject.githubUrl && (
                     <a
                       href={selectedModalProject.githubUrl}
                       target="_blank"
@@ -544,6 +589,7 @@ export default function Projects() {
                       <Github size={18} />
                       <span>{lang === "fr" ? "Voir le code sur GitHub" : "View Code on GitHub"}</span>
                     </a>
+                    )}
                   </div>
                 )}
               </div>

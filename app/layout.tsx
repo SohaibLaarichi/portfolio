@@ -1,6 +1,5 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { LanguageProvider } from "@/hooks/use-language"
@@ -8,8 +7,6 @@ import { AnimatedBackground } from "@/components/animated-background"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const siteUrl = "https://www.sohaiblaarichi.tech"
 const siteTitle = "Sohaib Laarichi | Ingénieur d’État en Informatique – Full Stack & DevOps"
 const siteDescription =
@@ -138,7 +135,7 @@ export default function RootLayout({
     "familyName": "LAARICHI",
     "gender": "male",
     "url": siteUrl,
-    "image": `${siteUrl}/moi.png`,
+    "image": `${siteUrl}/moi.webp`,
     "jobTitle": "Ingénieur informatique Fullstack & DevOps",
     "description": siteDescription,
     "telephone": "+212701820101",
@@ -205,7 +202,7 @@ export default function RootLayout({
     "name": siteTitle,
     "description": siteDescription,
     "inLanguage": ["fr-FR", "en-US"],
-    "dateModified": "2026-07-27",
+    "dateModified": "2026-10-23",
     "mainEntity": {
       "@id": `${siteUrl}/#person`,
     },
@@ -213,7 +210,7 @@ export default function RootLayout({
 
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${_geist.className} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

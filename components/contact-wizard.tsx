@@ -18,6 +18,7 @@ import {
   RotateCcw,
 } from "lucide-react"
 import { toast } from "sonner"
+import { track } from "@vercel/analytics"
 
 interface StepData {
   opportunityType: string
@@ -33,6 +34,8 @@ export function ContactWizard() {
   const { lang } = useLanguage()
   const [currentStep, setCurrentStep] = useState<number>(1)
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
+  const [isSending, setIsSending] = useState(false)
+  const [website, setWebsite] = useState("")
 
   const [formData, setFormData] = useState<StepData>({
     opportunityType: "cdi",
@@ -129,29 +132,54 @@ Cordialement,
 ${formData.name || "Recruteur / Client"}`
   }
 
-  const handleSendEmail = () => {
+  const openEmailFallback = () => {
     const subject = encodeURIComponent(
       `Opportunité professionnelle - ${formData.company ? `${formData.company} - ` : ""}${formData.name || "Contact Portfolio"}`
     )
     const body = encodeURIComponent(generatePreFilledBody())
     const mailtoUrl = `mailto:sohaiblaarichi112@gmail.com?subject=${subject}&body=${body}`
 
-    // Copy to clipboard
-    navigator.clipboard.writeText(generatePreFilledBody())
-    toast.success(
-      lang === "fr"
-        ? "Message copié dans le presse-papier & Client mail ouvert !"
-        : "Message copied to clipboard & Mail client opened!"
-    )
-
     window.open(mailtoUrl, "_blank")
-    setIsSubmitted(true)
+  }
+
+  const handleSendEmail = async () => {
+    if (formData.name.trim().length < 2 || !/^\S+@\S+\.\S+$/.test(formData.email)) {
+      toast.error(lang === "fr" ? "Ajoutez votre nom et une adresse email valide." : "Add your name and a valid email address.")
+      return
+    }
+
+    setIsSending(true)
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, website }),
+      })
+
+      if (!response.ok) throw new Error("delivery-failed")
+
+      track("contact_form_submitted", { opportunity: formData.opportunityType })
+      toast.success(lang === "fr" ? "Votre message a bien été envoyé." : "Your message was sent successfully.")
+      setIsSubmitted(true)
+    } catch {
+      await navigator.clipboard.writeText(generatePreFilledBody()).catch(() => undefined)
+      openEmailFallback()
+      track("contact_form_fallback", { opportunity: formData.opportunityType })
+      toast.info(
+        lang === "fr"
+          ? "Le service direct est indisponible : votre application email a été ouverte avec le message prérempli."
+          : "Direct delivery is unavailable: your email app was opened with the message pre-filled."
+      )
+    } finally {
+      setIsSending(false)
+    }
   }
 
   const handleSendWhatsApp = () => {
     const text = encodeURIComponent(generatePreFilledBody())
     const waUrl = `https://wa.me/212701820101?text=${text}`
     window.open(waUrl, "_blank")
+    track("contact_whatsapp_opened", { opportunity: formData.opportunityType })
     toast.success(lang === "fr" ? "Ouverture de WhatsApp..." : "Opening WhatsApp...")
     setIsSubmitted(true)
   }
@@ -168,6 +196,7 @@ ${formData.name || "Recruteur / Client"}`
       email: "",
       message: "",
     })
+    setWebsite("")
   }
 
   return (
@@ -395,6 +424,10 @@ ${formData.name || "Recruteur / Client"}`
                   className="w-full rounded-xl border border-stroke bg-surface/60 px-3.5 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:border-accent focus:ring-1 focus:ring-accent/40 focus:outline-none resize-none transition-all"
                 />
               </div>
+              <div className="sr-only" aria-hidden="true">
+                <label htmlFor="contact-website">Website</label>
+                <input id="contact-website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
+              </div>
             </motion.div>
           )}
 
@@ -436,10 +469,11 @@ ${formData.name || "Recruteur / Client"}`
                 <button
                   type="button"
                   onClick={handleSendEmail}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-accent text-accent-foreground px-5 py-2.5 text-xs font-bold shadow-lg shadow-accent/25 hover:bg-accent/90 transition-all hover:scale-102 cursor-pointer"
+                  disabled={isSending}
+                  className="inline-flex items-center gap-1.5 rounded-xl bg-accent text-accent-foreground px-5 py-2.5 text-xs font-bold shadow-lg shadow-accent/25 hover:bg-accent/90 transition-all hover:scale-102 cursor-pointer disabled:cursor-wait disabled:opacity-60"
                 >
                   <Send size={14} />
-                  <span>{lang === "fr" ? "Envoyer par Email" : "Send by Email"}</span>
+                  <span>{isSending ? (lang === "fr" ? "Envoi…" : "Sending…") : (lang === "fr" ? "Envoyer le message" : "Send message")}</span>
                 </button>
               </div>
             )}
@@ -462,8 +496,8 @@ ${formData.name || "Recruteur / Client"}`
 
           <p className="max-w-md mx-auto text-xs text-muted-foreground leading-relaxed">
             {lang === "fr"
-              ? "Le message complet a été copié dans votre presse-papier et pré-rempli dans votre application mail / WhatsApp. Sohaib vous répondra sous 24h."
-              : "The full message was copied to your clipboard and pre-filled in your mail / WhatsApp app. Sohaib will reply within 24h."}
+              ? "Votre demande a été prise en compte. Sohaib vous répondra dès que possible, généralement sous 24 heures."
+              : "Your inquiry has been received. Sohaib will reply as soon as possible, generally within 24 hours."}
           </p>
 
           <div className="pt-2 flex flex-wrap justify-center gap-3">

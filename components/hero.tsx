@@ -3,6 +3,7 @@
 import { useLanguage } from "@/hooks/use-language"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { track } from "@vercel/analytics"
 import {
   ArrowRight,
   CloudCog,
@@ -83,6 +84,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <motion.a
                 href="#projects"
+                onClick={() => track("hero_projects_clicked")}
                 className="nowotch-btn min-h-12 px-6 text-sm shadow-lg"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -93,6 +95,7 @@ export default function Hero() {
               <motion.a
                 href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
                 download
+                onClick={() => track("resume_downloaded", { language: lang })}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-6 text-sm font-semibold text-foreground hover:border-stroke-hi hover:bg-surface-2"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -115,6 +118,7 @@ export default function Hero() {
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    onClick={() => track("professional_profile_opened", { profile: item.label })}
                     aria-label={item.label}
                     className="grid h-10 w-10 place-items-center rounded-full border border-stroke bg-surface text-muted-foreground hover:border-accent hover:text-accent"
                   >
@@ -135,7 +139,7 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] border border-stroke bg-card shadow-2xl">
               <div className="relative aspect-[4/5]">
                 <Image
-                  src="/moi.png"
+                  src="/moi.webp"
                   alt="Portrait professionnel de Sohaib Laarichi"
                   fill
                   className="object-cover object-[50%_28%]"
