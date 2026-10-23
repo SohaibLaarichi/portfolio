@@ -18,7 +18,6 @@ import {
   Sparkles,
   X,
 } from "lucide-react"
-import GitHubRepos from "./github-repos"
 import { BorderBeam } from "./ui/border-beam"
 import { SpotlightCard } from "./ui/spotlight-card"
 
@@ -227,10 +226,11 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<string>("all")
   const [selectedModalProject, setSelectedModalProject] = useState<ProjectItem | null>(null)
 
+  const featuredProjectNames = ["Soukara (Web App)", "freelancesTech (Mikhamdina)", "PharmaLive"]
   const filteredProjects =
     activeCategory === "all"
-      ? content.projects
-      : content.projects.filter((p) => p.category === activeCategory)
+      ? content.projects.filter((project) => featuredProjectNames.includes(project.name))
+      : content.projects.filter((project) => project.category === activeCategory)
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -248,6 +248,11 @@ export default function Projects() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
+      <p className="-mt-3 mb-10 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
+        {lang === "fr"
+          ? "Des études de cas centrées sur le problème, la contribution technique et les preuves visibles du résultat."
+          : "Case studies focused on the problem, the engineering contribution and visible evidence of the outcome."}
+      </p>
 
       <motion.div
         className="glass-card relative mb-8 overflow-hidden rounded-2xl border border-stroke bg-card/60 shadow-xl backdrop-blur-2xl"
@@ -375,7 +380,7 @@ export default function Projects() {
 
       <motion.div
         key={activeCategory}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -547,9 +552,6 @@ export default function Projects() {
         )}
       </AnimatePresence>
 
-      <div className="mt-16 pt-16 border-t border-border/70">
-        <GitHubRepos />
-      </div>
     </section>
   )
 }

@@ -54,8 +54,21 @@ export default function Contact() {
     <section className="max-w-6xl mx-auto px-6 py-16 border-t border-stroke" ref={ref}>
       <SectionTitle>{content.title}</SectionTitle>
 
+      <div className="mb-10 max-w-3xl">
+        <h3 className="text-balance text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+          {lang === "fr"
+            ? "Vous cherchez un ingénieur capable de comprendre le produit, développer l’application et maîtriser son déploiement ?"
+            : "Looking for an engineer who can understand the product, build the application and own its delivery?"}
+        </h3>
+        <p className="mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
+          {lang === "fr"
+            ? "CDI, mission freelance ou projet HealthTech : choisissez le contexte et préparons un échange efficace."
+            : "Full-time role, freelance mission or HealthTech project: choose the context and let’s start a focused conversation."}
+        </p>
+      </div>
+
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-[1.12fr_0.88fr] gap-8 items-start mt-8"
+        className="grid grid-cols-1 lg:grid-cols-[1.12fr_0.88fr] gap-8 items-start"
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={containerVariants}

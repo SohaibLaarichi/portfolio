@@ -422,6 +422,52 @@
     -webkit-text-fill-color: transparent;
   }
 
+  main {
+    counter-reset: premium-section;
+  }
+
+  .premium-section-title {
+    counter-increment: premium-section;
+  }
+
+  .premium-section-title::before {
+    content: counter(premium-section, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.38rem;
+    color: var(--accent);
+    font-family: var(--font-mono), monospace;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .premium-card {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -42px var(--halo);
+    transition: border-color 240ms ease, background-color 240ms ease, transform 240ms ease, box-shadow 240ms ease;
+  }
+
+  .premium-card::after {
+    content: "";
+    position: absolute;
+    inset: auto -20% -55% 25%;
+    height: 70%;
+    border-radius: 999px;
+    background: radial-gradient(circle, var(--tint-w), transparent 68%);
+    pointer-events: none;
+  }
+
+  @media (hover: hover) {
+    .premium-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--stroke-hi);
+      background-color: var(--surface-2);
+      box-shadow: 0 28px 80px -44px var(--halo);
+    }
+  }
+
   /* Smooth transitions for interactive elements */
   button, a, input, textarea {
     transition-property: color, background-color, border-color, opacity, box-shadow, transform;

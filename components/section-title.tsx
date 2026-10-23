@@ -8,7 +8,7 @@ export default function SectionTitle({ children }: { children: React.ReactNode }
   const { ref, isVisible } = useScrollReveal({ threshold: 0.3 })
 
   return (
-    <motion.div ref={ref} className="relative mb-10">
+    <motion.div ref={ref} className="premium-section-title relative mb-10 pl-12 sm:pl-14">
       <motion.h2
         className="text-3xl lg:text-4xl font-black text-foreground"
         initial={{ opacity: 0, y: 10 }}

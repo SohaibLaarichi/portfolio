@@ -6,7 +6,6 @@ import Hero from "@/components/hero"
 import DevOpsTerminal from "@/components/devops-terminal"
 import EngineeringBlueprint from "@/components/engineering-blueprint"
 import HealthTechFlow from "@/components/healthtech-flow"
-import Stats from "@/components/stats"
 import About from "@/components/about"
 import Skills from "@/components/skills"
 import Experience from "@/components/experience"
@@ -15,6 +14,8 @@ import Education from "@/components/education"
 import Certificates from "@/components/certificates"
 import Volunteering from "@/components/volunteering"
 import Contact from "@/components/contact"
+import Footer from "@/components/footer"
+import SectionTitle from "@/components/section-title"
 import { CommandMenu } from "@/components/command-menu"
 import { MobileNavDock } from "@/components/mobile-nav-dock"
 import PdfViewerModal from "@/components/pdf-viewer-modal"
@@ -305,12 +306,21 @@ export default function Home() {
       {/* Sections */}
       <div id="hero">
         <Hero />
-        <DevOpsTerminal />
       </div>
       <div id="projects">
         <Projects />
       </div>
-      <Stats />
+      <div id="playground">
+        <div className="mx-auto max-w-6xl px-6 pt-16">
+          <SectionTitle>{lang === "fr" ? "Playground technique" : "Engineering playground"}</SectionTitle>
+          <p className="-mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
+            {lang === "fr"
+              ? "Un aperçu interactif de ma façon de travailler avec les environnements cloud, les conteneurs et les outils de livraison."
+              : "An interactive glimpse into how I work with cloud environments, containers and delivery tooling."}
+          </p>
+        </div>
+        <DevOpsTerminal />
+      </div>
       <div id="experience">
         <Experience />
       </div>
@@ -334,6 +344,7 @@ export default function Home() {
       <div id="contact">
         <Contact />
       </div>
+      <Footer />
 
       {/* Scroll to top button */}
       <AnimatePresence>

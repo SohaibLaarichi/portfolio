@@ -1,294 +1,179 @@
 "use client"
 
 import { useLanguage } from "@/hooks/use-language"
-import { heroContent } from "@/lib/content"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { useState } from "react"
-import { toast } from "sonner"
-import PdfViewerModal from "./pdf-viewer-modal"
-import { StatusWidget } from "@/components/ui/status-widget"
 import {
-  Braces,
-  Check,
-  Code2,
-  Copy,
+  ArrowRight,
+  CloudCog,
   Download,
-  Eye,
-  FolderKanban,
   Github,
+  HeartPulse,
+  Layers3,
   Linkedin,
   Mail,
   MapPin,
-  Network,
-  Phone,
-  ShieldCheck,
-  TerminalSquare,
 } from "lucide-react"
+
+const technologies = [
+  { label: "Spring Boot", icon: Layers3 },
+  { label: "Next.js", icon: Layers3 },
+  { label: "Docker", icon: CloudCog },
+  { label: "Kubernetes", icon: CloudCog },
+  { label: "FHIR R4", icon: HeartPulse },
+]
 
 export default function Hero() {
   const { lang } = useLanguage()
-  const content = heroContent[lang]
-  const [copiedEmail, setCopiedEmail] = useState(false)
-  const [isPdfOpen, setIsPdfOpen] = useState(false)
-  const emailAddress = "sohaiblaarichi112@gmail.com"
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(emailAddress)
-    setCopiedEmail(true)
-    toast.success(
-      lang === "fr" ? "Email copié dans le presse-papier !" : "Email copied to clipboard!",
-      { description: emailAddress }
-    )
-    setTimeout(() => setCopiedEmail(false), 2500)
-  }
-  const highlights = [
-    { icon: Network, label: lang === "fr" ? "Réseaux" : "Networks" },
-    { icon: ShieldCheck, label: lang === "fr" ? "Sécurité" : "Security" },
-    { icon: Code2, label: "Full-stack" },
-  ]
-  const engineeringSignals = [
-    { icon: Braces, label: "Full Stack", value: "Java / Spring + Next.js" },
-    { icon: TerminalSquare, label: "DevOps & Cloud", value: "Docker + Kubernetes" },
-    { icon: ShieldCheck, label: "HealthTech & Net", value: "FHIR R4 + Cisco VLAN" },
-  ]
+  const copy =
+    lang === "fr"
+      ? {
+          eyebrow: "Ingénieur Full Stack & DevOps",
+          title: "Je conçois des applications robustes, de l’interface au cloud.",
+          description:
+            "Ingénieur d’État basé à Marrakech, spécialisé en Java, Spring Boot, Next.js, DevOps et interopérabilité HealthTech.",
+          projects: "Découvrir mes projets",
+          resume: "Télécharger mon CV",
+          location: "Marrakech, Maroc · Remote",
+          availability: "Disponible immédiatement",
+          stack: "Technologies principales",
+        }
+      : {
+          eyebrow: "Full Stack & DevOps Engineer",
+          title: "I build reliable applications, from interface to cloud.",
+          description:
+            "State Graduate Engineer based in Marrakech, specialized in Java, Spring Boot, Next.js, DevOps and HealthTech interoperability.",
+          projects: "Explore my work",
+          resume: "Download my resume",
+          location: "Marrakech, Morocco · Remote",
+          availability: "Available immediately",
+          stack: "Core technologies",
+        }
 
   return (
-    <section className="relative max-w-6xl mx-auto px-6 py-20 lg:py-24 min-h-[88vh] flex items-center">
-      <div className="grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] gap-12 lg:gap-16 items-center w-full">
-        <div className="order-1">
+    <section className="relative mx-auto flex min-h-[82vh] max-w-6xl items-center px-6 py-16 lg:py-24">
+      <div className="w-full">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <div className="mb-5">
-              <StatusWidget />
+            <div className="mb-7 flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/8 px-3 py-1.5 text-emerald-600 dark:text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                {copy.availability}
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                <MapPin size={13} className="text-accent" />
+                {copy.location}
+              </span>
             </div>
 
-            <motion.h1
-              className="mb-6 text-4xl sm:text-6xl lg:text-7xl font-bold leading-[0.98] tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <span className="text-foreground font-light">Sohaib</span>
-              <br />
-              <span className="text-foreground font-black tracking-tight">
-                LAARICHI
-              </span>
-            </motion.h1>
+            <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.18em] text-accent">
+              {copy.eyebrow}
+            </p>
+            <h1 className="max-w-3xl text-balance text-4xl font-black leading-[1.02] tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl">
+              {copy.title}
+            </h1>
+            <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg">
+              {copy.description}
+            </p>
 
-            <motion.h2
-              className="max-w-2xl text-xl sm:text-2xl lg:text-3xl font-semibold text-foreground/90 mb-3"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              {content.title}
-            </motion.h2>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <motion.a
+                href="#projects"
+                className="nowotch-btn min-h-12 px-6 text-sm shadow-lg"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {copy.projects}
+                <ArrowRight size={16} />
+              </motion.a>
+              <motion.a
+                href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
+                download
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-6 text-sm font-semibold text-foreground hover:border-stroke-hi hover:bg-surface-2"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Download size={16} className="text-accent" />
+                {copy.resume}
+              </motion.a>
+            </div>
 
-            <motion.p
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-stroke bg-surface px-3.5 py-1 text-xs font-semibold text-muted-foreground backdrop-blur-md"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.33, duration: 0.5 }}
-            >
-              <MapPin size={13} className="text-accent" />
-              <span>{lang === "fr" ? "Ingénieur Informatique basé à Marrakech, Maroc" : "Software Engineer based in Marrakech, Morocco"}</span>
-            </motion.p>
-
-            <motion.div
-              className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-2.5"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.5 }}
-            >
-              {engineeringSignals.map((signal) => {
-                const Icon = signal.icon
+            <div className="mt-7 flex items-center gap-2" aria-label={lang === "fr" ? "Profils professionnels" : "Professional profiles"}>
+              {[
+                { label: "LinkedIn", href: "https://www.linkedin.com/in/laarichi-sohaib", icon: Linkedin },
+                { label: "GitHub", href: "https://github.com/Sohaib-Laarichi", icon: Github },
+                { label: "Email", href: "mailto:sohaiblaarichi112@gmail.com", icon: Mail },
+              ].map((item) => {
+                const Icon = item.icon
                 return (
-                  <div key={signal.label} className="glass-card rounded-xl p-3 border border-stroke">
-                    <div className="mb-1.5 flex items-center gap-1.5 text-xs font-bold uppercase text-accent">
-                      <Icon size={13} />
-                      {signal.label}
-                    </div>
-                    <p className="text-xs font-semibold text-foreground/90">{signal.value}</p>
-                  </div>
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    aria-label={item.label}
+                    className="grid h-10 w-10 place-items-center rounded-full border border-stroke bg-surface text-muted-foreground hover:border-accent hover:text-accent"
+                  >
+                    <Icon size={17} />
+                  </a>
                 )
               })}
-            </motion.div>
-
-            <motion.p
-              className="text-base sm:text-lg leading-relaxed text-muted-foreground mb-8 max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              {content.description}
-            </motion.p>
-
-            <motion.div
-              className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-2.5 sm:gap-3 flex-1">
-                <motion.a
-                  href="#projects"
-                  className="nowotch-btn min-h-11 px-5 py-2.5 text-sm font-semibold shadow-md"
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <FolderKanban size={17} />
-                  {lang === "fr" ? "Voir mes projets" : "View my projects"}
-                </motion.a>
-
-                <motion.button
-                  onClick={() => setIsPdfOpen(true)}
-                  type="button"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-xl hover:border-stroke-hi hover:bg-surface-2 transition-all"
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <Eye size={16} className="text-accent" />
-                  <span>{lang === "fr" ? "Aperçu du CV" : "Preview Resume"}</span>
-                </motion.button>
-
-                <motion.a
-                  href={lang === "fr" ? "/CV_Sohaib_LaarichiFR.pdf" : "/CV_Sohaib_Laarichi_EN.pdf"}
-                  download={lang === "fr" ? "CV_Sohaib_LaarichiFR.pdf" : "CV_Sohaib_Laarichi_EN.pdf"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-xl hover:border-stroke-hi hover:bg-surface-2 transition-all"
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <Download size={16} />
-                  {lang === "fr" ? "Télécharger CV" : "Download Resume"}
-                </motion.a>
-
-                <motion.button
-                  onClick={handleCopyEmail}
-                  type="button"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-stroke bg-surface px-4 py-2 text-sm font-semibold text-foreground backdrop-blur-xl hover:border-stroke-hi hover:bg-surface-2 transition-all"
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  aria-label="Copier l'adresse email"
-                  title={emailAddress}
-                >
-                  {copiedEmail ? <Check size={16} className="text-emerald-500" /> : <Copy size={16} />}
-                  <span>{copiedEmail ? (lang === "fr" ? "Email copié !" : "Email copied!") : (lang === "fr" ? "Copier Email" : "Copy Email")}</span>
-                </motion.button>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <motion.a
-                  href="https://www.linkedin.com/in/laarichi-sohaib"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-stroke bg-surface text-foreground hover:bg-surface-2 hover:border-stroke-hi transition-all"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Linkedin size={18} />
-                </motion.a>
-
-                <motion.a
-                  href="https://github.com/Sohaib-Laarichi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-stroke bg-surface text-foreground hover:bg-surface-2 hover:border-stroke-hi transition-all"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Github size={18} />
-                </motion.a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_1.4fr] gap-2.5 text-xs"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              <div className="glass-card rounded-xl p-3 border border-stroke min-w-0">
-                <span className="mb-1 flex items-center gap-1.5 text-muted-foreground font-medium">
-                  <MapPin size={13} className="text-accent shrink-0" />
-                  <span className="truncate">{content.locationLabel}</span>
-                </span>
-                <span className="text-foreground font-semibold truncate block">{content.location}</span>
-              </div>
-              <div className="glass-card rounded-xl p-3 border border-stroke min-w-0">
-                <span className="mb-1 flex items-center gap-1.5 text-muted-foreground font-medium">
-                  <Phone size={13} className="text-accent shrink-0" />
-                  <span className="truncate">{content.phoneLabel}</span>
-                </span>
-                <a href={`tel:${content.phone.replace(/[\s-]/g, "")}`} className="text-foreground font-semibold hover:text-accent transition-colors whitespace-nowrap block">
-                  {content.phone}
-                </a>
-              </div>
-              <div className="glass-card rounded-xl p-3 border border-stroke min-w-0">
-                <span className="mb-1 flex items-center gap-1.5 text-muted-foreground font-medium">
-                  <Mail size={13} className="text-accent shrink-0" />
-                  <span className="truncate">{content.emailLabel}</span>
-                </span>
-                <a
-                  href={`mailto:${content.email}?subject=Contact%20depuis%20le%20portfolio%20-%20Sohaib%20LAARICHI`}
-                  className="whitespace-nowrap text-foreground font-semibold hover:text-accent transition-colors block text-[11.5px] sm:text-xs"
-                  title={content.email}
-                >
-                  {content.email}
-                </a>
-              </div>
-            </motion.div>
+            </div>
           </motion.div>
-        </div>
 
-        <div className="order-2 flex justify-center lg:justify-end">
           <motion.div
-            className="relative w-full max-w-[20rem] sm:max-w-[22rem] lg:max-w-[24rem]"
-            initial={{ opacity: 0, scale: 0.92 }}
+            className="relative mx-auto w-full max-w-[23rem] lg:mx-0 lg:ml-auto"
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            transition={{ delay: 0.12, duration: 0.65, ease: "easeOut" }}
           >
-            <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-tr from-accent/30 via-accent/10 to-transparent blur-3xl" />
-            <div className="glass-card relative overflow-hidden rounded-2xl border border-stroke bg-card/60 shadow-2xl backdrop-blur-2xl">
-              <div className="relative aspect-[5/6] max-h-[30rem]">
+            <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/12 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-stroke bg-card shadow-2xl">
+              <div className="relative aspect-[4/5]">
                 <Image
                   src="/moi.png"
-                  alt="Portrait de Sohaib Laarichi, ingénieur informatique Fullstack et DevOps à Marrakech"
+                  alt="Portrait professionnel de Sohaib Laarichi"
                   fill
                   className="object-cover object-[50%_28%]"
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 352px, 384px"
+                  sizes="(max-width: 1024px) 368px, 368px"
                   priority
-                  loading="eager"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background via-background/45 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-background via-background/35 to-transparent" />
               </div>
-              <div className="absolute inset-x-3 bottom-3 grid grid-cols-3 gap-1.5 sm:gap-2">
-                {highlights.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <div
-                      key={item.label}
-                      className="glass-card rounded-xl border border-stroke bg-background/80 p-2 text-center backdrop-blur-xl"
-                    >
-                      <Icon className="mx-auto mb-1 text-accent" size={15} />
-                      <p className="text-[0.68rem] font-semibold text-foreground sm:text-xs">{item.label}</p>
-                    </div>
-                  )
-                })}
+              <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/10 bg-background/80 p-4 backdrop-blur-xl">
+                <p className="text-sm font-bold text-foreground">Sohaib LAARICHI</p>
+                <p className="mt-1 text-xs text-muted-foreground">Java · Next.js · DevOps · HealthTech</p>
               </div>
             </div>
           </motion.div>
         </div>
-      </div>
 
-      <PdfViewerModal isOpen={isPdfOpen} onClose={() => setIsPdfOpen(false)} />
+        <motion.div
+          className="mt-12 border-y border-stroke py-5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35, duration: 0.5 }}
+        >
+          <p className="mb-3 text-center font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+            {copy.stack}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            {technologies.map((technology) => {
+              const Icon = technology.icon
+              return (
+                <span key={technology.label} className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-accent">
+                  <Icon size={15} />
+                  {technology.label}
+                </span>
+              )
+            })}
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }

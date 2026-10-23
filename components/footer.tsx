@@ -1,216 +1,53 @@
 "use client"
 
 import { useLanguage } from "@/hooks/use-language"
-import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Linkedin, Github, Heart } from "lucide-react"
-
-const footerContent = {
-  fr: {
-    description: "Ingénieur d’État en Informatique (EMSI Marrakech – MIAGE), spécialisé en développement Full Stack et ingénierie DevOps.",
-    quickLinks: {
-      title: "Liens rapides",
-      links: [
-        { label: "À propos", href: "#about" },
-        { label: "Compétences", href: "#skills" },
-        { label: "Projets", href: "#projects" },
-        { label: "Contact", href: "#contact" }
-      ]
-    },
-    contact: {
-      title: "Contact",
-      items: [
-        { icon: Mail, label: "sohaiblaarichi112@gmail.com", href: "mailto:sohaiblaarichi112@gmail.com?subject=Contact%20depuis%20le%20portfolio%20-%20Sohaib%20LAARICHI" },
-        { icon: Phone, label: "+212 701-820101", href: "tel:+212701820101" },
-        { icon: MapPin, label: "Marrakech, Maroc", href: "#" }
-      ]
-    },
-    social: {
-      title: "Réseaux sociaux",
-      links: [
-        { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/laarichi-sohaib" },
-        { icon: Github, label: "GitHub", href: "https://github.com/Sohaib-Laarichi" }
-      ]
-    },
-    copyright: "Tous droits réservés",
-    madeWith: "Fait avec",
-    technologies: "Next.js, TypeScript, Tailwind CSS & Framer Motion"
-  },
-  en: {
-    description: "State Graduate Computer Engineer (EMSI Marrakech – MIAGE), specialized in Full Stack software development and DevOps engineering.",
-    quickLinks: {
-      title: "Quick links",
-      links: [
-        { label: "About", href: "#about" },
-        { label: "Skills", href: "#skills" },
-        { label: "Projects", href: "#projects" },
-        { label: "Contact", href: "#contact" }
-      ]
-    },
-    contact: {
-      title: "Contact",
-      items: [
-        { icon: Mail, label: "sohaiblaarichi112@gmail.com", href: "mailto:sohaiblaarichi112@gmail.com?subject=Contact%20from%20portfolio%20-%20Sohaib%20LAARICHI" },
-        { icon: Phone, label: "+212 701-820101", href: "tel:+212701820101" },
-        { icon: MapPin, label: "Marrakech, Morocco", href: "#" }
-      ]
-    },
-    social: {
-      title: "Social networks",
-      links: [
-        { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/laarichi-sohaib" },
-        { icon: Github, label: "GitHub", href: "https://github.com/Sohaib-Laarichi" }
-      ]
-    },
-    copyright: "All rights reserved",
-    madeWith: "Made with",
-    technologies: "Next.js, TypeScript, Tailwind CSS & Framer Motion"
-  }
-}
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react"
 
 export default function Footer() {
   const { lang } = useLanguage()
-  const content = footerContent[lang]
   const currentYear = new Date().getFullYear()
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" as const } 
-    },
-  }
-
-  const scrollToSection = (href: string) => {
-    if (href.startsWith("#")) {
-      const element = document.getElementById(href.slice(1))
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" })
-      }
-    }
-  }
-
   return (
-    <motion.footer 
-      className="border-t border-stroke bg-card/40 backdrop-blur-xl"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* À propos */}
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h3 className="text-xl font-bold text-foreground mb-4">
-              Sohaib LAARICHI
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-4 text-sm sm:text-base">
-              {content.description}
-            </p>
-            <div className="flex gap-3">
-              {content.social.links.map((social, index) => {
-                const Icon = social.icon
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full border border-stroke bg-surface text-muted-foreground hover:border-accent hover:text-accent hover:bg-surface-2 transition-all flex items-center justify-center"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </motion.a>
-                )
-              })}
-            </div>
-          </motion.div>
-
-          {/* Liens rapides */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-semibold text-foreground mb-4">
-              {content.quickLinks.title}
-            </h4>
-            <ul className="space-y-2">
-              {content.quickLinks.links.map((link, index) => (
-                <li key={index}>
-                  <motion.button
-                    onClick={() => scrollToSection(link.href)}
-                    className="text-sm text-muted-foreground hover:text-accent transition-colors text-left cursor-pointer"
-                    whileHover={{ x: 4 }}
-                  >
-                    {link.label}
-                  </motion.button>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Contact */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-semibold text-foreground mb-4">
-              {content.contact.title}
-            </h4>
-            <ul className="space-y-3">
-              {content.contact.items.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <li key={index}>
-                    <motion.a
-                      href={item.href}
-                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors group"
-                      whileHover={{ x: 4 }}
-                    >
-                      <Icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                      <span>{item.label}</span>
-                    </motion.a>
-                  </li>
-                )
-              })}
-            </ul>
-          </motion.div>
+    <footer className="border-t border-stroke bg-card/25">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <a href="#hero" className="inline-flex items-center gap-3 font-bold text-foreground hover:text-accent">
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-stroke-hi bg-surface font-mono text-xs">SL</span>
+            Sohaib LAARICHI
+          </a>
+          <p className="mt-3 max-w-md text-sm leading-6 text-muted-foreground">
+            {lang === "fr"
+              ? "Ingénieur Full Stack & DevOps · Java, Next.js, Cloud et HealthTech."
+              : "Full Stack & DevOps Engineer · Java, Next.js, Cloud and HealthTech."}
+          </p>
         </div>
 
-        {/* Séparateur */}
-        <motion.div 
-          className="border-t border-stroke pt-8"
-          variants={itemVariants}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
-            <p className="text-sm text-muted-foreground text-center md:text-left">
-              © {currentYear} Sohaib LAARICHI. {content.copyright}.
-            </p>
-
-            {/* Technologies */}
-            <motion.div 
-              className="flex items-center gap-2 text-sm text-muted-foreground"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span>{content.madeWith}</span>
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-              >
-                <Heart className="w-4 h-4 text-red-500 fill-current" />
-              </motion.div>
-              <span className="text-foreground font-medium">
-                {content.technologies}
-              </span>
-            </motion.div>
+        <div className="flex flex-col gap-4 sm:items-end">
+          <div className="flex items-center gap-2">
+            {[
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/laarichi-sohaib", icon: Linkedin },
+              { label: "GitHub", href: "https://github.com/Sohaib-Laarichi", icon: Github },
+              { label: "Email", href: "mailto:sohaiblaarichi112@gmail.com", icon: Mail },
+            ].map((item) => {
+              const Icon = item.icon
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-stroke bg-surface px-3 py-1.5 text-xs font-semibold text-muted-foreground hover:border-accent hover:text-accent"
+                >
+                  <Icon size={14} />
+                  {item.label}
+                  <ArrowUpRight size={12} />
+                </a>
+              )
+            })}
           </div>
-        </motion.div>
+          <p className="text-xs text-muted-foreground">© {currentYear} Sohaib LAARICHI</p>
+        </div>
       </div>
-    </motion.footer>
+    </footer>
   )
 }
